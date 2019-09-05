@@ -1,0 +1,18 @@
+= weather:sunny =
+
+Fractal-tree 
+http://pkuwwt.github.io/programming/2014-09-18-the-first-clojure-program/
+
+Orinate from
+
+http://www.learningclojure.com/2010/09/clojure-13-first-impression.html
+
+
+[[2019-08-22]] 
+
+1. #^ 或 ^ 表示 type hint，可以加快 Clojure 速度，一般用后者表示，
+   前者写法已deprecated， ^:static 是历史原因，现在已不需要
+   
+   
+   
+  https://github.com/magnars/.emacs.d/blob/master/settings/setup-clojure-mode.el 

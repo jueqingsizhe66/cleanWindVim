@@ -1,0 +1,4 @@
+SetMacro('AUTHOR', 'Ye Zhaoliang')
+SetMacro('AUTHORREF', 'Ye Zhaoliang')
+SetMacro('EMAIL', 'yezhaoliang@ncepu.edu.cn')
+SetMacro('COPYRIGHT', 'Clean Air')

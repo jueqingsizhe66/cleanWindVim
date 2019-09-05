@@ -1,0 +1,40 @@
+
+
+Spacemacs is an active, popular, and very comprehensive modular Emacs configuration. I’ve heard lots of good things about it but am happy with my own personal configuration so don’t want to switch. However, I really like the appearance of spacemacs. Happily, the key components are available stand-alone without needing the full spacemacs configuration.
+
+I used the zenburn theme for a long time but more recently have switched to the spacemacs theme. I set this up using the following code in my emacs config file
+
+{{{
+(use-package spacemacs-theme
+  :ensure t
+  :init
+  (load-theme 'spacemacs-dark t)
+  (setq spacemacs-theme-org-agenda-height nil)
+  (setq spacemacs-theme-org-height nil))
+}}}
+
+This contains a couple of options to stop the theme using variable heights for org-mode agenda items and headings. However, they didn’t have the desired effect for me to I also needed to add the following lines to my org-mode configuration:
+
+
+{{{
+;; set sizes here to stop spacemacs theme resizing these
+(set-face-attribute 'org-level-1 nil :height 1.0)
+(set-face-attribute 'org-level-2 nil :height 1.0)
+(set-face-attribute 'org-level-3 nil :height 1.0)
+(set-face-attribute 'org-scheduled-today nil :height 1.0)
+(set-face-attribute 'org-agenda-date-today nil :height 1.1)
+(set-face-attribute 'org-table nil :foreground "#008787")
+}}}
+The other aspect of the spacemacs appearance I like is the modeline. This is replicated using the spaceline package
+
+{{{
+(use-package spaceline
+  :demand t
+  :init
+  (setq powerline-default-separator 'arrow-fade)
+  :config
+  (require 'spaceline-config)
+  (spaceline-spacemacs-theme))
+
+
+}}}

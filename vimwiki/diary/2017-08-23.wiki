@@ -1,0 +1,18 @@
+= weather:sunny =
+
+1. [✗] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ]][[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ]]
+        1. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/Clojure Cookbook 2014.pdf|                   Clojure Cookbook 2014.pdf]]
+        2. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/Clojure High Performance Programming.pdf|                    Clojure High Performance Programming.pdf]]
+        3. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/Clojure in Action 2012.pdf|                  Clojure in Action 2012.pdf]]
+        4. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/Clojure Programming 2012.pdf|                        Clojure Programming 2012.pdf]]
+        5. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/Clojure.Programming_CHS.pdf|                 Clojure.Programming_CHS.pdf]]
+        6. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/ClojureScript- Up and Running 2012.pdf|                      ClojureScript- Up and Running 2012.pdf]]
+        7. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/Clojure编程乐趣C2011.pdf|                    Clojure编程乐趣C2011.pdf]]
+        8. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/Living Clojure.pdf| Living Clojure.pdf]]
+        9. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/Mastering Clojure Data Analysis.pdf|                 Mastering Clojure Data Analysis.pdf]]
+        10. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/Practical Clojure 2010.pdf|                 Practical Clojure 2010.pdf]]
+        11. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/Programming Clojure 2012.pdf|                       Programming Clojure 2012.pdf]]
+        12. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/The Joy of Clojure 2014.pdf|                        The Joy of Clojure 2014.pdf]]
+        13. [ ] [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/clojureQQ/Web Development with Clojure 2014.pdf|                      Web Development with Clojure 2014.pdf]]
+
+        14. [✗]  [[local:F:/ScienceBase.Attachments/PaperWriting/pdfForLanguage/java/clojure/Clojure.in.Action.2nd.Edition.2015.12.pdf|                     Clojure.in.Action.2nd.Edition.2015.12.pdf  ]]

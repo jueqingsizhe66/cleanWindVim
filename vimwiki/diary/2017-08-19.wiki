@@ -1,0 +1,56 @@
+= weather:rainy =
+
+对于多时间步的数据处理，
+
+== post后处理程序处理== 
+首先得从CFX Solver Manager读取trn结果信息，进而知道包含多少个时间步，而一般的结果都是提取一周即可，即选择一周，
+但是因为如果是6s时间其实是已经包含7个周期 (6/0.834493=7.2 cycle),所以我基本上是需要选择7周多的数据()
+
+
+得说明matlab的数据处理需要哪些东西，进而知道你为什么要准备这几个文件
+
+== perl程序==
+通过strawberry.exe可以直接运行perl程序！！相当perfect
+1. testout.pl(总体表：时间和方位角的关系) 处理得到phaseAngle.csv包含的是从out文件处理的时间和相位角的匹配关系.
+2. testTrnOut.pl(瞬态表:only时间) 处理得到的是处理文件夹下所有的trn文件信息  时间步。
+    一般这边需要设置directoryMulFiles的目的就是设置out文件，他的文件名结构一般是
+    dirs+ basename+.out  一般是按照.dot进行分解
+    进一步地，basename在进行分解，并且使用underscore进行分解
+    
+    然后我们 按照最后一步提取得到的basename，即不包含underscore和dot结尾的信息
+    并进一步加上某个信息从而提取你需要的信息
+    
+    *Note* :
+        由于计算未正常结束，所以保留着.dir结尾文件夹，
+        这就导致你在寻找trnDir文件时候，需要在
+        $trnDir=\$dirs.$basename1."_001.dir"
+        
+3. testProcessOut.pl(瞬态表：时间+方位角)  处理的是所有需要处理的trn文件(所以需要首先提取testTrnOut.csv信息)，并从中提取出需要时间步和相位角的关系。
+
+
+做完上面的三步之后，还需要使用cfdpost获取相关的数据
+
+
+我犯了一个起名字的错误：CpSingleTestNew,是指单文件的Cp提取？ 还是单单Cp物理量的提取
+但是加上Cycle，即cycleSingleFileCp既可以知道他是循环不同的trn文件获取Cp信息(各个截面)
+
+== matlab程序 ==
+总体思路是：先从post中获得CpNew然后接着获得Force文件夹(针对matlab程序)
+
+1. 所以找到Cp.cse 文件，注意文件输出内容导出的文件夹为result/CpNew  找到batchPostCnCt并修改处理文件夹目录(的确是)
+2. 然后找到postForceNorm,注意文件输出内容导出的文件夹是result/Force 找到batchPostForceNForceT，并修改处理文件夹目录
+
+singleProcessForceNForceT和singleCSVFileGetPostCnCt 两者取得名字有点不好 
+
+%% 360/16=22.5 360-23=337
+IndexArr=find(resultAngle(2,:)>337);
+
+注意修改337
+
+
+%% 360/48=7.5
+%%360-9=352
+IndexArr=find(resultAngle(2,:)>352);
+
+
+

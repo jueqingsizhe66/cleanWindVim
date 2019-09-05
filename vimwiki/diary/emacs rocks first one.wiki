@@ -1,0 +1,28 @@
+
+[[Magnars]]'s emacs setting
+https://github.com/magnars/.emacs.d
+== setup clojure mode.el ==
+https://github.com/magnars/.emacs.d/blob/master/settings/setup-clojure-mode.el
+
+== create file defun==
+I'm using my "jump to other file" (meaning, between test and source) with a prefix argument (I have prefix on C-u, M-u and s-u) to create the file
+https://github.com/magnars/.emacs.d/blob/master/defuns/clj-defuns.el#L19
+
+== lesson 1 ==
+https://github.com/magnars/parens-of-the-dead/tree/episode-1  source code
+http://www.parens-of-the-dead.com/e1.html  video
+
+
+
+
+== 3 ==
+https://github.com/magnars/parens-of-the-dead/tree/episode-3
+http://www.parens-of-the-dead.com/e3.html
+
+
+== 8 ==
+
+=== change-number-at-point ===
+I've bound C-+ to my `change-number-at-point` function, found here https://github.com/magnars/...
+
+Adding cursors upwards is done with `mc/mark-previous-like-this`. With no selection, it just adds a cursor to the previous line.

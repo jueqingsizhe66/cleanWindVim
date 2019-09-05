@@ -1,0 +1,19 @@
+= weather:sunny =
+
+C-c , to add privilege in the title
+http://blog.csdn.net/u014801157/article/details/24372485
+
+任务进度监控与记录
+
+包含shasha
+https://github.com/sachac/.emacs.d/blob/gh-pages/Sacha.org
+
+
+http://emacser.com/org-mode.htm
+
+
+把项目拆分成子项目
+
+很简单，高一级的TODO下所有的低级TODO就是它的子项目，在各级TODO的标题的任意位置插入[/] 或者[%]即会根据其子项目的完成情况自动更新进度。 
+
+在任意标题或者高级任务添加[%],[\] 即可！

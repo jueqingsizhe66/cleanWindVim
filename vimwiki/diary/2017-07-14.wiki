@@ -1,0 +1,95 @@
+= weather:sunny and rainy =
+
+(f (g (h i) j) k)  
+which part of it can be executed first? 
+Actually (h i)
+Because it should be evaluated before (g (h i) j) can be applied
+
+(f (g (h i) (j k)))
+which part of it can be executed first? 
+Actually (h i) or (j k)
+Scheme doesn't specify the order in which arguments should be evaluated first
+
+So, let's take control.
+
+(h i (lambda (hi) ...)), we assume hi is the result of applying (h i).Then we 
+drop in everything else that has to be done to replace ...;
+
+Yes, (f (g (h i) (j 1)))
+
+becomes
+(h i (lambda (hi) (f (g hi (j 1)))))
+
+Here, (lambda (hi) (f (g hi (j 1)))) is a continuation.
+hi only appears once in the body of the continuation, becuase
+hi is intended to replace (h i) and only (h i)
+
+
+Go on, let's write rember in CPS, first the direct style:
+
+(define rember8
+    (lambda (ls)
+        (cond
+            [(null? ls) '()]
+            [(= (car ls) 8) (cdr ls)]
+            [else (cons (car ls) (rember8 (cdr ls)))]
+        )
+    ))
+
+
+== First Rule ==
+whenever we see a lambda in the code we want to CPS,we have to add an argument,and then process the body.
+
+(lambda (x ...) ...) ==> (lambda (x ... k) ...)
+
+
+let's start by adding a k to the outer lambda
+
+(define rember8
+    (lambda (ls k)
+        (cond
+            [(null? ls) '()] 
+            [(= (car ls) 8) (cdr ls)]
+            [else (cons (car ls) (rember8 (cdr ls)))]
+        ) 
+    ))
+    
+== Second Rule == 
+Don't sweat the small stuff.
+**small stuff** is the stuff we know will terminate right awy.
+Don't sweat the small stuff if we know it will be evaluated.
+Don't sweat the small stuff if it **might** be evaluated,but instead pass it to k
+
+A good example of the first is (null? ls) in the first cond line. we
+know it will be evaluated, and we know it's small stuff, so we don't have to worry about it
+
+what about the '() that's returned as an answer? the other part of the second rule is that
+
+if some small stuff might be evaluated ,we just pass it  to k
+
+(define rember8
+    (lambda (ls k)
+        (cond
+            [(null? ls) (k '())] 
+            [(= (car ls) 8) (cdr ls)]
+            [else (cons (car ls) (rember8 (cdr ls)))]
+        )    
+))
+
+(define rember8
+    (lambda (ls k)
+        (cond
+            [(null? ls) (k '())] 
+            [(= (car ls) 8) (k (cdr ls))]
+            [else (cons (car ls) (rember8 (cdr ls)))]
+        )    
+))
+
+(define rember8
+    (lambda (ls k)
+        (cond
+            [(null? ls) (k '())]
+            [(= (car ls) 8) (k (cdr ls))] 
+            [else (rember8 (cdr ls) (lambda (x) (k (cons (car ls) x))))]
+            )))
+    

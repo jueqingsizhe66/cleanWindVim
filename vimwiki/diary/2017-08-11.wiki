@@ -1,0 +1,21 @@
+= weather:cloudy and rainy =
+
+https://groups.google.com/forum/#!forum/racket-users
+
+The topic about the decision tree 
+https://groups.google.com/forum/#!topic/racket-users/cPuTr8lrXCs
+
+fear of macro
+https://github.com/greghendershott/fear-of-macros
+https://github.com/greghendershott   1970
+frog  https://github.com/greghendershott/frog   (a static web site generator) 
+http://www.greghendershott.com/  website
+
+
+https://github.com/tonyg?tab=repositories
+http://tonyg.github.io/racket-bitsyntax/
+
+
+:emacs:
+   http://planet.emacsen.org/  泛读400篇
+

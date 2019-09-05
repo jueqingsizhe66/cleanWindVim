@@ -1,0 +1,29 @@
+= weather:cloudy =
+
+== racket ==
+
+
+https://docs.racket-lang.org/pkg/Package_Concepts.html#%28tech._package._catalog%29
+For the purposes of conflicts, a module is a file that ends in ".rkt", ".ss", or ".scrbl", with the exception of files named "info.rkt".
+
+
+Scribble writing, From how to paper.scrbl
+
+{{{
+@(define-syntax-rule (samplemod . text) (codeblock . text))
+@(define-syntax-rule (sample a . text)
+   (codeblock #:context #'a #:keep-lang-line? #f
+     "#lang scribble/base" "\n" a . text))
+@(define (result . text) (apply nested #:style 'inset text))
+
+@(define sep @hspace[1])
+
+@(define sub*section subsection)
+
+}}}
+
+
+@section[#:tag "first-example"]{A First Example}
+@secref["first-example"]
+
+

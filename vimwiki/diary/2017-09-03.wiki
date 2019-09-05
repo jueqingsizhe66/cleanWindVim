@@ -1,0 +1,16 @@
+= weather:sunny =
+
+
+clojure forum
+https://clojars.org/
+
+
+
+启动慢，你需要emacs daemon 
+
+
+https://www.braveclojure.com   window安装
+
+
+https://stackoverflow.com/questions/14836958/updating-packages-in-emacs   clojure常用库
+https://github.com/flyingmachine/emacs-for-clojure  emacs for clojure

@@ -1,0 +1,20 @@
+== project1 ==
+= Knowledge =
+= Todo =
+1. hello
+2. todo
+3. [[]] fd
+    - [X] bey
+    - [ ] fdsf
+
+[[https://github.com/vimwiki/vimwiki]]
+= My knowledge base =
+    * Tasks -- things to be done _yesterday_!!!
+    * Project Gutenberg -- good books are power.
+    * Scratchpad -- various temporary stuff.
+= My knowledge base =
+    * Tasks -- things to be done _yesterday_!!!
+    * [[]] -- good books are power.
+    * [X] Scratchpad -- various temporary stuff.
+*
+

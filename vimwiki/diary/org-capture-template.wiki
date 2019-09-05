@@ -1,0 +1,147 @@
+ ;;; %^{} 会提醒你输入 
+  (defvar my/org-basic-task-template "* TODO %^{Task}
+:PROPERTIES:
+:Effort: %^{effort|1:00|0:05|0:15|0:30|2:00|4:00}
+:END:
+Captured %<%Y-%m-%d %H:%M>
+%?
+
+%i
+" "Basic task data")
+  (setq org-capture-templates
+        `(("t" "Tasks" entry
+           (file+headline "~/personal/organizer.org" "Inbox")
+           ,my/org-basic-task-template)
+          ("T" "Quick task" entry
+           (file+headline "~/personal/organizer.org" "Inbox")
+           "* TODO %^{Task}\nSCHEDULED: %t\n"
+           :immediate-finish t)
+          ("i" "Interrupting task" entry
+           (file+headline "~/personal/organizer.org" "Inbox")
+           "* STARTED %^{Task}"
+           :clock-in :clock-resume)
+          ("e" "Emacs idea" entry
+           (file+headline "~/code/emacs-notes/tasks.org" "Emacs")
+           "* TODO %^{Task}"
+           :immediate-finish t)
+          ("E" "Energy" table-line
+           (file+headline "~/personal/organizer.org" "Track energy")
+           "| %U | %^{Energy 5-awesome 3-fuzzy 1-zzz} | %^{Note} |"
+           :immediate-finish t
+           )
+          ("b" "Business task" entry
+           (file+headline "~/personal/business.org" "Tasks")
+           ,my/org-basic-task-template)
+          ("p" "People task" entry
+           (file+headline "~/personal/people.org" "Tasks")
+           ,my/org-basic-task-template)
+          ("j" "Journal entry" plain
+           (file+datetree "~/personal/journal.org")
+           "%K - %a\n%i\n%?\n"
+           :unnarrowed t)
+          ("J" "Journal entry with date" plain
+           (file+datetree+prompt "~/personal/journal.org")
+           "%K - %a\n%i\n%?\n"
+           :unnarrowed t)
+          ("s" "Journal entry with date, scheduled" entry
+           (file+datetree+prompt "~/personal/journal.org")
+           "* \n%K - %a\n%t\t%i\n%?\n"
+           :unnarrowed t)
+          ("c" "Protocol Link" entry (file+headline ,org-default-notes-file "Inbox")
+           "* [[%:link][%:description]] \n\n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n%?\n\nCaptured: %U")
+          ("db" "Done - Business" entry
+           (file+headline "~/personal/business.org" "Tasks")
+           "* DONE %^{Task}\nSCHEDULED: %^t\n%?")
+          ("dp" "Done - People" entry
+           (file+headline "~/personal/people.org" "Tasks")
+           "* DONE %^{Task}\nSCHEDULED: %^t\n%?")
+          ("dt" "Done - Task" entry
+           (file+headline "~/personal/organizer.org" "Inbox")
+           "* DONE %^{Task}\nSCHEDULED: %^t\n%?")
+          ("q" "Quick note" item
+           (file+headline "~/personal/organizer.org" "Quick notes"))
+          ("l" "Ledger entries")
+          ("lm" "MBNA" plain
+           (file "~/personal/ledger")
+           "%(org-read-date) %^{Payee}
+    Liabilities:MBNA
+    Expenses:%^{Account}  $%^{Amount}
+  " :immediate-finish t)
+          ("ln" "No Frills" plain
+           (file "~/personal/ledger")
+           "%(let ((org-read-date-prefer-future nil)) (org-read-date)) * No Frills
+    Liabilities:MBNA
+    Assets:Wayne:Groceries  $%^{Amount}
+  " :immediate-finish t)
+          ("lc" "Cash" plain
+           (file "~/personal/ledger")
+           "%(org-read-date) * %^{Payee}
+    Expenses:Cash
+    Expenses:%^{Account}  %^{Amount}
+  ")
+          ("B" "Book" entry
+           (file+datetree "~/personal/books.org" "Inbox")
+           "* %^{Title}  %^g
+  %i
+  *Author(s):* %^{Author} \\\\
+  *ISBN:* %^{ISBN}
+
+  %?
+
+  *Review on:* %^t \\
+  %a
+  %U"
+           :clock-in :clock-resume)
+           ("C" "Contact" entry (file "~/personal/contacts.org")
+            "* %(org-contacts-template-name)
+  :PROPERTIES:
+  :EMAIL: %(my/org-contacts-template-email)
+  :END:")
+           ("n" "Daily note" table-line (file+olp "~/personal/organizer.org" "Inbox")
+            "| %u | %^{Note} |"
+            :immediate-finish t)
+           ("r" "Notes" entry
+            (file+datetree "~/personal/organizer.org")
+            "* %?\n\n%i\n%U\n"
+            )))
+  (bind-key "C-M-r" 'org-capture)
+  
+  
+  
+  
+  
+  
+  
+  == 原始版本 ==
+  
+
+(setq org-capture-templates 
+      '(("l" "灵感" entry (file+headline "~/.emacs.d/GTD/writing.org" "创意") 
+                        "* %?\n %i\n %a") 
+        ("j" "Journal" entry (file+datetree "~/.emacs.d/GTD/orgBoss/Journal/journal.org" ) 
+                        "* %?\n输入于： %U\n %i\n %a")
+        ("t" "Todo" entry  (file+headline "~/.emacs.d/GTD/newgtd.org" "Tasks")  
+                        "* TODOS %^{To Do What?(Brief Description)} %^g\n%?\nAdded: %U" )
+        ("i" "IDEA" entry  (file+headline "~/.emacs.d/GTD/orgBoss/IDEA/idea.org" "IDEA")  
+                        "* TODO %^{What's your IDEA (Briefly)} \n %?" )
+          ("c" "Clipboard" entry (file+datetree  "~/.emacs.d/GTD/orgBoss/Clipboard/clipboard.org")  
+                        "** %^{Head Line} %U %^g\n%c\n%?"  )
+          ("r" "Receipt" entry  (file+datetree  "~/.emacs.d/GTD/orgBoss/Financial/finances.org" ) 
+                        "** %^{BriefDesc} %U %^g\n%?"   )
+          ("b" "Book" entry  (file+datetree "~/.emacs.d/GTD/orgBoss/Book/book.org")   
+                        "** %^{Enter the Book Name} %t :BOOK: \n%[~/.emacs.d/GTD/orgTemplate/.book_template.txt]\n")
+          ("f" "Film" entry (  file+datetree "~/.emacs.d/GTD/orgBoss/Film/film.org")  
+                        "** %^{Enter the Film Name} %t :FILM: \n%[~/.emacs.d/GTD/orgTemplate/.film_template.txt]\n")
+          ("d" "Daily Review" entry   (file+datetree "~/.emacs.d/GTD/orgBoss/DailyReview/daily.org")  
+                        "** %t :COACH: \n%[~/.emacs.d/GTD/orgTemplate/.daily_review.txt]\n")
+        ("w" "SITES" entry  (file+headline "~/.emacs.d/GTD/orgBoss/Site/www.site.org" "SITES")  
+                        "* %^{Enter the Name of the Site}\n %?" )
+          ("s" "Someday"  entry   (file+datetree "~/.emacs.d/GTD/orgBoss/Someday/someday.org") 
+                        "** %^{Someday Heading} %U\n%?\n"  )
+          ("v" "Vocab"  entry (file+datetree  "~/.emacs.d/GTD/orgBoss/Vocab/vocab.org" ) 
+                        "** %^{Word?}\n%?\n"  )
+          ( "p" "Private" entry (file+datetree "~/.emacs.d/GTD/orgBoss/Private/privnotes.org")  
+                         "\n* %^{topic} %T \n%i%?\n")
+         ("a" "contact"  entry  (file+datetree "~/.emacs.d/gtd/phone.org" ) 
+                        "\n* %^{name} :contact:\n\n")
+  

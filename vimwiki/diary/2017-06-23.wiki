@@ -1,0 +1,60 @@
+= Weather:Rainy =
+
+[[local:F://科研基地.Attachments//WindEnergy//windEnergy2004-i4//Aerofoil characteristics from 3D CFD rotor computations.pdf]]
+
+= Reference Paper =
+
+=== 2003 ===
+[[local:F://ScienceBase.Attachments//专业领域//偏航//FromNumericalYaw//Evaluation of turbulent model for the prediction of the wind turbine rotor.pdf   ]]
+
+=== 2004 ===
+[[local:F://ScienceBase.Attachments//WindEnergy//windEnergy2004-i4//Aerofoil characteristics from 3D CFD rotor computations.pdf]]
+Comment:
+
+=== Important 2006 ===
+[[local:F://ScienceBase.Attachments//专业领域//偏航//FromNumericalYaw//3-D Time-Accurate CFD Simulations of Wind Turbine Rotor Flow Fields.pdf ]]
+Comment: some advice about the plot of aerodynamic coefficiency
+
+=== *Very Important* Tony Sant Doctoral thesis  2007 === 
+[[local:F://ScienceBase.Attachments//专业领域//偏航变桨动力学分析//Improving BEM-based aerodynamic models in wind turbine design codes.pdf]]
+Comment:
+PhaseVI and Tudeft(two kinds of wind turbine)
+Experiment and Free Vorticity wake  method(FWM)(two kinds of simulation)
+
+2010
+[[local:F://ScienceBase.Attachments//专业领域//偏航//FromNumericalYaw//Predicting Unsteady Blade Loads of a Wind Turbine using URANS and Vorticity Transport Methodologies.pdf ]]
+=== **Very Special reference** 2013 ===
+[[local:F:/ScienceBase.Attachments/WindEnergy/windEnergy2013-8/Numerical investigation of unsteady aerodynamics of a Horizontal-axis wind turbine under yawed flow conditions (pages 711–727).pdf ]]
+Comment:
+7 10 13m/s  30degree and 60degree yaw 
+
+
+=== **important** 2008 ===
+[[local:F://ScienceBase.Attachments//专业领域//偏航//CFD Modeling of Laminar-Turbulent Transition for Airfoils and Rotors using the y-reo Model.pdf]]
+comment:
+Laminar-Transient Transient model
+
+*important*  2016
+[[local:F://ScienceBase.Attachments//专业领域//偏航//Angle of attack distribution on wind turbines in yawed flow.pdf]]
+comment: Calculate of Geometry angle and effective angle
+
+== directionally sheared inflow ==
+
+==== shear and wake 2017 ==== 
+[[local:F:/ScienceBase.Attachments/WindEnergy/windEnergy2017-03/Numerical investigation of wind turbine wake development in directionally sheared inflow (pages 381–395).pdf ]]
+
+
+三维叶片的选  风力机叶片 直升机  涡轮桨叶等旋转机械都存在这三维旋转效应，  
+在旋转的作用下，流动分离向下游延迟，结果大大改变了风力机叶片的气动性能，这种由旋转所带来的影响被称为三维旋转效应
+
+三维旋转效应模型运用于叶片非定常气动特性计算时，能大大改善计算结果。（传统的工程计算模型，都是基于二维翼型的空气动力数据，比如升阻力、力矩系数等，其计算结果过小估计
+旋转叶片上的升力，而且越靠近叶片根部这一差别越大（因为三维旋转效应旋转叶片上的升力，而且越靠近叶片根部这一差别越大（因为三维旋转效应））
+
+
+偏航误差
+[[local:F:/ScienceBase.Attachments/Papers.Attachments/Papers/The impact of yaw error on aeroelastic characteristics of a horizontal axis wind turbine blade.pdf]]
+
+
+CFD Studies on Wind Turbines in Complex Terrain under Atmospheric Inflow Conditions
+
+F:\ScienceBase.Attachments\专业领域\偏航\CFD Studies on Wind Turbines in Complex Terrain under Atmospheric Inflow Conditions.pdf

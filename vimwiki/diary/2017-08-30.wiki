@@ -1,0 +1,79 @@
+= weather: sunny =
+
+var改变为sym
+exp1改编为body
+
+(require "pairvals.scm")
+
+
+(define init-env
+    (lambda ()
+        (extend-env
+            'i (newref (num-val 1))
+                (extend-env
+                    'v (newref (num-val 5))
+                        'x (newref (num-val 10))
+                        (empty-env)))))
+                        
+(define apply-env
+    (lambda (env search-var)
+        (cases environment env
+            (empty-env ()
+                (eopl:error 'apply-env "No binding is for ~s" search-var))
+            (extend-env (bvar bval saved-env)
+                (if (eqv? serach-var bvar))
+                    bval
+                    (apply-env saved-env search-var))
+            (extend-env-rec* (p-names b-vars p-bodies saved-env)
+                (let ((n (location search-var p-names)))
+                
+                    ))
+                    )))
+                    
+(define-datatype thunk thunk?
+    (a-thunk 
+        (exp1 expression?)
+        (env environment?)))
+        
+(var-exp (var)
+    (let ((ref1 (apply-env env var)))
+        (let ((w (deref ref1)))
+            (if (expval? w)
+                w
+                (let ((v1 (value-of-thunk w)))
+                    (begin
+                        (setref! ref1 v1)
+                        v1))))))
+(var-exp (var) (deref (apply-env env var)))
+
+
+(define value-of-thunk
+    (lambda (th)
+        (cases thunk th
+            (a-thunk (exp1 saved-env) 
+                (value-of exp1 saved-env)))))
+                
+                
+(define store-readable
+    (lambda (l)
+        (map (lambda (p)
+                (list (car p)
+                      (expval-printable (cadr p)))
+            )
+            l)))
+            
+            
+An expressed value is either a number, a boolean, a procval, a reference, or a mutable pair
+
+
+
+= some comment about the ctrlspace =
+
+ The root markers are characteristic directories
+that are available in an exemplary project root directory (like `.git` or
+`.hg`...). You can define them yourself in the
+|g:CtrlSpaceProjectRootMarkers| variable.
+
+If you add a directory to bookmarks, it will be considered as a project
+root automatically. Interestingly bookmarks are stored in the same cache
+

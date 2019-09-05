@@ -1,0 +1,60 @@
+
+
+am using org-mode to write notes and org-agenda to organize all notes, especially to search some info. by keyword or tag.
+
+C-c a m can search some files by tag inputed, C-c a s by keyword ,those functions from org-agenda are well to utilize, however, I need to add org-file into the agenda-list by hand.
+
+I added some codes into .emacs, such as
+
+(setq org-agenda-files (list "path/folder/*.org"))
+
+or
+
+(setq org-agenda-files (file-expand-wildcards "path/folder/*.org"))
+
+but, both failed to add files under the folder specified into agenda-list automatically, so I can't search keyword or tag among those org-files, unless that I open a org-file and type C-c [ to add it into agenda-list.
+
+How can I make all org-files under a folder automatically added in agenda?
+emacs org-mode
+shareimprove this question
+	
+asked Jul 8 '12 at 15:55
+Zoe Rowa
+4491517
+	
+   	 
+	
+It looks like you're doing the right thing -- is this just a relative path issue? Can you try doing the same thing with the full path? Alternately, are you running a server and not re-evaluating the appropriate commands? – Craig Citro Jul 8 '12 at 16:33
+   	 
+	
+I have tried that with both full path and relative path. now ,I know the cause resulting in this problem, owing to I want more than one folder to included the agenda-file. I made two case =setq org-agenda-file (...)= , giving rise to the function ineffective. Very thank your words. – Zoe Rowa Jul 9 '12 at 3:33
+add a comment
+2 Answers
+active
+oldest
+votes
+up vote
+43
+down vote
+accepted
+	
+
+Just naming the directory should be enough. For example this works for me very well:
+
+(setq org-agenda-files '("~/org"))
+
+Also take a look at org-agenda-text-search-extra-files; it lets you add extra files included only in text searches. A typical value might be,
+
+(setq org-agenda-text-search-extra-files
+      '(agenda-archives
+        "~/org/subdir/textfile1.txt"
+        "~/org/subdir/textfile1.txt"))
+
+Edit: To include all files with a certain extension in the extra files list you can try the function sa-find-org-file-recursively I wrote sometime back. You can use it like this:
+
+(setq org-agenda-text-search-extra-files
+      (append (sa-find-org-file-recursively "~/org/dir1/" "txt")
+              (sa-find-org-file-recursively "~/org/dir2/" "tex")))
+
+Caveat: If you add a file to the directory after you have started Emacs, it will not be included.
+

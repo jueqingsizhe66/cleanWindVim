@@ -1,0 +1,420 @@
+= weather:sunny =
+
+参考此文：https://cgi.soic.indiana.edu/~c311/lib/exe/fetch.php?media=cps-notes.scm
+http://www.ece.uc.edu/~franco/C511/html/Scheme/ycomb.html
+
+base utils
+
+```
+(define col
+   (lambda (x y)
+      (null? y)))
+
+
+(define a-friend
+   (lambda (x y)
+      (length x)))
+
+(define a-friend-y
+   (lambda (x y)
+      (length y)))
+
+
+(define a-friend-z
+   (lambda (x y)
+      (cons x (cons y '()))))
+```
+
+1. TailForm
+
+```
+;; Normal Form
+(define append2
+  (lambda (lisa lisb)
+    (cond
+      ((null? lisa) lisb)
+      (else
+       (cons (car lisa) (append2 (cdr lisa) lisb))))))
+
+
+;; Tail form
+(define append3
+  (lambda (lisa lisb)
+    (letrec ((ap2
+              (lambda (a b)
+                (cond
+                  ((null? a) b)
+                  (else (ap2 (cdr a) (cons (car a) b)))))))
+      (ap2 (reverse lisa) lisb))))
+```
+
+2. original
+
+```
+(define rember-f
+  (lambda (test?)
+          (lambda (a lat)
+            (cond
+              ((null? lat) '())
+              ((test? a (car lat))
+               (cdr lat))
+              (else
+               (cons (car lat)
+                     ((multirember-f test?) a (cdr lat))))))))
+```
+
+```
+(define insertL
+  (lambda (new old lat)
+    (cond
+      ((null? lat)
+       '())
+      ((eq? (car lat) old)
+       (cons new (cons old (cdr lat))))
+      (else
+       (cons new (insertL new old (cdr lat)))))))
+```
+
+
+```
+(define insertLR
+  (lambda (new oldL oldR lat)
+    (cond
+      ((null? lat)
+       '())
+      ((eq? (car lat) oldL)
+       (cons new (cons oldL (cdr lat))))
+      ((eq? (car lat) oldR)
+       (cons oldR (cons new (cdr lat))))
+      (else
+       (cons (car lat) (insertLR new oldL oldR (cdr lat)))))))
+```
+
+3. lat version
+
+```
+(define multirember-f
+  (lambda (test?)
+          (lambda (a lat)
+            (cond
+              ((null? lat) '())
+              ((test? a (car lat))
+               ((multirember-f test?) a (cdr lat)))
+              (else
+               (cons (car lat)
+                     ((multirember-f test?) a (cdr lat))))))))
+```
+
+```
+
+(define multiinsertLR
+  (lambda (new oldL oldR lat)
+    (cond
+      ((null? lat)
+       '())
+      ((eq? (car lat) oldL)
+       (cons new (cons oldL (multiinsertLR new oldL oldR (cdr lat)))))
+      ((eq? (car lat) oldR)
+       (cons oldR (cons new (multiinsertLR new oldL oldR (cdr lat)))))
+      (else
+       (cons (car lat) (multiinsertLR new oldL oldR (cdr lat)))))))
+```
+
+```
+;(insertL 'a 'b '(a b c (a b c)))
+;'(a a b c (a b c))
+
+;(insertLR 'water 'a 'b '(a bc b c d (a c b)))
+;'(water a bc b c d (a c b))
+
+ (multiinsertLR 'water 'a 'b '(a b c d a b (a b c d)))
+'(water a b water c d water a b water (a b c d))
+> (insertLR 'water 'a 'b '(a b c d a b (a b c d)))
+'(water a b c d a b (a b c d))
+```
+
+
+
+```
+(define multiinsertLRo
+  (lambda (new oldL oldR lat col)
+    (cond
+      ((null? lat) (col '() 0 0))
+      ((eq? (car lat) oldL)
+       (multiinsertLRo new oldL oldR (cdr lat)
+                       (lambda (newlat L R)
+                         (col (cons new (cons oldL newlat))
+                              (+ L 1) R))))
+      ((eq? (car lat) oldR)
+       (multiinsertLRo new oldL oldR (cdr lat)
+                       (lambda (newlat L R)
+                         (col (cons oldR (cons new newlat))
+                              L (+ R 1)))))
+      (else
+       (multiinsertLRo new oldL oldR (cdr lat)
+                       (lambda (newlat L R)
+                         (col (cons (car lat) newlat)
+                              L
+                              R)))))))
+
+```
+
+
+4. list version(star version)
+ 
+```
+(define evens-only*
+  (lambda (l)
+
+    (define atom?
+      (lambda (x)
+        (and (not (pair? x)) (not (null? x)))))
+    (cond
+      ((null? l) '())
+      ((atom? (car l))
+       (cond
+         ((even? (car l))
+          (cons (car l) (evens-only* (cdr l))))
+         (else (evens-only* (cdr l)))))
+      (else
+       (cons (evens-only* (car l))
+             (evens-only* (cdr l)))))))
+
+```
+
+```
+
+
+(define multiinsertLR*
+  (lambda (new oldL oldR lat)
+    (define atom?
+      (lambda (x)
+        (and  (not (pair? x)) (not (null? x)))))
+    (cond
+      ((null? lat)
+       '())
+      ((atom? (car lat))
+       (cond 
+         ((eq? (car lat) oldL)
+          (cons new (cons oldL (multiinsertLR* new oldL oldR (cdr lat)))))
+         ((eq? (car lat) oldR)
+          (cons oldR (cons new (multiinsertLR* new oldL oldR (cdr lat)))))
+         (else
+          (cons (car lat) (multiinsertLR* new oldL oldR (cdr lat))))))
+      (else
+       (cons (multiinsertLR* new oldL oldR (car lat))
+             (multiinsertLR* new oldL oldR (cdr lat)))))))
+
+```
+
+```
+> (multiinsertLR* 'water 'a 'b '(a b c d a b (a b c d)))
+'(water a b water c d water a b water (water a b water c d))
+> (multiinsertLR 'water 'a 'b '(a b c d a b (a b c d)))
+'(water a b water c d water a b water (a b c d))
+```
+
+
+```
+(define multiinsertLR*let
+  (lambda (new oldL oldR lat)
+    (define atom?
+      (lambda (x)
+        (and  (not (pair? x)) (not (null? x)))))
+    (cond
+      ((null? lat)
+       '())
+      ((atom? (car lat))
+        (let ((rest (multiinsertLR* new oldL oldR (cdr lat))))
+          (cond        
+            ((eq? (car lat) oldL)
+             (cons new (cons oldL rest)))
+            ((eq? (car lat) oldR)
+             (cons oldR (cons new rest)))
+            (else
+             (cons (car lat) rest)))))
+      (else
+       (let ((first (multiinsertLR* new oldL oldR (car lat)))
+             (rest (multiinsertLR* new oldL oldR (cdr lat))))
+       (cons first rest))))))
+```
+
+```
+> (multiinsertLR*let 'water 'a 'b '(a b c d a b (a b c d)))
+'(water a b water c d water a b water (water a b water c d))
+> (multiinsertLR* 'water 'a 'b '(a b c d a b (a b c d)))
+'(water a b water c d water a b water (water a b water c d))
+> (multiinsertLR 'water 'a 'b '(a b c d a b (a b c d)))
+'(water a b water c d water a b water (a b c d))
+```
+
+== add letrec ==
+Base on multiinsertLR*
+```
+
+(define multiinsertLR*letrec
+  (lambda (new oldL oldR lat)
+    (define atom?
+      (lambda (x)
+        (and  (not (pair? x)) (not (null? x)))))
+    (define mul-help
+      (lambda (lat)       
+        (cond
+          ((null? lat)
+           '())
+          ((atom? (car lat))
+           (cond 
+             ((eq? (car lat) oldL)
+              (cons new (cons oldL (mul-help  (cdr lat)))))
+             ((eq? (car lat) oldR)
+              (cons oldR (cons new (mul-help  (cdr lat)))))
+             (else
+              (cons (car lat) (mul-help  (cdr lat))))))
+          (else
+           (cons (mul-help  (car lat))
+                 (mul-help  (cdr lat)))))))
+    (mul-help lat)))
+    
+```
+
+```
+(multiinsertLR*letrec 'water 'a 'b '(a b c d a b (a b c d)))
+'(water a b water c d water a b water (water a b water c d))
+```
+
+== add let and letrec ==
+
+```
+
+(define multiinsertLR*letreclet
+  (lambda (new oldL oldR lat)
+    (define atom?
+      (lambda (x)
+        (and  (not (pair? x)) (not (null? x)))))
+    (define mul-help
+      (lambda (lat)       
+        (cond
+          ((null? lat)
+           '())
+          ((atom? (car lat))
+           (let ((rest (mul-help  (cdr lat))))
+           (cond 
+             ((eq? (car lat) oldL)
+              (cons new (cons oldL rest)))
+             ((eq? (car lat) oldR)
+              (cons oldR (cons new rest)))
+             (else
+              (cons (car lat) rest)))))
+          (else
+           (let ((first (mul-help  (car lat)))
+                 (rest (mul-help  (cdr lat))))
+           (cons first rest))))))
+    (mul-help lat)))
+```
+
+```
+(multiinsertLR*letreclet 'water 'a 'b '(a b c d a b (a b c d)))
+'(water a b water c d water a b water (water a b water c d))
+```
+
+
+5. col version
+
+```
+
+(define evens-only*col
+  (lambda (l col)
+
+    (define atom?
+      (lambda (x)
+        (and (not (pair? x)) (not (null? x)))))
+    (cond
+      ((null? l) (col '() 1 0))
+      ((atom? (car l))
+       (cond
+         ((even? (car l))
+          (evens-only*col (cdr l)
+                          (lambda (newlat L R)
+                            (col (cons (car l) newlat) (* (car l) L) R))))
+         (else (evens-only*col (cdr l) (lambda (newlat L R)
+                                      (col newlat L
+                                           (+ (car l) R)))))))
+      (else
+       (evens-only*col (car l)
+                       (lambda (al ale ari)
+                         (evens-only*col (cdr l)
+                                         (lambda (dl dle dri)
+                                           (col (cons al dl)
+                                                (* ale dle)
+                                                (+ ari dri))))))))))
+
+```
+
+
+```
+
+(define multiinsertLR*o
+  (lambda (new oldL oldR lat col)
+    (define atom?
+      (lambda (x)
+        (and (not (pair? x)) (not (null? x)))))
+    (cond
+      ((null? lat) (col '() 0 0))
+      ((atom? (car lat))
+       (cond
+         ((eq? (car lat) oldL)
+          (multiinsertLR*o new oldL oldR (cdr lat)
+                          (lambda (newlat L R)
+                            (col (cons new (cons oldL newlat))
+                                 (+ L 1) R))))
+         ((eq? (car lat) oldR)
+          (multiinsertLR*o new oldL oldR (cdr lat)
+                          (lambda (newlat L R)
+                            (col (cons oldR (cons new newlat))
+                                 L (+ R 1)))))
+         (else
+          (multiinsertLR*o new oldL oldR (cdr lat)
+                          (lambda (newlat L R)
+                            (col (cons (car lat) newlat)
+                                 L
+                                 R))))))
+      (else
+       (multiinsertLR*o new oldL oldR (car lat)
+                        (lambda (al ale ari)
+                          (multiinsertLR*o new oldL oldR (cdr lat)
+                                           (lambda (dl dle dri)
+                                             (col (cons al dl)
+                                                  (+ ale dle)
+                                                  (+ ari dri))))))))))
+```
+
+
+```
+(define multirember*co
+  (lambda (a lat col)
+    (define atom?
+      (lambda (x)
+        (and (not (pair? x)) (not (null? x)))))
+    (cond
+      (( null? lat)
+       (col (quote ()) (quote ())))
+      ((atom? (car lat))
+       (cond
+         ((eq? ( car lat) a)
+         (multirember*co a (cdr lat)
+                        (lambda ( newlat seen)
+                          (col newlat (cons (car lat)
+                                            seen)))))
+       (else
+        (multirember*co a (cdr lat)
+                       (lambda (newlat seen)
+                         (col (cons (car lat) newlat) seen))))))
+      (else
+       (multirember*co a (car lat)
+                       (lambda (al as)
+                         (multirember*co a (cdr lat)
+                                         (lambda (dl ds)
+                                           (col (cons al dl)
+                                                (cons as ds))))))))))
+  
+```

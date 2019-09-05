@@ -1,0 +1,52 @@
+= what is org =
+
+Gnu org 官网
+http://orgmode.org/manual/index.html
+
+Org is a mode for keeping notes, maintaining TODO lists, and project planning with a fast and 
+effective plain-text system. It also is an authoring system with unique support for literate 
+programming and reproducible research.
+
+包括四个主要功能
+
++ keeping notes
++ maintaining TODO lists(vimwiki 和org todo 类似)
++ project planning
++ fast and effective plain-text
++ literate programming and reproducible research
+
+
+
+== outliner ==
+
+Org is implemented on top of Outline mode, which makes it possible to keep the content
+of large files well structured.(Structure edit style)
+(Outlines allow a document to be organized in a hierarchical structure, which (at least for me) 
+is the best representation of notes  and thoughts)
+
+An overview of this structure is achieved by folding(hiding) large parts of the document
+to show only the gentle document structure and the parts currently being worked on.
+
+== tables ==
+
+Tables are easily created with a built-in table editor(table的产生)
+Plain text URL-like links connect to websites,emails, USEnet messages, BBDB entries, and any files related to the projects
+
+== outputs ==
+
+Org files can serve as a single source authoring system with export to many
+different formats such as HTML, Latex, Open Document, and Markdown
+
+== source code blocks ==
+Org files can include source code blocks, which makes Org uniquely suited for authoring
+techniques documents with code examples(带code快的文档比较技术性？)
+Org source code blocks are fully functional; they can be evaluated in place and
+their results can be captured in the file(这时区分markdown 和vimwiki的地方), this makes
+it possible to create a single file reproducible research compendium
+
+== simple and clear ==
+Org is a toolbox(many tools), org keeps simple things simple. When first fired up, it should
+feel like a straightforward, easy to use outliner. Complexity is not imposed, but a large amount of
+functionality is available when needed.
+
+

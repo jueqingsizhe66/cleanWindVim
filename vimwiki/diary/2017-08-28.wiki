@@ -1,0 +1,18 @@
+= Contents =
+    - [[#weather:sunny|weather:sunny]]
+    - [[#try|try]]
+        - [[#try#yes it can|yes it can]]
+
+= weather:sunny =
+symbol 主要是在macro有用
+https://aphyr.com/posts/268-language-power  语言的力量
+
+这篇文章介绍 macro 的实际价值，比较中肯,。
+
+= try =
+
+*scribble*
+    http://docs.racket-lang.org/scribble/
+    http://racket.tchen.me/scribble.html
+
+== yes it can==

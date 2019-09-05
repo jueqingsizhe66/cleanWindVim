@@ -1,0 +1,14 @@
+= weather:sunny =
+
+Environment Setup
+  building ,running  and the repl
+  how to use emacs, an excellent CloJure Editors
+  
+  Do thigs, A clojure crash course
+  core functions in Depth
+  Functional Programming
+  Organizing Your Project:A Librarian's Tale
+  Clojure Alchemy: REading ,Evaluation, And Macros
+  Writing Macros
+  
+  

@@ -1,0 +1,7 @@
+https://matplotlib.org/gallery/index.html  官网教程
+
+https://matplotlib.org/users/pyplot_tutorial.html  入门tutorial
+
+
+http://python.jobbole.com/87471/  博客教程
+http://python.jobbole.com/85106/    matplotlib 绘图可视化知识点整理 

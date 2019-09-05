@@ -1,0 +1,15 @@
+= weather:cloudy =
+
+
+http://wenshanren.org/?p=386
+
+M-x emcas-reddit
+https://www.reddit.com/r/emacs/
+
+iwdf 
+
+
+magnars  emacs racks的视频作者
+https://twitter.com/magnars
+
+http://www.parens-of-the-dead.com/

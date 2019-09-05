@@ -1,0 +1,155 @@
+五个区域
+
+    +-----------------+
+    |* Buffer List    |
+    |* File List      |
+    |* Tab List       |
+    |* Workspace List |
+    |* Bookmark List  |
+    |                 |
+    +-----------------+
+    
+                                                           +---+
+Lists can be explained with a simple analogy. Let's imagine|Vim|is a
++------------+      +--------+        +-------+------------+---+    +------------------+
+|writing desk|. Your|projects|are like|drawers---->projects   |. The|Bookmark List(<b>)|simply
++------------+      +--------+        +------------ -----------     +------------------+
+             +-----------------+
+displays your|favorite projects|
+             +-----------------+
+                                               +----------+
+To get documents from a drawer you would need a|File List | It allows you
+                                     +--------++----------+
+to easily look up contents of a given|project | Once you locate and pick up
+                   +------+
+a file it becomes a|buffer|          +--------+
+                   +------+
+ +------+       +----------------+
+A|buffer|is like|a sheet of paper|lying on the desk. Sometimes you can
+ +------+       +----------------+
+ 
+have a blank piece of paper – that's a new unsaved buffer. It would become
+
+eventually a file on the disk once saved (put into a drawer). To manage
+                                        +-----------+
+all buffers on the desk you would need a|Buffer List|
+                                        +-----------+
+                                        
+So far our analogy is fairly simple. This workflow is straightforward but
+inefficient in the long run with a large amount of files. How could we
+optimize it? +--------------+
+             |              |
+             |  IT IS Tabs  |
+             |              |
+             +--------------+
+             
++------------------------------------+
+|   With tabs you can, for example:  |
+|                                    |
+|    * group related buffers         |
+|    * extract to other tabs         |
+|    * name them accordingly         |
+|    * move or copy them             |
+|                                    |
++------------------------------------+
+
+First, you need to select a project. Vim operates in a directory,
+            +--------------------------------+
+described as|`CWD` (Current Working Directory|. If you've just started a
+            +--------------------------------+
+MacVim it's probably pointing to your home directory (issue |:pwd| to
+
+check it).
+               +----------------------------------+
+I advise you to|add a project to the Bookmark List|by opening the plugin
+               +----------------------------------+
+window (<C-Space>) and pressing <b>. The plugin will ask for a project
+directory.
+
+
+                          +------------------+
+Make sure that the path is|not home directory| Otherwise the plugin will
+                          +------------------+
+start indexing all your files which will be pointless and resource
+exhaustive. Be concrete and provide a real path to a project. Once your
+bookmark is created, you can go there with <CR>.
+
+
+
+| Key | Action                                                |
+| --- | ----------------------------------------------------- |
+| `h`   | Toggle Buffer List (aka `H`ome List)                    |
+| `H`   | Jump to Buffer List (aka `H`ome List) with Search Mode  |
+| `o`   | Toggle File List (aka `O`pen List)                      |
+| `O`   | Jump to File List (aka `O`pen List) with Search Mode    |
+| `l`   | Toggle Tab List (aka `L`ists List)                      |
+| `L`   | Jump to Tab List (aka `L`ists List) with Search Mode    |
+| `w`   | Toggle `W`orkspace List                                 |
+| `W`   | Jump to `W`orkspace List with Search Mode               |
+| `b`   | Toggle `B`ookmark List                                  |
+| `B`   | Jump to `B`ookmark List with Search Mode                |
+
+
+| UTF8 | ASCII | List        | Description               |
+| ---- | ----- | ----------- | ------------------------- |
+| `⌗`    | `#`     | All         | Vim-CtrlSpace logo symbol |
+| `›_‹`  | `[_]`   | All         | Search Mode indicator     |
+| `?`    | `?`     | All         | Help Mode indicator       |
+| `•`    | `SIN`   | Buffer      | Single Mode indicator     |
+| `★`    | `VIS`   | Buffer      | Visible Mode indicator    |
+| `፨`    | `ALL`   | Buffer      | All Mode indicator        |
+| `○`    | `FILE`  | File        | File List indicator       |
+| `⁺²`   | `+2`    | Buffer/File | Next Tab Mode indicator   |
+| `⌕`    | `*`     | Buffer/File | Zoom Mode indicator       |
+| `▫▪▫`  | `-+-`   | Tab         | Tab List indicator        |
+| `⬆`    | `|*|`   | Workspace   | Workspace Load Mode       |
+| `⬇`    | `[*]`   | Workspace   | Workspace Save Mode       |
+| `♥`    | `BM`    | Bookmark    | Bookmark List indicator   |
+
+
+What you are working now is in your project directory(current working directory)
+(maybe sometimes different directory)
+
+One window can have many buffers, the different windows has different tags , you can
+switch the window(or tags) easyly with <l> under the visual window of the ctrlspace
+In the end, you can take a picture what interface you end with , in order to restore the
+interface next time quickly, you can use workspace
+(use Enter to exit the search mode)
+
+
+                                 +------------+
+You can also "forget" a buffer by|pressing <f>| Forgetting means
+                                 +------------+
+detaching, making unrelated, or just making foreign to the given tab. Such
+tab. Then it would only be available through the "All Mode" (press <a>).
+buffer might be related to other tabs instead or might be unrelated to any
+                                                               +-----+
+                              +----+                           |     |
+To see the Bookmark List press| <b>|. To add a bookmark - press| <a> |, to edit
+                              +----+                           +-----+
+the target directory - <e>. You can also rename it with <m> and <=>.
+
+
+It's worth to mention, that you can still navigate to different places
+manually, with the |:cd| command. The plugin will behave the same way.
+In fact, jumping with Bookmark List is just like a shortcut for the |:cd|
+command.
+
+
+
+
+Cool Tip~
+
+Another smart way of changing directory is jumping to a directory of given
+                        +------+  +----------------+
+buffer (file) by pressin|  <i> |in| the Buffer List|. It's useful if you have
+                        +------+  +----------------+
+                        
+files from two or more different projects. To go (jump) back press  <I> .
+
+                                                             |ctrlspace-toc|
+
+
+
+
+

@@ -1,0 +1,53 @@
+= weather: very sunny =
+
+1. First Person provide the SICP solutions . Godlike man
+http://eli.thegreenplace.net/
+
+https://github.com/eliben/pss/
+
+https://github.com/eliben
+2. 东岳流体
+http://dyfluid.com/index.html
+
+3. The most beautiful art works for technique report(Awesome, Art-like person)
+ 
+http://typeocaml.com/2015/02/20/pearl-no-2-the-max-number-of-surpassers/
+
+
+4. ChenYuKung/eopl  good tutor for the language programming elements
+http://cyukang.com/archive.html
+
+
+5.  The computer artist Edsger Dijkstra
+http://www.cs.utexas.edu/users/EWD/transcriptions/transcriptions.html
+
+6. Good Java Opensource
+http://hutool.mydoc.io/?t=814
+http://feilong-core.mydoc.io/
+http://t-io.org/#/
+http://actframework.org/#tutorials
+http://ibeetl.com/
+http://echarts.baidu.com/
+http://www.oschina.net/p/excelutil
+https://spring.io/
+http://www.apache.org/index.html#projects-list
+   http://maven.apache.org/ 
+  https://mvnrepository.com/ 
+ https://www.17ce.com/  网速检测
+  
+https://github.com/facebook/react/  react is better than vue.js
+
+7. 神乎其技
+http://blog.vgod.tw/category/divine-code/
+语言的发展参考这个牛人(南大数学学士 华盛顿智能人工博士）的一系列博文(http://blog.youxu.info/)。
+8. MIT SICP video 
+  http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/ 
+  
+9. 著名的Y combinator
+http://www.ece.uc.edu/~franco/C511/html/Scheme/ycomb.html
+
+10. 著名的cps
+https://cgi.soic.indiana.edu/~c311/lib/exe/fetch.php?media=cps-notes.scm
+  
+
+

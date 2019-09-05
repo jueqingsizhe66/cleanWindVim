@@ -1,0 +1,142 @@
+= [[2017-05-20]] =
+
+== backup the .vim ,update the vimwiki module ==
+= Diary =
+
+== 2018 ==
+
+=== June ===
+    * [[2018-06-13|Sort out the objects]]
+
+== 2017 ==
+
+
+Hu Hui: It is a job of homework(learning process) or a job of research(creating something new)
+
+=== May ===
+    * [[2017-05-22]]
+    * [[2017-05-21|偏航角在不同截面的气动特性]]
+    * [[2017-05-23]]
+    * [[2017-05-24]] 几何量描述
+    * [[2017-05-25]]
+    * [[2017-06-23]]  参考文献
+    * [[2017-07-02]]  DAWT(Diffuser-augment wind turbine) DWT(Duct wind turbine)
+    * [[2017-07-03]] 创建pdf链接 wiki usage
+    * [[2017-07-04]]
+    * [[2017-07-05]] 所有的windEnergy pdf截止到2017 9月份
+    * [[2017-07-06]]  动网格
+    * [[2017-07-14]] cps
+    * [[2017-07-26]] 空雨伞
+    * [[2017-08-03 some useful web links]]
+    * [[2017-08-04]] multirember*[[col]]
+    * [[2017-08-09]]  y comibinator
+    * [[2017-08-09 cps]]
+    * [[2017-08-10]]  R5Rs husk  chicken
+                    [[2017-08-10#rootsoflisp]]
+                    [[r5rs.txt]]
+                  http://www.schemers.org/Documents/Standards/R5RS/HTML/
+    * [[2017-08-11]]   racket user
+    *           [[2017-08-11#emacs]]
+    * [[2017-08-12]] r5rs reference book
+    * [[2017-08-13]] The source of world
+    * [[2017-08-15]] 磁流体
+    * [[2017-08-16]] 黄宸武风力机相似原理
+    *           [[tspl syntatic extension]]
+    *           [[tspl continuations]]
+    *           [[r6rs.html]]
+    *          https://github.com/cisco/chezscheme  chezscheme开源了
+               http://cisco.github.io/ChezScheme/csug9.4/csug.html
+                Engins build continuations http://www.doc88.com/p-3137689442386.html
+    *  [[2017-08-17]]
+    *           http://scheme.com/tspl4/ TSPL4 html
+    * [[2017-08-19]]    动态偏航后处理数据文件记录(技术上比较繁琐)
+    * [[2017-08-20]]
+    * [[2017-08-21]] Engines build continuations
+    *           [[风剪切]]
+                [[news record20170821]]
+                [[ctrl-space Continuation]]
+                [[sketch.tut]]
+                 https://www.gitbook.com/explore       gitbook上开源书记
+                https://www.gitbook.com/editor         gitbook editor
+
+    *  [[2017-08-22]] 既然不可避免的要写小论文、大论文，可否变得有趣些。
+    * [[2017-08-23]]  clojure 入门教程
+    * [[2017-08-25]]
+    *       https://github.com/GITenberg?page=2  GITenberg
+    *       [[the elements of style]]
+    *       [[the record of teos]]
+    * [[2017-08-26]]
+    * [[2017-08-28]]  scribble
+    * [[2017-08-29]]  yugong
+    * [[2017-08-30]]  var pk symbol
+    * [[2017-09-02]]  scribble
+    * [[2017-09-03]]  emacs daemon
+    * [[2017-09-04]]  emcass shortkey
+    * [[2017-09-05]]  emacs orgmode
+    *            [[cygwin]] todo note
+    * [[2017-09-06]] 多偏航角写作
+    * [[2017-09-07]]  自由涡尾迹本地路径
+    * [[2017-09-08]]   专利下载网站
+    * [[y017-u9-i1]]
+    * [[o017-p9-z2]]
+    *       [[xrg-code-vummary]]
+    *       [[bam-bsrk]]
+    *       [[bdg-bgpture]]
+    *       [[bhjieqi-bkl-blina-bq]
+    * [[bw17-be-br]]  btacsrockby者 bu及  bi莎
+    * [[bo17-bp-na]]
+    *      [[nsderstanding ndojure'ngnhrsistence nkries]]
+    * [[nl17-nq-nw]] neg-nrde ntiviliedge
+    *      [[Sashachua]]
+    *      [[clojure-lazy-seq-stackoverflow]]
+    *  [[2017-09-19]]  lazy-map not too lazy and org-moode
+    *       [[clojure-style-editing]]
+    *  [[2017-09-20]]
+    *       [[LeeXha Org-mode MarkupCheatsheet[[]]
+    *       http://orgmode.org/orgcard.txt  org-cheatsheet
+    *       [[clojure-api cheatsheet]]
+    *       http://whattheemacsd.com/
+    *  [[2017-09-21]] TSPL
+    *  [[2017-09-22]] CFD code
+    *  [[2017-09-23]]  the-first-clojure-example  java connect clojure(import java graphics package)
+    *         [[fvacs fbcks fnrst fme]]
+    *         [[sicper-for-emacs]]
+    *         [[noir]]  [[clojure热部署能力]]
+    *         [[jgin jhlp jkw]]
+    *         [[jlan jqen]]
+    *        jwtp://jeorm.jrache.jtg/jyleases/jurrent/jiojure-joL.jpml  jzojue-jxrom-jcl
+    * [[2017-09-25]]   cljr-refractor
+    * [[2017-09-26]]  elisp 函数
+    *          [[;gisp ;hteractive]]
+    *          [[diminish.el]]
+    *          [[;qD]]
+    *         [[ace-jump-mode]]
+    *        ;ttp://;yxiuf.;uthub.;i/;oog/;p0100-;zacs-;xgit.;cml/  ;vgit
+    * [[;b17-;n-;m]]  ;facs ;jle ;;me
+    *        https://github.com/rejeep/f.el  emacs API for file and directory
+    *      https://github.com/sachac/baby-steps-org-todo/blob/master/index.org  baby-step-org-mode
+    *       http://sachachua.com/blog/2014/01/tips-learning-org-mode-emacs/
+    *       http://planet.emacsen.org/  emacs planet
+    *      https://github.com/jwiegley/use-package
+    *       [[org-capture-template]]
+    *  [[2017-09-28]]
+    * w,i
+    *       [[spacemacs]]
+    *  [[2017-10-03]]
+    *  [[2017-10-07]] design something hard to use
+    *      [[org-journal]]
+    *      [[autoinsert]]
+    *     [[org-agenda-files]]
+    *     https://github.com/emacs-china/hello-emacs
+    *    http://www.woola.net/detail/2016-08-18-elisp.html  大雄lisp-
+    *    [[查新报告]]
+    *http://202.204.65.209/gsmis/main.do
+    *http://steve-yegge.blogspot.com/    Stevey's Blog Rants
+    *  https://www.ruby-lang.org/zh_cn/downloads/
+    *  http://www.daodejing.org/1.html
+    *
+    * perl:  [[local:/C:/Users/YeZhao/Desktop/perldoc/index-functions.html ]]
+    *  [[python-matplotlib]]
+    * [[brianGuideToSolveAnyPerlProblem]]
+    * [[2018-06-13]] sketch up learning  notes
+http://tool.yovisun.com/scihub/

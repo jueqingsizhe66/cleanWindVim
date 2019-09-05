@@ -1,0 +1,73 @@
+http://blog.csdn.net/csfreebird/article/details/8451173
+用Clojure编写REST service 一 Noir创建web app 
+
+
+写一个真正的互联网应用，才可以观察Clojure的威力。
+
+本文使用Noir框架，参考官方站点：http://www.webnoir.org/
+
+执行三行命令：
+
+[plain] view plain copy
+print?
+
+    lein new noir my-website  
+    cd my-website  
+    lein run  
+
+也可以在lein run命令前运行lein deps命令。
+
+国内网络下载依赖比较痛苦，还好用了proxy，试了好多次，web应用的所有java依赖才下载完成，程序启动成功：
+
+[plain] view plain copy
+print?
+
+    ~/my-website$ lein deps  
+    Retrieving org/codehaus/jackson/jackson-core-asl/1.9.5/jackson-core-asl-1.9.5.jar (223k)  
+        from http://repo1.maven.org/maven2/  
+    chenshu@chenshu-yangzhou-home:~/my-website$ lein run  
+    Compiling my-website.server  
+    Starting server...  
+    2012-12-29 18:00:00.230:INFO::Logging to STDERR via org.mortbay.log.StdErrLogServer started on port [8080].  
+      
+    2012-12-29 18:00:00.231:INFO::jetty-6.1.25  
+    2012-12-29 18:00:00.312:INFO::Started SocketConnector@0.0.0.0:8080  
+    You can view the site at http://localhost:8080  
+    #<Server Server@17c2891>  
+
+
+好，现在打开网站：http://localhost:8080，看到下面的网页：
+
+
+
+现在打开目录中views/welcome.clj文件：
+
+[plain] view plain copy
+print?
+
+    (ns my-website.views.welcome  
+      (:require [my-website.views.common :as common]  
+                [noir.content.getting-started])  
+      (:use [noir.core :only [defpage]]))  
+      
+    (defpage "/welcome" []  
+             (common/layout  
+               [:p "Welcome to my-website"]))  
+
+
+看到URL路径是welcome，好，在浏览器中输入网址：http://localhost:8080/welcome
+
+页面上显示文字：
+
+Welcome to my-website
+
+然后修改welcome.clj文件中的显示文字：
+
+[plain] view plain copy
+print?
+
+    [:p "Welcome to my-website2"]))  
+
+保存后，刷新浏览器。页面上文字也变了。
+
+这是Clojure的优点，程序可以在运行时修改。

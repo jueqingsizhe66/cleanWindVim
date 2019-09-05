@@ -1,0 +1,37 @@
+Section 3.3. Continuations
+
+During the evaluation of a Scheme expression, the implementation must keep track of two things: (1) what to evaluate and (2) what to do with the value. Consider the evaluation of (null? x) within the expression below.
+
+(if (null? x) (quote ()) (cdr x))
+
+The implementation must first evaluate (null? x) and, based on its value, evaluate either (quote ()) or (cdr x). "What to evaluate" is (null? x), and "what to do with the value" is to make the decision which of (quote ()) and (cdr x) to evaluate and to do so. We call "what to do with the value" the continuation of a computation.
+
+Thus, at any point during the evaluation of any expression, there is a continuation ready to complete, or at least continue, the computation from that point. Let's assume that x has the value (a b c). We can isolate six continuations during the evaluation of (if (null? x) (quote ()) (cdr x)), the continuations waiting for
+
+    the value of (if (null? x) (quote ()) (cdr x)),
+    the value of (null? x),
+    the value of null?,
+    the value of x,
+    the value of cdr, and
+    the value of x (again). 
+
+The continuation of (cdr x) is not listed because it is the same as the one waiting for (if (null? x) (quote ()) (cdr x)).
+
+Scheme allows the continuation of any expression to be captured with the procedure call/cc. call/cc must be passed a procedure p of one argument. call/cc constructs a concrete representation of the current continuation and passes it to p. The continuation itself is represented by a procedure k. Each time k is applied to a value, it returns the value to the continuation of the call/cc application. This value becomes, in essence, the value of the application of call/cc.
+
+If p returns without invoking k, the value returned by the procedure becomes the value of the application of call/cc.
+
+Consider the simple examples below.
+
+(call/cc
+  (lambda (k)
+    (* 5 4))) <graphic> 20
+
+(call/cc
+  (lambda (k)
+    (* 5 (k 4)))) <graphic> 4
+
+(+ 2
+   (call/cc
+     (lambda (k)
+       (* 5 (k 4))))) <graphic> 6 

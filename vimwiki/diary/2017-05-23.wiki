@@ -1,0 +1,17 @@
+= weather rainy =
+
+1. [[local:F:/科研基地.Attachments/Friends/老仇/风电相关/Aerodynamic analysis of different wind-turbine-blade profiles using finite-volume method.pdf]] 
+    so many wind turbine airfoils data
+2. [[local:F:/科研基地.Attachments/WindEnergy/windEnergy2015-7/A Tomo-PIV study of the effects of freestream turbulence on stall delay of the blade of a horizontal-axis wind turbine (pages 1185–1205).pdf ]]
+    可以参考翼型截面的流线分布
+3. https://wenku.baidu.com/view/513eaa85e53a580216fcfe2d.html     
+    s809系列的风力机翼型 s809 s812  stall regulated
+   http://www.airfoildb.com/ 
+   AG AH 翼型数据库
+  http://m-selig.ae.illinois.edu/ads/coord_database.html 
+  风力机翼型数据库
+  
+4. 查看post中常量
+    Density=1.185 [kg m^-3]
+    Dynamic viscosity =1.831e-05 [pa s]
+    

@@ -1,0 +1,122 @@
+
+http://ergoemacs.org/emacs/emacs_org_markup.html
+http://emacsclub.github.io/html/org_tutorial.html
+= Emacs: Org Mode Markup Cheatsheet =
+By Xah Lee. Date: 2015-02-08. Last updated: 2017-06-21.
+
+Emacs org-mode is a markup language, similar to Markdown, but with far more features. This page lists the most frequently used markup.
+Heading
+
+* first level heading begin with a asterisk
+
+This is a paragraph. With no markup. Belongs under the heading above it.
+
+** second level heading begin with 2 asterisks
+
+*** third level heading
+
+(Copy the above, paste into a file. Name the file “test.org”. Then open it in emacs. Or, Alt+x org-mode.)
+Inline Code
+
+* Inline Code
+
+inline code are marked between TILDE ~3 + 4~
+
+or with EQUALS SIGN: =3 + 4=
+
+Code Block
+
+* Code Block
+
+Example markup
+
+#+BEGIN_EXAMPLE
+var x = 3
+x + 4
+#+END_EXAMPLE
+
+Press 【< e Tab】to insert the markup for example.
+
+* Code Block
+
+Source Code markup of specific language
+
+#+BEGIN_SRC emacs-lisp
+(+ 3 4)
+#+END_SRC
+
+#+BEGIN_SRC python
+x = 3
+return x + 2
+#+END_SRC
+
+To insert markup for source code, press 【< s Tab】, type first char of your language name, then press 【Ctrl+Alt+i】. Press that again to switch to next lang.
+
+For how to eval source code, see: Emacs: Org Mode, Programing Language Code Markup
+Bold, Italic, …
+
+* Italic, Bold, …
+
+*bold*
+
+/italic/
+
+_underlined_
+
+=verbatim=
+
+~code~
+
++strike-through+
+
+List
+
+Unordered list
+
+- 1st item
+- another item
+- and 3rd item
+
+or
+
++ 1st item
++ another item
++ and 3rd item
+
+Ordered List
+
+Start with a number, followed by a period. Like this:
+
+1. 1st item
+2. another item
+3. and 3rd item
+
+Link
+
+Here's the link format
+
+[[http://example.com/]]
+
+or
+
+[[http://example.com/][description]]
+
+Image
+
+[[/path/to/img.jpg]]
+
+Export
+
+In emacs, Alt+x org-export-dispatch 【Ctrl+c Ctrl+e】 to export. To export to HTML, the key is 【Ctrl+c Ctrl+e h h】
+Org Commands
+
+Emacs Org mode has many commands, including:
+
+    Insert any org markup.
+    View expand/collapse by headings only.
+    Move headings, or level up/down.
+    Evaluate embedded source code.
+    Insert dates, todo, tags, ….
+    Insert/compute date range, clocking time.
+
+For a basic tutorial, see: Emacs: Writing Outline, org-mode Tutorial

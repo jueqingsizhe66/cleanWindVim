@@ -1,0 +1,90 @@
+= Sort out the objects =
+
+   To sketch the scenery , then show somebody else what you are doing . To better sketch the scenery,then modify the objects(such as components and groups) in your scenery. To pile sketch the scenery,
+so you need to use the pile tools, such as Outlines and Layers, to process the complex relations. 
+
+1. Outlines
+    1. Components(||)
+    2. Group()
+       Group small parts into big group
+       You can use modify tools ,such as scale,rotate,copy etc when the group or components are under unlock state.
+       If the groups and components are under lock state, you cannot modify them.
+       
+2. Layers
+   show the important part or urgent part to modify in your scenery
+   One layer active at a time.(通过layers来控制场景的显示)
+   
+   
+   
+= Selection and advanced skill in selection(constraint) =
+
+how to snap movement and line along the axis?? 
+
+New conceput: modelling in accurary(constraint)(Important)
+
+In the sketch up, blue means the z axis,  red means the x axis, green means the y axis. If axis of the rotate surface is z axis, the surface color will become blue, so as red to x rotational axis , green to y rotational axis, else will present black surface.!(Important)
+
+Space to select
+h  to pan
+M  to move
+q  to rotate
+s  to scale
+l  to draw line
+click nothing  to deselect
+
+
+then how to draw or modify effectively?
+
+use shift key  or  up arrrow key(blue axis z)  left arrow key(red axis  x) right arroow key(green axis  y)   to constraint the direction along the coordinate axis.(maybe fix or constraint is most important in the accurary modelling)
+
+use ctrl key to copy objects or multiselect
+
+Move and line operator have the same properties, which means you can hold the arrow key to constraint the movement direction along the coordinate axis!
+
+== Advance selection ==
+
+You can use edit-->select--> connnected surface and also other things!
+
+= 平刀流 =
+
+直接通过直线可以构造出大部分的几何形状（通过平刀直接切割大部分形状达到你要的效果，这是这个软件给我的直觉效果，很不错的感觉)
+
+微元流形，封闭流行的构造。 只要是封闭流行都可以运用push operatort
+
+你对空间流型的捕捉，决定着你对sketch 软件的设计能力！
+
+ctrl+拖动面表示增加快，而如果直接push面 并不会额外增加快!
+
+offset可以在当前的2D面 创建类似的流型面（以流型为基本单元，进行不断思考，构造，直到达到你需要的） 不同构造方式，不同的实现方式，这是这个软件提供给你的自由！(但一定得约束自己)
+
+
+Polygon可以输入多边形的条数，比如3，6，8等
+
+FollowMe 其实就是放样的功能，一个面沿着固定的路径进行流型投影，并连接起来（建立一个面和一条曲线）这种方法建造圆管、拐弯管等特别有用！（piles)
+
+select edge--> window's soften edges 让过度更加好看些!(配合上平刀流 也许会使得表面更加好看些，通过多少角度进行边缘柔化)
+
+
+= Tape measurement(强大的辅助线功能  距离辅助线) =(0401 Usin tape measurement 格尺测量工具)
+
+t: for measuring distance between  two things, then accurary descide what you want !Good good good!
+
+比如你建造屋顶时候可以用 protractor工具（也叫做量角器辅助线！！辅助线可以通过 橡皮线）
+
+也可以使用dimension工具，进行尺寸标记
+
+额 我知道sectional plane要怎么使用，他就是工图中的截面截取工具（对几何物体没有任何影响）
+
+
+= dynamic component =
+
+1. open dynamic components
+2. open dynamic options to show the setting in the dynamic components
+3. in the dynamic components panel , set the custom variable, such as "color"
+4. insert the attribute "Material " behavior, the value is  "=color"
+5. insert the onclick behavior, then "SET("color","74,34,54","74,14,100","34,5,120","45,6,234") ", so th
+   value of the color will change among the different RGB, that is funny
+6. You can control to show the attribute to let them show in the component options panel, so users can 
+   control it(It is a function！)
+   
+sofa!color 找到sofa大组件下的color变量

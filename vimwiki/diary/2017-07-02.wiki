@@ -1,0 +1,22 @@
+= Weather:Sunny =
+
+1. 最早由Barry L. Gilbert1978提出
+
+[[local:F://ScienceBase.Attachments//专业领域//DAWT//gilbert1978Fluid dynamics of diffuser-augmented wind turbines.pdf ]]
+[[local:F://ScienceBase.Attachments//专业领域//DAWT//gilbert1983Experiments with a diffuser-augmented model wind turbine.pdf ]]
+2. Igra O.也做了shrouded wind turbines 的研究
+
+[[local:F://ScienceBase.Attachments//专业领域//DAWT//igra1981Research and development for shrouded wind turbines.pdf ]]
+
+
+3. Handson2000
+[[local:F://ScienceBase.Attachments//专业领域//FSI流固耦合//ductedWindTurbine//Effect of placing a diffuser around a wind turbine.pdf ]]
+
+4. T. SARAVANA KANNAN 2013
+DAWT数值模拟，结果不好看,和2017年的手稿有点像
+[[local:F://ScienceBase.Attachments//专业领域//DAWT//DESIGN AND FLOW VELOCITY SIMULATION OF DIFFUSER Augent wind turbine using CFD.pdf]]
+
+5. KE has some shortcomming (1993)
+
+[[local:F://ScienceBase.Attachments//专业领域//DAWT//two equation kw turbulence models for aerodynamic flows..pdf]]
+

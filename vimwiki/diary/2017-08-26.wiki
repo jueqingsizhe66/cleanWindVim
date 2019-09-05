@@ -1,0 +1,187 @@
+= Contents =
+    - [[#weather:cloudy|weather:cloudy]]
+    - [[#letrecp-proc更新了环境模型|letrecp-proc更新了环境模型]]
+
+= weather:cloudy =
+
+Your life does not get better by chance, it gets better by change.
+你想要更好的生活，不是靠运气就可以，而是需要自己去改变。
+
+
+let语言，未引入proc-exp和call-exp,当然在解析let的时候，已经具备解析let的能力，比如
+
+{{{
+        (let-exp (var exp1 body)       
+          (let ((val1 (value-of exp1 env)))
+            (value-of body
+              (extend-env var val1 env))))
+}}}
+
+其中的extend-env在environments环境模型中定义了。
+
+
+在let语言中，存在const-exp,var-exp,zero?-exp,if-exp,diff-exp,let-exp.
+
+并且，在let语言的expval定义中(define-datatypes) 只包含num-val和bool-val.
+
+
+而在proc语言中，会引入proc-exp和call-exp,  需要在the-grammar中增加proc-exp和call-exp的定义
+
+{{{
+      (expression
+       ("proc" "(" identifier ")" expression)
+       proc-exp)
+
+      (expression
+       ("(" expression expression ")")
+       call-exp)
+}}}
+
+
+并且在expval中的定义增加了proc-val,但是我不能确定他的具体用途，于是我提问自己，
+"proc-val他到底是什么？"
+叶昭良:" proc-val解析scan&parse函数(传入字符串)得到的expression, 而在proc-exp的
+定义中增加expval-proc的定义，目的是变为proc形式，这边也解释了proc-exp中生成(proc-val ...)的过程
+"也就是如下的proc-exp的定义,proc-exp生成了proc-val的对象，要知道解释器的唯一原则就是:"生成对应语言的-value
+（为什么我这边用破折号，因为我觉得针对不同点语言会产生不同的value对象，所以必须区分开，这也暗含着子语言分层）
+对象，直到最终变为scheme值对象"
+
+parser的唯一原则：”生成特定语言的-exp(破折号也类似)“
+
+expval-proc、expval-num和expval-bool生成scheme的值对象(num,bool都是scheme的内部对象)
+
+所以叫做三层分级，exp到(->)value再到(->) scheme值对象。
+其中第一层的exp是有(a-program ...)包裹的表达式序列，这边a-program的目的是植入到value-of-program中充当pgm内容，从而由cases逐步解析进去。
+
+{{{
+         (proc-exp (var body)
+          (proc-val (procedure var body env)))
+
+        (call-exp (rator rand)
+          (let ((proc (expval->proc (value-of rator env)))
+                (arg (value-of rand env)))
+            (apply-procedure proc arg)))
+
+}}}
+
+{{{
+  (define-datatype expval expval?
+    (num-val
+      (value number?))
+    (bool-val
+      (boolean boolean?))
+    (proc-val 
+      (proc proc?)))
+}}}
+
+
+and, add the definitiion of the "procedure" and "apply-procedure"
+
+{{{
+  ;; procedure : Var * Exp * Env -> Proc
+  ;; Page: 79
+  (define procedure
+    (lambda (var body env)
+      (lambda (val)
+        (value-of body (extend-env var val env)))))
+  
+  ;; apply-procedure : Proc * ExpVal -> ExpVal
+  ;; Page: 79
+  (define apply-procedure
+    (lambda (proc val)
+      (proc val)))
+
+}}}
+
+
+
+Finally, I want to do some conclusion,
+
+{{{
+  (define the-lexical-spec
+    '((whitespace (whitespace) skip)
+      (comment ("%" (arbno (not #\newline))) skip)
+      (identifier
+       (letter (arbno (or letter digit "_" "-" "?")))
+       symbol)
+      (number (digit (arbno digit)) number)
+      (number ("-" digit (arbno digit)) number)
+      ))
+}}}
+
+identifier表示(\w[\w\d_-?]*),\d有10个，\w有26*2，再加上3个连接符,注意必须是以\w开头的letter
+comment 表示(以%开头，然后*任意的单词，只要不是#\newline结尾即可) 当碰到这种pattern之后就执行skip命令
+number表示\d+
+
+
+*jump*
+
+= letrecp-proc更新了环境模型 =
+
+有意思的是，letrec-proc改进了环境模型定义方式，
+采用define-datatype的风格。
+environment?从
+{{{
+  (define environment?
+    (lambda (x)
+      (or (empty-env-record? x)
+          (and (pair? x)
+               (symbol? (car (car x)))
+               (expval? (cadr (car x)))
+               (environment? (cdr x))))))
+}}}
+到
+{{{
+  ;; Page: 86
+  (define-datatype environment environment?
+    (empty-env)
+    (extend-env 
+      (bvar symbol?)
+      (bval expval?)
+      (saved-env environment?))
+    (extend-env-rec
+      (id symbol?)
+      (bvar symbol?)
+      (body expression?)
+      (saved-env environment?)))
+}}}
+
+
+apply-env从
+{{{
+
+  (define apply-env
+    (lambda (env search-sym)
+      (if (empty-env? env)
+        (eopl:error 'apply-env "No binding for ~s" search-sym)
+        (let ((sym (extended-env-record->sym env))
+              (val (extended-env-record->val env))
+              (old-env (extended-env-record->old-env env)))
+          (if (eqv? search-sym sym)
+            val
+            (apply-env old-env search-sym))))))
+
+  )
+}}}
+
+到
+{{{
+  ;; Page: 86
+  (define apply-env
+    (lambda (env search-sym)
+      (cases environment env
+        (empty-env ()
+          (eopl:error 'apply-env "No binding for ~s" search-sym))
+        (extend-env (var val saved-env)
+          (if (eqv? search-sym var)
+            val
+            (apply-env saved-env search-sym)))
+        (extend-env-rec (p-name b-var p-body saved-env)
+          (if (eqv? search-sym p-name)
+            (proc-val (procedure b-var p-body env))          
+            (apply-env saved-env search-sym))))))
+    
+  )
+}}}
+
+由此可见，新的环境可以使得code写的更紧凑些。

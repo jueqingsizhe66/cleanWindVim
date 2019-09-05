@@ -1,0 +1,13 @@
+= weather:sunny =
+
+https://github.com/clojure-emacs/clj-refactor.el/wiki/cljr-move-form
+
+
+https://github.com/clojure-emacs/clj-refactor.el/wiki
+
+
+clj-refactor 小项目用还不错，大项目用就很卡
+
+
+mark-multiple
+https://github.com/magnars/mark-multiple.el

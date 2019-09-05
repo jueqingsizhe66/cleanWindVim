@@ -1,0 +1,55 @@
+= weather:sunny =
+
+== Why We Should Design Some Things to Be Difficult to Use ==
+Getty Images
+
+The first car I ever drove was a bashed Land Rover Defender. I was working at an outdoor pursuits centre in North Wales. Changing gear was like Russian roulette; you stirred the stick until it jammed somewhere, then let out the clutch and hoped you hadn't selected reverse. There was an art to everything: even opening the windows required a patient chick-a-chick-thunk of the latch.
+
+When you can wrangle an old Landie like that, you become part of a select group. It's a group that will dwindle from now on, as Land Rover has announced that it is discontinuing its iconic Defender range in favor of more user-friendly cars. I, for one, will be sad to see it go. We should be wary of only designing for ease of use. There’s a lot to be said for designing for difficulty of use. I’d like to say a few of those things here.
+Brian Millar
+About
+
+Brian Millar is Head of Strategy at Sense Worldwide, an innovation consultancy that works with Nike, PepsiCo, Barclays and Samsung among others. You can follow him on Twitter @arthurascii.
+=== 1. The Pleasures of Mastery ===
+
+In Dan Pink’s terrific book Drive, he explores the things that motivate us. He concludes that there are three ingredients to a happy life: autonomy, purpose and mastery. When you design the possibility of mastery into an object, you’re designing a happier life for your users.
+
+Great video game creators are geniuses at helping us experience that mastery. Jenova Chen heads up That Games Company, creators of Flower and Journey. He says game design is all about flow. Flow happens, he claims, when you, ‘balance the inherent challenge of the activity and the player’s ability to address and overcome it.’ In other words, when we’re mastering something, our intelligence and our intuition are at full stretch; everything flows.
+
+When you think about it, artificial intelligence in games is actually artificial stupidity. The computer controlled Princess Peach could thrash us every time at Super Mario Kart, simply by completing perfect laps. But she doesn't. She slows down just enough so we have the chance to overtake her if we really, really concentrate.
+广告
+
+Mastery doesn't just apply to complex products. A fork is about as simple as it gets, but the Edwardians wrote whole books about how ladies and gentlemen should use them. It takes a lifetime to learn to use a sushi knife.
+=== 2. Difficulty Makes Things Exclusive ===
+
+Before the 2007 crash, I consulted for a company that made software that helped banks analyze risk. I can hear your hollow laughter right now. Bank risk software guy, you had one job. Actually, the software did work really well. The problem was, nobody bought it. It seemed like a no brainer; at the time, heads of risk in banks simply waited for their counterparts around the world to email them a spreadsheet, then stitched them together. The process took hours, and the information was a day or more out of date. Our product oversaw every deal made by every trader and gave a real-time assessment of the dangers involved.
+
+In spite of its brilliance, nobody was interested. When we talked to the heads of risk at investment banks, we found out why. They'd spent years learning how to glue all the data together, and had developed a lot of secret Excel wizardry to do so. They were dammed if they were going to give it all up for a dashboard that any fool could read.
+
+If only we'd found a way to make the interface acceptably difficult to use, heads of risk wouldn't have felt threatened. Banks would have understood the scary mess they were in more quickly, and the global economy might have been saved.
+
+Sorry world, my bad.
+=== 3. Danger May Be Safer ===
+
+Last month, one of the smartest economists in the world passed away. His name was Gordon Tullock. He spent his life studying how people made choices, and that led him to rethink everything we know about risk.
+
+He showed that people have a fairly consistent attitude to danger. If you make an activity safer, people push the limits of that activity to bring the risk back up to a level they find accessible. Take driving. Put ABS brakes in a car, and people just tend to brake later, and less. Traction control just makes us less careful in slippery conditions. Risk homeostasis, as it’s known, has been observed everywhere from football helmets to oilrigs.
+
+Some say that Tullock came up with a fabulous piece of design logic: if you want to reduce accidents, install a sharp spike pointing outwards from the steering wheel of every car, aimed at the driver's heart.
+
+User friendly? No. But it would certainly make everybody drive very, very carefully.
+=== 4. Expert Mode and the Pro Am Phenomenon ===
+
+What have Linux, Grameen Bank and St John’s Ambulances have in common? They’re world-class brands that are created and run largely by amateurs. The people behind them often have the same skills as professionals, but the work just isn’t their day job. Somebody who regularly saves lives, or builds an operating system that runs on supercomputers or does micro-loans out of their living room, is more than a hobbyist. They’re a pro-am, and their numbers are growing according to Demos, a UK think tank. They’ve charted the rise of pro-ams in everything from sports to astronomy.
+
+‘Pro Ams’…activities,’ says their study, ‘are not adequately captured by the traditional definitions of work and leisure, professional and amateur, consumption and production.’
+
+Pro Am users don't want things to be made easy. They want to push themselves to perform at their best. Look at camera design. While low-end cameras are being wiped out by smartphones, the growth is in $1500-plus cameras that are infinitely tweakable. Fujifilm is emerging as the new Apple of this breed, taking the controls out of deep menu functions and putting them back on chrome knobs that just beg to be twiddled. I bought a Fujifilm X100 two years ago. It was the first piece of technology I'd bought in 15 years where I had to read the manual. Actually, I’ve read the manual at least four times. Now I'm taking the best pictures of my life, and I love it. By being hard to use, my X100 made me a better photographer.
+=== 5. Are You Making It Easy to Do Something Badly? ===
+
+Doug Englebart and Bill English designed the mouse that revolutionized the ways we work with computers. That’s only half the story, though. They felt it was a waste of time for a user to move their hand from keyboard to mouse and back again. So they devised a 5-button keyboard where you pressed buttons simultaneously to write words, delete, copy and paste. As Englebart said, ‘You can point with a [mouse] I admit…but our system had an indefinite number of nouns and verbs you could employ. There’s no way that clicking at menus can compete with that.’
+In the end, the mouse triumphed, as computer manufacturers believed that only hardcore programmers had the patience to learn the NLS key combinations. If they’d had a little more faith, maybe they’d have saved us writers a ton of time and tendon twinges.
+
+Remember Palm pilots? They won out over Apple’s Newton because they read input much more accurately. They did that by making millions of users learn a new alphabet, one that was easier for a machine to read. I learned it. Once mastered, it was far easier to use than a modern iPhone keyboard, with its autocorrection and fat thumb errors. I miss my Palm 5.
+
+Don’t get me wrong. I’m not against making things easy to use. Ease of use encourages somebody to pick up your product. But the promise of mastery ensures that they will never want to put it down.

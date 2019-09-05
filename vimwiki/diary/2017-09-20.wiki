@@ -1,0 +1,46 @@
+= weather:sunny =
+
+    <Leader><      If standing on a delimiter (parenthesis or square bracket)
+                   then moves it to the left by slurping or barfing the
+                   s-expression to the left, depending on the direction of the
+                   delimiter:
+                   Pressing '<' when standing on a ')' makes the s-expression
+                   to the left of the ')' going out of the current list.
+                   Pressing '<' when standing on a '(' makes the s-expression
+                   to the left of the '(' coming into the current list.
+                   For example pressing <Leader>< at position marked with |:
+                       (aaa bbb|)        --->    (aaa|) bbb
+                       aaa |(bbb)        --->    |(aaa bbb)
+
+    <Leader>>      If standing on a delimiter (parenthesis or square bracket)
+                   then moves it to the right by slurping or barfing the
+                   s-expression to the right, depending on the direction of the
+                   delimiter:
+                   Pressing '>' when standing on a '(' makes the s-expression
+                   to the right of the '(' going out of the current list.
+                   Pressing '>' when standing on a ')' makes the s-expression
+                   to the right of the ')' coming into the current list.
+                   For example pressing <Leader>< at position marked with |:
+                       (aaa|) bbb        --->    (aaa bbb|)
+                       |(aaa bbb)        --->    aaa |(bbb)
+
+
+    <Leader><Up>   Splice the current list into the containing list by deleting
+                   everything backward from the cursor position up to the
+                   opening paren.
+                   For example pressing <Leader><Up> at position marked with |:
+                       (aaa (bbb |ccc) ddd)  --->    (aaa |ccc ddd)
+
+    <Leader><Down> Splice the current list into the containing list by deleting
+                   everything forward from the cursor position up to the
+                   closing paren.
+                   For example pressing <Leader><Down> at position marked with |:
+                       (aaa (bbb| ccc) ddd)  --->    (aaa |bbb ddd)
+
+    <Leader>I      Raise the current symbol, i.e. replace the current list with
+                   the current symbol by deleting everything else (except the
+                   symbol) in the list, including the enclosing pair of parens.
+                   For example pressing <Leader>I at position marked with |:
+                       (aaa (b|bb ccc) ddd)  --->    (aaa |bbb ddd)
+
+

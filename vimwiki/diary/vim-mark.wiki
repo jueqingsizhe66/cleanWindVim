@@ -1,0 +1,14 @@
+http://ergoemacs.org/emacs/emacs_bind_number_pad_keys.html
+
+
+emacs中也有keyboard 数字键盘的绑定
+;; bind number pad keys
+
+(global-set-key (kbd "<kp-1>") 'bookmark-bmenu-list)
+(global-set-key (kbd "<kp-2>") 'ibuffer)
+
+
+而在vim中你如果安装了https://github.com/dimasg/vim-mark  vimmark
+是可以只直接使用 ,m 来标记， ,n来撤出标记，最多有9个 因为刚好
+绑定9个数字键。
+

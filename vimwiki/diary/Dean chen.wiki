@@ -1,0 +1,22 @@
+http://blog.csdn.net/sheismylife/article/category/1060085
+http://blog.csdn.net/sheismylife/article/category/1312298  clojure  series
+
+
+1. company 取代auto-complete,更新很频繁
+2. yasnippet 代码模板,关键是可内嵌lisp代码执行，太强悍了!接下来唯一的限制就是你的想象力了
+3. js2-mode javascript开发神器(sublime之流和它根本不是一个数量级的)
+4. evil-mode 把emacs变成vim，基本vim有的它都有了比如text object，最酷的是可以写lisp自定义text object
+5. evil-leader 很简单的一个plugin,但是用好的话,让你效率成倍提升.
+6. evil-matchit 在成对的tag跳来跳去, vim的matchit移植版但更强大 (我写的)
+7. evil-nerd-commenter  , 按行注释代码, nerd-comment的移植版 (我写的)
+8. helmweb-mode, 通吃html所有相关windows-numbering.el 子窗口跳转的终极方案,我用过所有的编辑器,没有比这个跟好的了.
+9. smex ,不用再记快捷键了====补充===我先入为主地认为提问者指的是需要安装的第三方扩展,Emacs24自带的扩展我补充一下：
+10. org-mode gtd工具,神级别的软件,和git,vim,emacs是一个档次的
+11. winner-mode, undo窗口layout很有用
+12. gnus,让我又爱又恨,界面有点费解,但是有些killer feature, forward邮件,快速发邮件,添加附件不错,问题是Emacs其他插件太牛逼,比如和yasnippet结合用,和company-mode,和evil等等,所以gnus要伴我终生了.
+13. ido, 类似于helm,和helm各有千秋我都用,五五开,不过helm有个让我爱死的设置,可以选择何时使用ido,helm或者两者都不用.开源真的不错呃,世界级高手都是惺惺相惜的.不像那些专有软件,菜鸟开发,即使是同一个公司,还要互相往死里掐.
+14. imenu 显示当前文件函数列表,可以直接跳转到那去,完全可配置,支持所有语言
+15. flymake 实时语法检查,通吃所有语言
+16. flyspell 拼写检查,爱死了,是我见过的所有拼写检查最强大,如果你知道如何配置.====再补充===也许最好的插件就是Lisp语言本身,强大,简单易学,其语法看似诡异,于是自动过滤了菜鸟.我的另一个诀窍就是一旦发觉一个好的插件,立即调查原作者,务必把他所有开发的使用的工具调查清楚.比如mooz维护的的js2-mode让我爱不释手,于是我调查他开发的其他工具,
+17. keysnail - firefox模拟成Emacs,我用过的同类软件中最好的,细节无可挑剔
+18. percol - python开发的命令行工具,天才的作品,我现在的工作流主要就靠它,没有它我效率要大大降低

@@ -1,0 +1,39 @@
+cygwin install bash.it
+
+1. git clone https://github.com/Bash-it/bash-it  --depth 1
+2. cd ~; mkdir .bash-it
+3. copy all the files in the bash-it to the ~/.bash-it
+4. okay, change the theme to powerline-multiline
+
+
+t again 25 1 表示在号为25的task延期一天(通常一个项目延期为1年)
+即: t again 4 1y
+    t again 4 1m
+    t again 4 2w
+t view past  看过去的事情
+t view future  看将来要做的事情
+t view project 看项目相关的事情
+
+
+Sorting tasks:
+ <localleader>s  Sort the file
+ <localleader>s+  Sort the file on +Projects
+ <localleader>s@  Sort the file on @Contexts
+ <localleader>sd  Sort the file on dates
+ <localleader>sdd  Sort the file on due dates
+
+Edit priority:
+ <localleader>j  Decrease the priority of the current line
+ <localleader>k  Increase the priority of the current line
+ <localleader>a  Add the priority (A) to the current line
+ <localleader>b  Add the priority (B) to the current line
+ <localleader>c  Add the priority (C) to the current line
+
+Date:
+ <localleader>d  Set current task's creation date to the current date
+ date<tab>  (Insert mode) Insert the current date
+
+Mark as done:
+ <localleader>x  Mark current task as done
+ <localleader>X  Mark all tasks as done
+ <localleader>D  Move completed tasks to done.txt

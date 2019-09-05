@@ -1,0 +1,6 @@
+vector serise
+http://hypirion.com/musings/understanding-persistent-vector-pt-1
+
+
+persistent vector implementation
+http://blog.higher-order.net/2009/02/01/understanding-clojures-persistentvector-implementation

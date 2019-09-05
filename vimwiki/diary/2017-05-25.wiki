@@ -1,0 +1,30 @@
+= weather:sunny =
+
+== funny: ==
+use  
+1. Shift+enter: 
+   在一个item中可以增加文字部分，而不是item部分
+2. enter：enter可以不断产生和上一级相同的文本格式而如果是文字部分想要接着进行item部分,则shift enter，不想的话继续enter即可
+3. shift enter即可在进行多级文本行之后进行item模式
+
+== anchor ==
+复习了vimwiki的文本内部链接 anchor命令
+
+
+语法是类似于File:  local: 的形式 然后再文件名的后面再增加一个#即可，#后面跟着是你的headname或者:Tag_name:的tag_name都是可以的
+
+
+# 时均结果文件夹
+* [[0:       local:L:/2016-1-17phaseVI/0allFreeslip/transientCollect/result]]
+* [[0shear:  local:L://2016-1-17phaseVI//0degreeShear//transientCollect//result//]]
+* [[5:       local:L://2016-1-17phaseVI//5degree//transientCollect//result//]]
+* [[5shear:  local:L://2016-1-17phaseVI//5degreeShear//transientCollect//result//]]
+* [[20:      local:L://2016-1-17phaseVI//20degree//transientCollect//result//]]
+* [[20shear: local:L:/2016-1-17phaseVI/20degreeShear/transientCollect/result]]
+* 10: [[local:I://2017-1-18phaseVI//10degree//result]]
+* 10shear: [[local:I://2017-1-18phaseVI//10degreeShear//transientCollect//result]]
+* 15: [[local:I://2017-1-18phaseVI//15degree//transientCollect//result]] 
+* 15shear: [[local:I://2017-1-18phaseVI//15degreeShear//transientCollect//result]]
+
+
+easymotion+incsearch+insearch_easymotion+insearch_fuzzy makes my find more perfect!

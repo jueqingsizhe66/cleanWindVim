@@ -1,0 +1,36 @@
+= weather:sunny =
+In this paper we introduce a .. that.,
+
+ In conjunction with the ability to maintain multiple control environments, engines allow the 
+ base language to be extended with a time-sharing implementation of process abstraction facilities.
+ 
+  By designing a base language with a few general abstraction mechanisms such as engines and continuations,
+  a powerful basis for building programming environments is provided. In this paper we are not introducing yet another process abstraction; rather, we are proposing a low-level mechanism that allow time-sharing implementatin of arbitrary process abstr
+  
+  mechanism
+  
+  an extended version of Scheme with engines,is composed of the following syntatic constructs:
+  <expression> ::=
+    <constant>
+    | <identifier>
+    | <syntatic extension>
+    | (lambda ({<identifier>}) {<expression>})
+    | (if <expression> <expression> <expression>)
+    | (set! <identifier> <expression>)
+    | (call/cc <expression>)
+    | <application>
+    
+<syntatic extension> ::= (<keyword> {<expression>})
+<application>  ::= (<expression> <expression>)
+
+lambda is the sole binding operator of this subset and evaluates its expressions sequentially, returning  the value of the last.
+set! side-effects an existing identifer binding or initialized a global identifier.
+call/cc and engine are descried below.
+An application evaluates its expression(in an unspecified order)  and applies the value of the first expression to a list of arguments formed
+from the value of the remaining expressions
+
+    Scheme 84 provides a syntatic preprocessor that examines the first object in each expression. If the object is a syntatic extension(macro) keyword,
+    the procedure associated with the indicated syntactic extension is invoked on the the expression, and the expression is replaced by the resulting
+    transformed expression. If the object is not a keyword or core expression identifier(lambda,if,et.c ) then it is assumed that the expression is an application.
+    
+    

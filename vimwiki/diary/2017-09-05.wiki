@@ -1,0 +1,107 @@
+= weather:sunny =
+
+
+
+org-mode shortkey
+
+http://www.cnblogs.com/bamanzi/p/org-mode-tips.html
+c-c a 打开agender菜单
+c-c c-t 添加档期那标题的todo
+C-c C-q 添加当前标题的tag
+c-c c-d 添加当前标题的deadline
+c-c c-s 添加当前标题的shedule时间
+c-c s-< 打开calendar
+c-c s-> 添加calendar鼠标时间
+<s Tab 添加src块
+<e Tab 添加example块
+
+
+c-c c-c 加入了你的GTK很方便 的添加标签
+
+在链接后加::可对其定位，如：
+
+file:~/code/main.c::255                     进入到 255 行
+file:~/xx.org::My Target                    找到目标‘<<M
+y
+ Target>>’
+file:~/xx.org/::#my-custom-id               查找自定义 id 的项
+
+(setq org-agenda-files (list "~/doc/org/linux.org"
+                     "~/doc/org/work.org"
+                     "~/doc/org/home.org"))
+                     
+                     
+
+    M-RET 插入同级列表项
+    M-S-RET 插入有 checkbox的同级列表项
+    C-c C-c 改变 checkbox状态
+    M-left/right 改变列表项层级关系
+    M-up/dowm 上下移动列表项
+
+                     
+                     
+http://members.optusnet.com.au/~charles57/GTD/remember.html                     
+
+From your YouDao
+http://doc.norang.ca/org-mode.html#HowToUseThisDocument [大神级]
+http://members.optusnet.com.au/~charles57/GTD/gtd_workflow.html#sec-1 [GTD-Workflow]
+bookmark+ https://www.emacswiki.org/emacs/BookmarkPlus 
+任务（TASKS）
+
+任何任务都应该用明确的动词来表征「Next Action」的行为，并记述该动词的目的和行为的目标。这样一来你不需要再次思考任务的形式，从而简单地执行。比如，与其写「周报告」不如以「总结这一周的来表述任务的内容更加能够容易理解该做什么。
+我用以下的词汇来表征任务表：
+处理，提问，回避，购买，变更，明确，收集，委托，从事，深思，想象，决定，延期，开发，废弃，重新实现，下载，输入，整理，跟踪，雇佣，改善，增 加，报告，寻找，维持，测定，检测，订货，描画，打电话，设置优先级，购入，减少，记忆，修理，回复，调查，回顾，时间安排，卖，送，服务，指定，开始， 停止，建议，规划，坐车，更新，升级，写。
+
+ Each task is written to begin with a "Next Action" Verb and an object or target of the verb. It is much easier to take action if you know what you need to do without reassessing the task. For example, "Weekly Report" is unclear whereas "Compile weekly call statistics" tells me what needs to be done.
+Here is my list of action verbs:
+Address, ask, avoid, buy, change, clarify, collect, commend confront, consider, create, decide, defer, develop, discard, do again, download, enter, file, follow up, hire, improve, increase, inform, inquire, maintain, measure, monitor, order, paint, phone, prioritize, purchase, question, reduce, remember, repair, reply, report, research, resolve, review, schedule, sell, send, service, specify, start, stop, suggest, tidy, train, update, upgrade, write. 
+
+   Tasks:      TODO Write descrip of my GTD / orgmode                  :COMPUTER:
+   Tasks:      TODO Study the Inkscape Tutorial Book                   :COMPUTER:
+   Tasks:      TODO Write an article about org-mode vocabulary capture :COMPUTER:
+   Projects:   TODO Write notes and lists of Japanese adjectives       :COMPUTER:
+   Financial:  TODO Pay Mastercard                                     :COMPUTER:
+   Projects:   TODO Tidy up my GTD web site .. directory on display    :COMPUTER:
+   Tasks:      TODO Watch TOKYO STORY                                       :DVD:
+   Projects:   TODO Daily Hiragana review on Anki                          :HOME:
+   Projects:   TODO Daily Katakana review on Anki                          :HOME:
+   Projects:   TODO Study - Beyond Words: A Guide to Drawing Out Ideas     :HOME:
+   Projects:   TODO Read TALE OF THE GENJI                              :READING:
+工程项目
+
+我使用这个分类来记录各个工程项目中的详细信息。一个工程项目对应一个以上的行动，并且它们通常都付有结束的日期。
+在各个工程项目的目录中记述项目的内容，换句话说就是细化项目流程，在其下方用目录构造表示。
+与任务的（Next Action）中说明的一样，这里我也用一些动词来表述项目：安成，决定，处理，调查，提示，扩大，计划，设计，结束，确定，查询，展开，更新，安装，改良，设定。
+
+
+ This section is used to store details of each project I am working on. A project is a group of activities with a specific outcome that requires more than one action step and usually has a target date for completion.
+Each project is stored as as heading with a subheading to contain a description of the project, and a work breakdown structure.
+I use a set of Project Verbs in a similar manner to how I write Tasks (Next Actions):
+Finalize, resolve, handle, look into, submit, maximize, organize, design, complete, ensure, research, roll out, update, install, implement, set-up. 
+
+
+书签
+http://blog.csdn.net/PfanAya/article/details/7068710
+C-x r m Bookmark 	bookmark-set 	设置一个名为 Bookmark 的书签。
+C-x r l 	bookmarks-bmenu-list 	列出所有已保存的书签。
+  	bookmark-delete 	删除一个书签。
+C-x r b Bookmark 	bookmark-jump 	跳转至名为 Bookmark 的书签中所设置的位置。
+未定义 	bookmark-save 	将所有的书签保存到书签文件 ~/.emac.bmk 中。
+
+程序员有用
+
+C-M-n            跳转到括号结束位置
+C-M-p            跳转到括号开始位置
+
+Alt+;  表示添加注释
+C-g，难道这个不像Vim里面的ESC
+
+C-g，难道这个不像Vim里面的ESC？C-x C-f，难道不开文件来编辑？C-x C-s，难道不经常保存？Alt-w，难道没复制过内容？Ctrl-y，难道没粘贴过内容？C-s，难道看代码的时候不经常查找？Alt-shift-%，难道写代码的时候不经常替换？Alt-;，难道你写代码的时候不经常注释代码？C-x b，写代码应该要经常切换buffer吧？
+
+M-g g跳转到某行
+
+
+
+可以把所有的标题和tag，类，方法，时间，地点，schedule，deadline，都统一为一个方向术语
+
+沿着标题方向跳跃（好像标题是活的）

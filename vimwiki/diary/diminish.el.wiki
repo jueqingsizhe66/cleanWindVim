@@ -1,0 +1,15 @@
+= Is your modeline chock full of minor-mode abbreviations and cruft? =
+
+;; Diminish modeline clutter
+(require 'diminish)
+(diminish 'wrap-region-mode)
+(diminish 'yas/minor-mode)
+
+After a quick M-x package-install diminish, you too can have the pleasure of using a lot of minor modes, without those minor modes making a mess of the modeline. Mmm.
+
+As for diminish.el itself, it contains the most beautifully poetic code commentary of all time. Here's an excerpt:
+
+    "When we diminish a mode, we are saying we want it to continue doing its work for us, but we no longer want to be reminded of it. It becomes a night worker, like a janitor; it becomes an invisible man; it remains a component, perhaps an important one, sometimes an indispensable one, of the mechanism that maintains the day-people's world, but its place in their thoughts is diminished, usually to nothing. As we grow old we diminish more and more such thoughts, such people, usually to nothing." 
+
+- Will Mengarini in diminish.el
+

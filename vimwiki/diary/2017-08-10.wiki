@@ -1,0 +1,14 @@
+= weather:sunny =
+R5RS html officier  page
+http://www.schemers.org/Documents/Standards/R5RS/HTML/r5rs-Z-H-2.html#%_toc_start
+
+husk-scheme
+https://github.com/justinethier/husk-scheme
+http://justinethier.github.io/husk-scheme/manual/getting-started.html
+
+https://github.com/alaricsp/chicken-scheme
+
+
+
+:rootsoflisp:
+https://github.com/hlpp/scheme/tree/master/tests

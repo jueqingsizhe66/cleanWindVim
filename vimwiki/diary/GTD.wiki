@@ -1,0 +1,28 @@
+https://en.wikipedia.org/wiki/Getting_Things_Done
+== Themes ==
+
+Allen first demonstrates stress reduction from the method with the following exercise, centered on something that has entered your life that has an unclear outcome or where the next action is not defined. (Allen calls these sources of stress "open loops," "incompletes," or "stuff.")[1]:13
+
+1.    Pick an "incomplete": What most annoys, distracts, or interests you?
+2.    Write down a description of the successful outcome in one sentence. What is your definition of "done"?
+3.    Write down the next action to move toward the desired outcome
+4.    Notice how you feel after the exercise compared to before it.
+
+He claims stress can be reduced and productivity increased by putting reminders about everything you are not working on into a trusted system external to your mind. In this way, you can work on the task at hand without distraction from the "incompletes."[1]:14 The system in GTD requires you have within easy reach an inbox, a trash can, a filing system for reference material, several lists (detailed below), and a calendar. These tools can be physical or electronic as appropriate (e.g. a physical "in" tray or an email inbox).[1]:88 As "stuff" enters your life, it is captured in these tools and processed with the following workflow.[1]:27
+Workflow
+Logic tree diagram illustrating the second and third steps (process/clarify and organize) of the five-step Getting Things Done workflow
+
+The GTD workflow consists of five stages: capture, clarify, organize, reflect, and engage.[3] (The first edition used the names collect, process, organize, plan, and do; the descriptions of the stages are similar in both editions). Once all the material ("stuff") is captured (or collected) in the inbox,[1]:106 each item is clarified[1]:122 and organized[1]:141 by asking and answering questions about each item in turn as shown in the black boxes in the logic tree diagram. As a result, items end up in one of the eight oval end points in the diagram:
+
+1.    in the trash
+2.    on the someday/maybe list
+3.    in a neat reference filing system
+4.    on a list of tasks, with the outcome and next action defined if the "incomplete" is a "project" (i.e. if it will require two or more steps to complete it).
+5.    immediately completed and checked off if it can be completed in under two minutes
+    delegated to someone else and, if you want a reminder to follow up, added to a "waiting for..." list
+6.    on a context-based "next action" list if there is only one step to complete it
+    on your calendar[1]:27
+
+Empty your inbox or inboxes daily or at least weekly ("in" to empty).[1]:122 Don't use your inbox as a "to do" list. Don't put clarified items back into the inbox.[1]:27 Emptying your inbox doesn't mean finishing everything. It just means applying the "capture, clarify, organize" steps to all your "stuff."[1]:27
+
+Next, reflection (termed planning in the first edition) occurs. Multi-step projects identified above are assigned a desired outcome and a single "next action."[1]:191 Finally, a task from your task list is worked on ("engage" in the 2nd Ed, "do" in the 1st Ed) unless the calendar dictates otherwise. You select which task to work on next by considering where you are (the "context", e.g. at home, at work, out shopping, by the phone, at your computer, with a particular person), time available, energy available, and priority.[1]:204

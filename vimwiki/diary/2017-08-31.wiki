@@ -1,0 +1,6 @@
+= weather:cloudy =
+
+The Interpreter Recipe
+1. Look at a piece of data
+2. Decide what kind of data it represents
+3. Extract the components of the datum and do the right thing with them

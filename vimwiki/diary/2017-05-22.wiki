@@ -1,0 +1,29 @@
+= weather:rainy =
+
+1. 查看旋转方向上的Force X和Z有什么不同
+怎么查看？ 
+
+    a) [[local:D:/windimsizeBackup/PhaseVI-YeZHaoliang/偏航11.docx]]
+    b) [[file:F:/科研基地.Attachments/Friends/老仇/Improved blade element momentum theory for wind turbine aerodynamic computations.pdf]]
+        {{{if(sum(forceTanArray) <0)
+         forceNorArray = -forceNorArray;
+        end 
+        }}}
+    c) [[file:F:/科研基地.Attachments/专业领域/ForceNormalBEM/Wind tunnel testing and improved blade element momentum method for umbrella-type rotor of horizontal axis wind .pdf]] 
+        {{{
+        one new method to calculate the axis induction factor and tangent induction factor
+        from  wind energy handbook[[no just the same]]
+        }}}
+    d) [[file:F:/科研基地.Attachments/Wang Xiaodongcomments/wang2017-0214/Wind Energy Handbook (2nd Edition).pdf]]  
+
+
+
+
+"let g:Matlab_GlbTemplateFile='C:/Users/YeZhao/.vim/vim-plugins/matlab-support/templates/Templates'
+let g:Matlab_GlbTemplateFile=) 结论：切向力的确是在内叶展为负 0.2m到外叶展基本上为正，所以cfd处理数据出现刚好相反得修改-->修正-->结果怎么样?-->
+        b) 1865 Rankine refer out that the Actutator disk method[提出] using AD to represent the rotor
+        c) 1889 Froude with Actutator disk found half decrease of velocity[做出] with physical experiment 
+        d) 1892 Drzewiecki propose the concept of dividing rotor blade into separate element【without inducing 】
+        e) With the development of vortex theory, van Kuik et al. propose the Betz-Joukowsky limit 59.3%
+        f) Prandtl and Glauert make some further improvement ,found the classical BEM
+        g) 

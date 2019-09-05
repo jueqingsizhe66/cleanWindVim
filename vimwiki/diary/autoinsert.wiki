@@ -1,0 +1,33 @@
+https://www.gnu.org/software/emacs/manual/html_node/autotype/Autoinserting.html
+= 6 Autoinserting Text in Empty Files =
+
+参考配置
+http://ann77.emacser.com/Emacs/EmacsTemplate.html
+M-x auto-insert will put some predefined text at the beginning of the buffer. The main application for this function, as its name suggests, is to have it be called automatically every time an empty, and only an empty file is visited. This is accomplished by putting (add-hook 'find-file-hook 'auto-insert) into your ~/.emacs file (see Init File).
+
+What gets inserted, if anything, is determined by the variable auto-insert-alist. The cars of this list are each either a mode name, making an element applicable when a buffer is in that mode. Or they can be a string, which is a regexp matched against the buffer's file name. In that way different kinds of files that have the same mode in Emacs can be distinguished. The cars may also be cons cells consisting of mode name or regexp as above and an additional descriptive string.
+
+When a matching element is found, the cdr says what to do. It may be a string, which is a file name, whose contents are to be inserted, if that file is found in the directory auto-insert-directory or under a absolute file name. Or it can be a skeleton (see Skeleton Language) to be inserted.
+
+It can also be a function, which allows doing various things. The function can simply insert some text, indeed, it can be skeleton command (see Using Skeletons). It can be a lambda function which will for example conditionally call another function. Or it can even reset the mode for the buffer. If you want to perform several such actions in order, you use a vector, i.e., several of the above elements between square brackets (‘[...]’).
+
+By default C and C++ headers insert a definition of a symbol derived from the filename to prevent multiple inclusions. C and C++ sources insert an include of the header. Makefiles insert the file makefile.inc if it exists.
+
+TeX and bibTeX mode files insert the file tex-insert.tex if it exists, while LaTeX mode files insert a typical \documentclass frame. Html files insert a skeleton with the usual frame.
+
+Ada mode files call the Ada header skeleton command. Emacs lisp source files insert the usual header, with a copyright of your environment variable $ORGANIZATION or else the FSF, and prompt for valid keywords describing the contents. Files in a bin directory for which Emacs could determine no specialized mode (see Choosing Modes) are set to Shell script mode.
+
+In Lisp (see Init File) you can use the function define-auto-insert to add to or modify auto-insert-alist. See its documentation with C-h f define-auto-insert.
+
+The variable auto-insert says what to do when auto-insert is called non-interactively, e.g., when a newly found file is empty (see above):
+
+nil
+    Do nothing.
+t
+    Insert something if possible, i.e., there is a matching entry in auto-insert-alist.
+other
+    Insert something if possible, but mark as unmodified. 
+
+The variable auto-insert-query controls whether to ask about inserting something. When this is nil, inserting is only done with M-x auto-insert. When this is function, you are queried whenever auto-insert is called as a function, such as when Emacs visits an empty file and you have set the above-mentioned hook. Otherwise you are always queried.
+
+When querying, the variable auto-insert-prompt's value is used as a prompt for a y-or-n-type question. If this includes a ‘%s’ construct, that is replaced by what caused the insertion rule to be chosen. This is either a descriptive text, the mode-name of the buffer or the regular expression that matched the filename. 

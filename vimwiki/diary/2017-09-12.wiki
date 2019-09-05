@@ -1,0 +1,100 @@
+= weather:sunny =
+
+I help  people with Emacs questions all the time, but I don't know everything---
+what I do know is where to look  and how to read about the documents
+
+
+Oh, I don't know how to do this but I do know where I can look for help
+
+Our confidence in Emacs will go up in step with our knowledge
+
+
+    The Most important part, as I've stressed many times, is to give it time
+    and practice- take a moment in your day-to-day life to ask yourself if 
+    there's a better way of solving a problem with which you are faced
+    
+一年掌握神一样编辑器
+    
+   https://github.com/redguardtoo/mastering-emacs-in-one-year-guide 
+   
+  http://blog.csdn.net/redguardtoo/article/details/7222501/[ø]
+  
+  
+  Nasa clojure项目
+ https://github.com/nasa/Common-Metadata-Repository 
+ 
+ 
+ 这种写法，在morg
+LINK:info:org:TOP
+
+;;------------语言环境字符集设置(utf-8)-------------
+
+(set-language-environment 'Chinese-GB)
+(set-keyboard-coding-system 'utf-8)
+(set-clipboard-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-selection-coding-system 'utf-8)
+(modify-coding-system-alist 'process "*" 'utf-8)
+(setq default-process-coding-system '(utf-8 . utf-8))
+(setq-default pathname-coding-system 'utf-8)
+(set-file-name-coding-system 'utf-8)
+(setq ansi-color-for-comint-mode t)
+;;处理shell-mode乱码,好像没作用
+
+;;------语言环境字符集设置结束------------
+
+;;--------------窗口界面设置------------------
+
+(set-foreground-color "grey")
+(set-background-color "black")
+(set-cursor-color "gold1")
+(set-mouse-color "gold1")
+
+(set-scroll-bar-mode nil)
+;;取消滚动栏
+
+;;(customize-set-variable 'scroll-bar-mode 'right))
+;;设置滚动栏在窗口右侧，而默认是在左侧
+
+(tool-bar-mode nil)
+;;取消工具栏
+
+;;启动设置
+(setq default-frame-alist
+             '((vertical-scroll-bars)
+               (top . 25)
+               (left . 45)
+               (width . 120)
+               (height . 40)
+               (background-color . "black")
+               (foreground-color . "grey")
+               (cursor-color . "gold1")
+               (mouse-color . "gold1")
+               (tool-bar-lines . 0)
+               (menu-bar-lines . 1)
+               (right-fringe)
+               (left-fringe)))
+
+;;启动自动最大化(数据自己调整，注意格式，如(top . 0)，圆点前后都要留有空格)
+;;(setq initial-frame-alist '((top . 0) (left . 0) (width . 142) (height . 49)))
+
+
+;; 设置另外一些颜色：语法高亮显示的背景和主题，区域选择的背景和主题，二次选择的背景和选择
+(set-face-foreground 'highlight "white")
+(set-face-background 'highlight "blue")
+(set-face-foreground 'region "cyan")
+(set-face-background 'region "blue")
+(set-face-foreground 'secondary-selection "skyblue")
+(set-face-background 'secondary-selection "darkblue")
+
+;;------------窗口界面设置结束-----------------
+
+;;------------显示时间设置------------------------------
+
+(display-time-mode 1);;启用时间显示设置，在minibuffer上面的那个杠上
+(setq display-time-24hr-format t);;时间使用24小时制
+(setq display-time-day-and-date t);;时间显示包括日期和具体时间
+(setq display-time-use-mail-icon t);;时间栏旁边启用邮件设置
+(setq display-time-interval 10);;时间的变化频率，单位多少来着？1 

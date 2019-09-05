@@ -1,0 +1,43 @@
+= weather:cloudy =
+
+技术工程师是如何读代码，以及读文章？
+{{{ 
+    find . -name "*"|sed 's/^./F:\/ScienceBase.Attachments\/WindEnergy/g'
+    
+    find . -name "*"|sed 's/^./F:\/ScienceBase.Attachments\/WindEnergy/g'|sed 's/^/[[local:/g'|sed 's/$/]]/g'> a.wiki
+    
+}}}
+
+
+= 改进版本 =
+{{{
+IFS=$'\n';
+count=1;
+countDir=1;
+generateChapter() # @Description : 对不同文件进行不同处理
+                  # @usage       : generatechapter
+{
+    # 妙用find 得到当前目录的相对路径 不需要不断的进入目录
+    for var2 in `find . -name "*"`
+    do
+        if [[ -d  $var2 ]] # < cannot . Error
+        then
+            var=`echo $var2|sed 's/^./F:\/ScienceBase.Attachments\/WindEnergy/g'|sed 's/^/[[local:/g'|sed 's/$/]]/g'`
+            printf "= $countDir. $var\n =" # 使用#号来删除之前的点号
+            countDir=$(($countDir+1));
+        else
+            var=`echo $var2|sed 's/^./F:\/ScienceBase.Attachments\/WindEnergy/g'|sed 's/^/[[local:/g'|sed 's/$/]]/g'` 
+            printf "\t$count. ${var}\n" # 这边需要去除到第一个点号,这是才得到的处理方法
+            count=$(($count+1));
+        fi
+        
+
+    done
+}
+
+generateChapter
+
+}}}
+writing made effective and fun
+
+

@@ -1,0 +1,29 @@
+= weather:sunny =
+https://www.ksmpartners.com/2014/01/clojure-lazy-seq-and-the-stackoverflowexception/ 
+
+  有意思。 1. my-map-lazy速度极快，比内置的map速度快， 但是lazify-n! 速度还很慢
+  
+因为map 这一类的 seq 库函数还不够 lazy ，或者说没你想的那么lazy 
+
+
+identical? 函数在 Clojure 里面很少使用，这属于 语言 细节，一般都不需要用,=就足够了
+
+
+还有，你的对齐方式有些奇怪，不用嵌套这么多
+
+
+== org-mode ==
+
+你数数看他大概包含哪10个常用部分
+
+http://www.cnblogs.com/qlwy/archive/2012/06/15/2551034.html
+1. 标题
+2. 段落
+3. 字体
+4. 列表
+5. table表格
+6. 链接（内部链接和外部链接） 内部链接又包括anchor等
+7. Tag创建
+8. 列表的拓展 todo-list  标题的拓展 带标签的标题 org-tag-alist的创建
+9. 导出功能
+10. 引入代码块

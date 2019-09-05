@@ -1,0 +1,57 @@
+= weather:cloudy =
+https://github.com/emacsmirror/emacswiki.org/tree/master
+列编辑
+http://note.youdao.com/share/?id=20b926c6f5362ead77bfc12ba9cdd6d7&type=note#/
+C-x SPC
+down down
+C-t bar RET
+
+    https://superuser.com/a/868140/318030
+    https://www.gnu.org/software/emacs/manual/html_node/emacs/Rectangles.html
+
+Buffer list 相关操作
+
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Several-Buffers.html#Several-Buffers
+
+C-x C-b
+d  # mark buffer to delete
+x  # execute marked op
+
+Marking Text Regions
+
+C-x h  # 全选
+M-h    # 选中当前段落 paragraph
+
+Cut, Copy & Paste
+
+C-w    # 剪贴 cutting
+M-w    # 复制 copying
+C-y    # 黏贴 paste, yank
+
+Undo & Redo
+
+C-/        # undo last operation
+C-u        # undo last operation
+C-x C-u    # redo
+
+查看已安装包
+
+C-h v package-activated-list
+
+    http://stackoverflow.com/a/13867007/2163429
+
+查看启用的 minor modes
+
+C-h m 
+#or 
+M-x describe-mode
+
+    https://stackoverflow.com/a/1511772/2163429
+
+大小写转化
+
+M-l 将下一个字变小写
+M-u 将下一个字变大写
+M-c capitalize following word
+C-x C-l convert region to lower
+C-x C-u convert region to upper
