@@ -1,0 +1,227 @@
+= 多相流宏 =
+
+多相流的每一相都有一个ID号
+
+DEFINE_Exchange_property 十分重要的宏
+
+DEFINE_ADJUST(每次迭代进行场信息微调)
+
+多相流的Define_Adjust和Define_Source会多出一个参数  相ID号
+
+
+{{{
+
+    DEFINE_SOURCE(x_mom, cell, t ,dS, eqn){
+        Thread *tm = THREAD_SUPER_THREAD(t); // t是系统传过来的
+        Thread **pt   =THREAD_SUB_THREADS(tm); // tm 不要写成mixture_thread, pt是一个指针数组
+        real U_secondary = C_U(cell ,pt[1]);
+        real U_primary =C_U(cell, t)
+        real P_mixture= C_P(cell, tm);
+        
+    }
+
+  }}}
+  
+= 自定义阻力 =
+// 阻力 升力 碰撞  
+
+DEFINE_EXCHANGE_PROPERTY(custom_drag, cell, mix_thread, s_col, f_col)
+    cell_t c
+    Thread *mixture_thread
+    int s_col
+    int f_col
+    
+堆积率：顶多0.63（一般是0.598 0.6）    
+
+
+传热过程定义热导率，通过DEFINE_PROPERTY方法
+
+颗粒流一般是需要开启重力加速度!
+
+
+注意颗粒项必须在Materials底下的Fluid定义，而不能定义在Solid中！（solid做结构方面相关，跟两相流没什么关系)
+
+Granular(颗粒)
+Granular Temperature Model(颗粒温度：其实是能量)
+
+Secondary Phase 设置面板定义颗粒的行为-----KTGF方法。。。。
+
+相间交互：定义阻力 
+
+Wenyu之后的曳力模型适合稠密颗粒--床层模拟
+
+开启传热之后---会在Phase Interaction中增加Heat面板!
+
+边界条件设置小技巧---可以copy，如果设置条件都一致的化！
+
+patch的极限肯定小于Packing limit值
+所以patch一般设置为0.6   Packing limit设置为0.63
+
+颗粒流的设置面版（Secondary Phase Panel) 对于计算结果影响很大，得做一些总结。
+
+Control---->Advanced Solution Controls --> AMG method Stabilization Method可以设置为BCGSTAB，增加计算的稳定度(算的慢点)
+(这个面板主要是用与求解算术方程式)
+
+
+Digasid  允许气相从出口流出 颗粒不能流出
+
+颗粒响应时间     18u分之r 颗粒直径的平方
+
+鼓泡塔三相(连续项是液体   注入依然是颗粒)
+
+颗粒流计算网格越小越好（DPM要求网格必须大于颗粒的4倍左右，算法决定而已) 
+
+Granular Viscosity 可一般用Syamlai-Obrien(也可以用DEFINE_PROPERTIES定义)
+
+Wenyu 和Gidaspow非常适合流化床的
+
+欧拉两相流的操作压力操作密度没有vof中设置重要，基本上不起作用
+
+重点看看Particulate Flows---------------------------(有很多的曳力模型介绍等，他是怎么)
+初始化的时候，就可以显示出Graphics树形表，只有patch上，contours才能有phase2 volume fraction!
+
+
+空气和气泡是两相(如果是气泡，那么气泡的时候不能check上granular , 但是气泡必须添加上graNular表示气泡相，但是不满足空气的连续行为，而是颗粒运动型的模型，基于KTGF方法)
+
+颗粒粒径是第一个需要设置的地方，颗粒的材料对计算影响几乎起着决定性作用!
+
+欧拉颗粒流最终发散了%%
+
+但是结果只能看到云图和体积分数(两项都当做流体来处理，不能看到颗粒的效果)
+
+
+而DPM我们喜欢的原因可以看到颗粒， 但颗粒受到网格的限制，需要较大网格，比较粗糙些（牛顿第二定律)
+
+于是可以使用DDPM，欧拉颗粒流和DPM相结合，欧拉颗粒流的第二相很多地方做了很多假设,很多没有科学道理，
+所以需要DDPM（涉及到injection注射过程)-----颗粒从无到有的过程，所以没有涉及到patch的过程。（）
+DDPM中： 欧拉面板处理连续相（也可以多相)   DDPMi案板处理
+
+通过气体输送模型，来看看DDPM的使用（需要设置Injections了，一定是双相耦合了) ---点指定的化输入坐标X（Firstpoint 和lastpoint保持一致即可， 然后速度)
+Set  Injecction Properties的Discrete Phase Domain 一定得选择Phase-2项，  Diameter Distribution可以选择linear或者rosin-rammler(模型参数较多)
+********************巨坑，得选择Phase-2xiang ）----》默认是没有的！！！！！！！！
+不需要我们自己指定材料：通过DPM中指定第二项材料属性，会在Materials 生成一个Inert Particle 的菜单，菜单下有一个anthracite可以进行材料属性的数值。
+
+Phases设置中，得check上granular,然后考虑（DPM只是考虑颗粒的轨迹计算，不考虑颗粒的摩擦、碰撞等，摩擦、碰撞得从欧拉相面板进行设置)
+
+欧拉模型处理不了冲蚀模型(没有颗粒),但是DPM可以(因为有颗粒)， 
+
+DDPM还是考虑硬球模型，用了颗粒动力学，不是真正用弹性力学去算，而是经验模型。
+
+
+总结： DPM得到paricle track
+       欧拉颗粒流可以简单考虑碰撞
+       DDPM两者均可以考虑到(后期处理particle track可以看清楚)
+       
+       Barracuda
+       
+DEM (类似于 )       
+模拟金属材料、岩石等脆性材料(本构是相当复杂)--颗粒之间的相互作用力，颗粒集中在一起形成一个大块，由此衍生出对于物体损伤的模拟
+
+SABM方法（模拟损伤)
+
+PFC(基于DEM)专业做岩石力学，统治地位
+
+StarCCM也集成了PFC， 两个球以一定速度发生碰撞，法向和切向接触力(应力 ,核心应力   正法向力就是碰撞力，切向力就是摩擦力)，影响颗粒的后期运动速度(碰撞前速度一直), 发生反弹、旋转等运动
+所以有人用弹簧来表达(碰撞力)
+与材料参数有关，很难定义好----
+于是出现更为复杂的模型，弹性缓冲建模粒子碰撞过程
+为了模拟切向力，采用摩擦力计算方法
+但是模型用的是静摩擦力，其实运动过程并不是静摩擦力，给出的摩擦计算结果会偏大。
+
+DEM只管颗粒颗粒的关系，颗粒与液体的运动是DPM做的事情（DDPM中DPM处理颗粒的轨迹，颗粒的碰撞采用欧拉颗粒流 , 
+而在DDPM-DEM中DPM依然处理颗粒的轨迹，颗粒的碰撞DEM取代欧拉颗粒流进行颗粒碰撞计算。
+
+DDPM-DEM可以通过文件(只注射一次即可， 充满床层)
+((x y z u v w diameter mass) injection-0) 
+((x y z u v w diameter mass) injection-0) 
+((x y z u v w diameter mass) injection-0) 
+((x y z u v w diameter mass) injection-0)  重复很多行放在file中，注射选择file注射例子即可(其实就是点和面surface的注射类型的另外一种)
+
+但上面讲的都不涉及到颗粒变形，颗粒的粒径变化该怎么计算?  增大、减少、破碎等变化过程
+= PBM =
+
+用途： 考虑凝聚和破碎的过程
+颗粒群的变形问题
+
+颗粒尺寸分布的对象...(颗粒的大小 分布)
+
+成核(从无到有)--Birth(生长过程)
+破碎(从有到无)--Death
+
+生长和破碎还可以聚集
+fluent PBM自带的3-40页的fluent manual！
+
+https://www.bilibili.com/video/av51551534/
+
+define/models/addon  module 5
+
+这样就会在欧拉多相流的同级菜单增加一个Population Balance 模型，有很多的Discrete(均相： 离散颗粒形式， 可以设置多级 Bins,  比如6 那么print Bins会打印6行数据,
+表示全场中存在几种粒径), Inhomogeneous Discrete(非均相离散)
+每个bin相当于是一种频率一样！ 每个人也有不同频率(代表不同频率)
+激活欧拉颗粒流+pbm(pbm和他一起公用，不需要dpm)
+水和气泡(air 不勾选granular, 过选了就变成了基于ktgf的欧拉两相流了。 因为现在需要用pbm即)
+
+/define/models/addon   module 5
+
+Nucleation Rate
+在Population Balance Model可以定义多个颗粒相（比如 co2  02 N2等）
+Breakage Kernal模型设置Luo-b模型
+
+可以统计一个面的Population balance 数 @ outlet( 当然如果你做欧拉两相流 )
+
+
+明渠流动只是vof模型中的一种(用于补充相界面)
+
+凝固是一个非常麻烦的问题,涉及到分子运动(路走的越来越偏)
+研究湍流都跑到混沌了，越走越偏
+
+Growth Rage(m/s)---级数增长(跳跃式的，)
+
+= 凝固融化模型 =
+
+关闭多相流既有 Solidation & Melting 模型
+
+物质除了需要达到蒸发点或者沸点，还需要吸收一定的饱和焓来达到蒸发和沸腾的过程（ice-water 可以看看 Granular temperature 的目的)
+·
+涉及三个区域对应修改即可，每个区域一种材料？只是针对固相或者液相，都是连续项！
+
+凝固融化其实是一个传热过程的数值计算过程。
+
+
+注意控制面板中的equations，也可以只开启Flow和Turbulence两方面(暂时先不计算Energy方程)
+
+fluent中的Patch主要有哪些功能？   vof的区域设置， 
+
+= Eulerian Wall Film =
+
+欧拉壁磨（与dpm模型配合使用）——
+研究喷膜厚度， 研究厚度的变化，离子捕捉过程
+
+1. 先计算流体模型
+2. 在计算DPM模型(注射一排 比u人group  设置x y  z velocity)
+再激活Eulerian Wall film---激活DPM Collections(壁面收集， 最起码得添加上， 只有添加上injections后才能开启)
+
+Wall Film相当于解决Set Injection Properties 的Discrete Phase Domain的位置， 再激活Wall Film model后他是none，因为
+在Euerrian Wall Film中及或者DPm Collection 和Edge separation ，有一个很重要的material Options 中的Film material
+设置膜的材质（这边一定得是离散相的材料，不能自定义了)！·
+
+= 欧拉两相流-沸腾模型 =
+
+沸腾过程，气泡是不是对吸热过程有很大的影响?
+
+RPI过冷沸腾(烧水过程 锅底温度超过100摄氏度，水的温度可能低于100摄氏度 只有加热壁面是等于饱和温度，其他区域低于饱和温度100摄氏度  跟蒸发冷凝思路一样，定义沸点
+超过沸点就是沸腾，不超过就不沸腾     蒸发冷凝定义蒸发点和冷凝点，行为发生思路类似沸腾)
+
+
+= 到底发生了什么，经历了什么 what happens at the wall? =
+
+大气泡--》气泡逐渐缩小，频率逐渐增加
+泡状流
+雾状流：
+
+此时的离散项也不要用Granular了（不基于KGLF模型） 而是基于沸腾模型。
+此时一定得定义传质过程了
+
+VOF界面追踪！
+
+BARRACUDA -----气固，不考虑颗粒汇聚和碰撞的

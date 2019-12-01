@@ -90,6 +90,7 @@ Plug 'machakann/vim-highlightedyank'
 "Plug 'dbmrq/vim-ditto'
 ""support csv
 Plug 'chrisbra/csv.vim'
+Plug 'mechatroner/rainbow_csv'
 "strength the NerdTree, multiTags with one NerdTree
 
 
@@ -251,6 +252,7 @@ Plug 'chrisbra/csv.vim'
 "Plug 'wannesm/wmgraphviz.vim'
 Plug 'vim-scripts/gnuplot.vim'
 Plug 'mdlerch/vim-gnuplot'
+Plug 'fatih/vim-go'
 " R lanagage
 "Plug 'jalvesaq/Nvim-R'
 Plug 'vim-scripts/paredit.vim'

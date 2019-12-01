@@ -1,0 +1,200 @@
+= Fluent冲蚀损伤模拟 =
+DPM/Errosion/Accetion
+固体冲蚀塑性边界， 柔性体冲蚀固体边界  固体冲蚀固体边界
+
+固体冲蚀比较有科学
+液滴冲蚀暂时不涉及太多依据
+空化冲蚀： 由于气泡破灭对管道壁面的冲蚀(比液滴冲蚀还大)
+有人说：破灭之后产生较大的冲蚀
+
+== 冲蚀率公式 ==
+
+1. 冲蚀角度
+2. 冲蚀速度
+3. 颗粒直径
+4. 颗粒质量
+专门有人研究
+1. 冲蚀角度和冲蚀率的关系(设置几个点进行)
+1. 冲蚀速度和冲蚀率的关系
+1. 颗粒直径和冲蚀率的关系(设置的时候需要设置几个点，比如点1 4mm value? 点2 6mm value？ 点3...)
+核心问题：恢复系数
+
+韧性材料(冲击角度：30-40°最大， 90°已经很小)
+脆性材料(随着充实角度的增大而增大，90° 中最大)
+
+k-e reliable 或者RNG(不要用standard， 先做完流体流动，在考虑加粒子计算)
+
+
+Set Injection Properties: inlet  surface InjectionType进行注射
+流量通过物理计算
+Number of Tries 可以设置多点(explicit 情况有)
+== Wall boundary condition ==
+WALL的设置很重要！！ DPM中有Erosion Model(在开启DPM的情况)<-----------未开启没有该选项
+Finne的比较简单(做摩擦磨损很有名一个专家),McLaury设置参数比较多
+Oka设置参数最大
+所有模型没有考虑到颗粒硬度------通过DP relection coefficients进行硬度设置
+
+喷砂除锈(金刚砂，或者铁)：要求铁锈除掉，但是管道不受破坏
+‘
+计算完之后就有了对应的物理量（Discreate phase Variable , Phine Oka 等壁面损伤模型都有
+还有比如：DNV船舶社的模型  以及Zhang(ECRC)损伤模型
+
+== 喷雾冷却 ==
+
+汽油加热 ---》 蒸发(气化点) ---》 沸点(进一步转化为气体) ---燃烧咯
+
+注射面问题（喷嘴原来..)
+喷入多少液态颗粒会有多少颗粒被蒸发，以及气体蒸发之后在流场中的分布
+
+液态颗粒挥发问题！---还有化学反应问题(组分输运模型)
+
+蒸发后气体和原来气体混合，必须考虑组分混合， 只考虑蒸发，不考虑化学反应,选择special transport即可(也可以考虑的)----这样在材料选项会多一个mixture-template
+边界条件的温度可以给高点
+回流的组分species只好向
+set Injection Properties: 选择Droplet液滴 ，如果勾选燃烧就得考虑
+
+
+注入类型：Cone:(不要用inlet的surface注射了)蒸发冷凝还得考虑Devolatling Species
+Number of Streams表示一个注射器主任多少个颗粒 如果30，就是一次注入30个颗粒
+
+如果是燃烧combusting particle type会让你制定 carbon coal 等燃烧材料  还得定义Devolatilizing Species 挥发组分
+LAWS --》custome   First law: 只是加热， Second Law 挥发  Third Law 表面燃烧
+
+颗粒一多，DPM就存在问题(一般用于颗粒)， 于是引入欧拉模型或者Mixture模型
+
+== 欧拉模型 ==
+
+气液流动(气泡存在于液体  或者液滴在气体环境中)(单个气泡一般用vof ，多个气泡用欧拉和Mixture)
+比颗粒流更加复杂些%………………
+
+气泡和液滴碰到之后可能变大，基本上不会反弹
+
+两个液滴放在一起可能混合在一起
+
+欧拉系统考虑这堆问题
+
+Bubble Columns 鼓泡塔
+模拟目的控制气泡直径，平均直径越小，提供更大的气液反应面积， 
+1. 气泡流(受到流体的影响较大，流速较小，彼此之间不受影响)
+2. 搅拌流(流体速度较快)
+
+== Eulerian Approach ==
+
+vof把相界面分开，相两侧要么是1 要么是0
+欧拉允许相间混合。
+
+vof只求解体积分数方程，
+
+Interphase Momentum Exchange 相间动量交换
+一个关键:如何模拟相间的动量交换
+
+Mixture求解的是一组动量方程(欧拉是逐相进行求解，每一相的体积分数单独求解，每一项速度)
+Mixture使唤算出来的，最后也可以每一相的速度(但非精确计算，考虑相对滑移运算，简化的欧拉模型，速度相对较快)
+搅拌混合模型经常用!
+
+欧拉模型超过10%以上体积分数 ---稠密  以下为稀疏----已经考虑
+dense情况  frictional dominated flow主导流动状态
+
+准静态比如沙滩边的沙层可承受剪切力(液体没有剪切力)
+DDPM-KTGF(fluid-Eulerian   Particles-lagrangian)
+DDPM-DEM(碰撞与摩擦理论)
+
+== 欧拉颗粒流 ==
+Eular-Granular Model
+
+KTFG(基于颗粒流动力学理论  借鉴分子动力学理论引入一定的随机运动，概率统计问题)
+
+Granular Temperature(GT)不代表具体的温度，实际上代表颗粒的速度或者能量
+
+Granular bulk viscosity 表示一群沙的流动速度(不是指沙质点的流动速度·)
+Granular vistory (剪切粘度和碰撞粘度两部分)
+
+chongda 很多做风工程的
+
+空化、蒸发冷凝(Phase_change)一般用mixture（只是观察相变的过程，不关心气泡变化的形态，气泡以后的运动行为不关注)
+(空化也是类似道理 主要关心空化破碎前， 破碎后怎么运动我不关心)
+----->关心有多少物质转变了其他物质(比如有多少水变成多少蒸汽)
+
+
+标准状态焓Standard State Enthapy(材料中设置)(吸收多少热量才会蒸发，才会沸腾，能量参数)
+
+液相和气相大概相差1000倍左右
+
+空化影响泵的扬程、流量、噪声、泵的损坏等
+
+/solve/set/expert
+
+Phase Change.pdf P19 Re: 液相转气相    Rc:气相转液相      Re-Rc 气体总生成量
+
+空化模型不与vof模型混用(Vof要求相间不参混， 空化允许掺混), 一般可以与mixture和欧拉模型
+
+
+介观模拟，fluent一般做不到   
+
+Openpbs 做介观的， 
+
+压力突变，可能产生负压去区，出现空话现象(负压出现在哪，空化在哪里)---水轮机、泵、燃烧器喷嘴
+
+
+Verification mannul 验证手册
+
+SpaceClaim可以直接绘制网格Mesh(好像是插件集成的)
+
+多相流计算是
+
+管道计算基本上是轴对称计算
+0.2*0.001*1000
+
+质量
+
+水的标准状态0  温度337
+
+蒸发冷凝无非就是在相间变换的时候考虑传质过程，需要设置Mass过程有一个Evaporation-condensation模型相（最主要有一个温度设置， 高于参考温度就蒸发 ，低于参考温度就冷凝)
+空化也是类似的道理，Evaporation-condensation 和cavitation都是多相流模型的子进程，涉及到相变过程（evaporation-condensation又涉及到相关的模型，比较多人再做，比如曳力模型也有很多人在做，涉及到很多阻力模型，比如气液阻力模型， 液固阻力模型等)
+
+Flow  Coupled Number比较稳定（Method)(多相流开启状态下)   psedo Transient 伪瞬态(单相最好开上，多相不要开启)
+空间离散一般先用一阶算，然后再算二阶
+单Coupled相对于Simple的计算时间较长(PISO也是类似)
+
+Wraped-Fade Gradient Correction和High order Term Relaxation一般check上！
+
+Courant数大计算越快 ， 振荡更大等
+
+
+先不考虑蒸发冷凝，只计算传热流动计算  (针对蒸发频率较大 蒸发频率一般要求10，但是不好计算)
+
+蒸发的设置和冷凝的设置基本一样， (涉及到质量流量计算(flux))
+液相-》气相转变--在相间计算依然一样（蒸发冷凝一样的设置，巨坑)---蒸发正常液相到气相 而冷凝还得液相到气相(软件问题， 实际上是气相到液相的过程)
+
+提醒：软件的蒸发冷凝模型还比较粗糙
+
+Mixture的蒸发冷凝模型只有Lee , 欧拉多相流有Thermal Phase change 和LEE模型
+
+
+Control ---> Limit 最大粘性比超出了！
+
+Wet-Stream Model(湿蒸汽模型)---->必须激活密度基density based--->这样多相流中就只能选择Wet Steam模型了，无材料节点(不好用，主要针对水蒸气)
+
+仿真最难的地方就是材料属性。
+
+欧拉--专门内置了Boiling Model(不像冷凝蒸发模型，因为沸腾的气泡比较剧烈)
+蒸发是发生在气液的界面上  沸腾是发生在气固
+
+
+
+= 颗粒流 =
+
+欧拉模型内置了
+DDPM（Dense Discrete Phase Model) ----颗粒分布很广，体积分布也很广(DPM有很多本质不同)
+
+barracuda(BARAC) 非常稠密的颗粒运动，类似于DDPM
+
+DDPM: 主要解决particle-to-particle interactions
+
+金属、颗粒属性: 弹性模量 泊松比 ---- 进而调整他的硬和软的物性参数
+
+接触力计算： 摩擦(赫兹应力?) + 能量耗散 + 碰撞变形量多少(overlay)
+
+
+
+最爱学习 最有能量的同学们，大家。。。 体现不一样

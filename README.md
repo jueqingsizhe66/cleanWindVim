@@ -31,8 +31,12 @@
 21. vim-mark 让你看代码更方便`,m`,`,n`,`,r`,  自写函数`,*`表示选择一行高亮
 22. [GlobalVim][5] 全局vim功能，事先设置好GK键即可，设置为CapsLock key ,win10-->设置-->讲述人--->更改光标粗细，这样看起来会更好些
 效率是一方面，有趣是最要的!(Solve your work, keep your life interesting)
+23. 我居然忘记怎么调用vim-surround, view模式下，大写S然后输入你的左边delimeter, 可以快速删除`ds"`,快速修改`cs"`,快速复制`ys''`
+24. csv文件，可以使用Ctrl_V批量幅值一列，然后使用vimfiler在不同文件夹中跳转，也可以复制宏，把刚才定位，选择一列，复制集合到一个宏命令，这样就可以减少你办公室后的噪音(无噪音式办公模式)
+
 
 ![Vim-features][1]
+
 # The Ultimate vimrc
 
 Over the last 10 years, I have used and tweaked Vim. This configuration is the ultimate vimrc (or at least my version of it).
