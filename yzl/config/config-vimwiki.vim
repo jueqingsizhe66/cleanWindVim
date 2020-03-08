@@ -8,6 +8,10 @@ let g:vimwiki_hl_cb_checked=1
 let g:vimwiki_list_ignore_newline = 0
 "let g:vimwiki_hl_headers = 0
 "
+" https://github.com/universal-ctags/ctags-win32/releases 
+"  ctags更新了
+"  https://github.com/universal-ctags/ctags 
+"  https://docs.ctags.io/en/latest/ 
 let g:tagbar_type_vimwiki = {
           \   'ctagstype':'vimwiki'
           \ , 'kinds':['h:header']
@@ -15,7 +19,7 @@ let g:tagbar_type_vimwiki = {
           \ , 'kind2scope':{'h':'header'}
           \ , 'sort':0
           \ , 'ctagsbin':'~/.vim_runtime/vwtags.py'
-          \ , 'ctagsargs': 'all'
+          \ , 'ctagsargs': 'default'
           \ }
 
 " default is 15

@@ -4,6 +4,7 @@ nnoremap g<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\/
 nnoremap gd<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\\\\','g'))<CR>
 
 nmap <F5> :TagbarToggle<cr>
+nmap <F6> :NERDTreeToggle<cr>
 nmap <F8> O<ESC>O<ESC>jO- Brief Summary(by yzl):<CR><ESC>0d$i{{{<CR><Tab><CR><ESC>v0xk$a1. so what?
 nmap <F7> <ESC>o(TODO(yzl))<ESC>
 
@@ -17,7 +18,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 nmap <leader>cP :CopyRelativePath<CR>
 nmap <leader>cl :CopyRelativePathAndLine<CR>
 nmap <leader>cp :CopyAbsolutePath<CR>
-nmap <leader>cf :CopyFileName<CR>
+nmap <leader>cf :CopyFileName<CR
+
 nmap <leader>cd :CopyDirectoryPath<CR>
 
 

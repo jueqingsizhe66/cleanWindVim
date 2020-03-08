@@ -58,4 +58,4 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
-
+let g:easytags_suppress_ctags_warning = 1 
