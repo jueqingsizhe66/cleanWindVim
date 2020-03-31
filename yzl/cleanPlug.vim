@@ -8,7 +8,6 @@ Plug 'ervandew/supertab'
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " try anoother
 " garbas is for vimL
-Plug 'davidhalter/jedi-vim'
 Plug 'honza/vim-snippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""
 "python
@@ -124,6 +123,7 @@ Plug 'sgur/unite-everything'
 "" abbre
 Plug 'chip/vim-fat-finger'
 
+"Plug 'davidhalter/jedi-vim'
 "Plug 'vim-scripts/Vim-R-plugin'
 Plug 'Yggdroot/indentLine'
 
@@ -153,7 +153,7 @@ Plug 'amix/vim-zenroom2'
 Plug 'scrooloose/vim-slumlord'
 Plug 'aklt/plantuml-syntax'
 
-Plug 'tpope/vim-rhubarb'
+"Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
 "git 1
@@ -235,7 +235,7 @@ Plug 'vim-scripts/txt.vim'
 " Plug 'vim-scripts/VimClojure'
 " Plug 'rosstimson/scala-vim-support'
 "matlab
-Plug 'elmanuelito/vim-matlab-behave'
+"Plug 'elmanuelito/vim-matlab-behave'
 Plug 'tpope/vim-speeddating'
 Plug 'jceb/vim-orgmode'
 Plug 'freitass/todo.txt-vim'
@@ -250,14 +250,14 @@ Plug 'WolfgangMehner/vim-plugins'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'chrisbra/csv.vim'
 "Plug 'wannesm/wmgraphviz.vim'
-Plug 'vim-scripts/gnuplot.vim'
-Plug 'mdlerch/vim-gnuplot'
-Plug 'fatih/vim-go'
+"Plug 'vim-scripts/gnuplot.vim'
+"Plug 'mdlerch/vim-gnuplot'
+"Plug 'fatih/vim-go'
 " R lanagage
 "Plug 'jalvesaq/Nvim-R'
 Plug 'vim-scripts/paredit.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'rkulla/pydiction'
+"Plug 'rkulla/pydiction'
 Plug 'vimwiki/vimwiki'
 
 "clojure
