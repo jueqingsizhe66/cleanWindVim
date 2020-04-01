@@ -34,9 +34,39 @@ nnoremap <Leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>"
 
-nmap <F2> :CtrlPMRUFiles<cr>
-nmap <F1> :CtrlPBuffer<cr>
+"nmap <F2> :CtrlPMRUFiles<cr>
+"nmap <F1> :CtrlPBuffer<cr>
 
+" Disable custom match func in some cases as it's
+" - not respecting MRU order in MRU mode
+" - not respecting g:ctrlp_by_filename in buffer mode
+func! DisableCtrlPMatchFunc(cmd)
+    let g:ctrlp_match_func = {}
+    execute a:cmd
+    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endfunc
+nnoremap <F2> :call DisableCtrlPMatchFunc('CtrlPMRUFiles')<CR>
+nnoremap <F1> :call DisableCtrlPMatchFunc('CtrlPBuffer')<CR>
+
+"""https://github.com/FelikZ/ctrlp-py-matcher/blob/master/doc/pymatcher.txt  """
+"let g:fuzzy_matcher_type.cur_val='py-matcher'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" Set delay to prevent extra search
+let g:ctrlp_lazy_update = 350
+" Do not clear filenames cache, to improve CtrlP startup
+" You can manualy clear it by <F5>
+let g:ctrlp_clear_cache_on_exit = 0
+
+" Set no file limit, we are building a big project
+let g:ctrlp_max_files = 0
+
+" If ag is available use it as filename list generator instead of 'find'
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
+endif
+
+"""https://github.com/FelikZ/ctrlp-py-matcher/blob/master/doc/pymatcher.txt  """
 
 
 "" for ag"
@@ -77,3 +107,5 @@ map <leader>g :Ack
 
 map <leader>cc :botright cope<cr>
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
+
+""https://github.com/tracyone/vinux/blob/master/rc/ctrlp.vim#L30-L65 "

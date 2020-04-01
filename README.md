@@ -5,11 +5,13 @@
 1. 下载，不破坏原始架构
 2. 写了my_configs.vim  并下载了自己插件到my_plugins文件夹
 3. rainbow_paratheses的好处是让括号好看些
-4. 更快的ctrlp配置`F2`,`F1`和`,o`的bufferexplorer命令一样
+4. 更快的ctrlp配置`F2`,`F1`和`,o`的bufferexplorer命令一样, 加入了第三方matcher 命中插件[ctrlp-py-matcher][6]
+   并替换掉ctrlp默认的搜索为ag搜索  ctrlp_user_command. CtrlPMRU 和CtrlPMRUFiles的区别是，后面一个除了搜索MRU还
+   包括文件的搜索
 5. 原有的配置居然支持保存更新，很厉害
 6. 增加了nerdcomment方便注释`(,cc)`, 替换掉vim-commentary
 7. Comfortable-motion也是挺有用的`<C-f><C-d><C-u><C-b>`
-8. 增加我的`,a 搜索光标下单词 和<space>/打开Ag`,`,cad`调用calendar,然后写wiki,`,wi`写日记也是可以的,`[[#]]`在#之后可以使用`Ctrl-X Ctrl-o`会弹出一个列表
+8. 增加我的`,a 搜索光标下单词 和<space>/打开Ag` (在config-ctrlp.vim中配置了),`,cad`调用calendar,然后写wiki,`,wi`写日记也是可以的,`[[#]]`在#之后可以使用`Ctrl-X Ctrl-o`会弹出一个列表
     不忍放弃vim的一个原因，很方便; 摁下`+`表示增加header，`-`表示较少header
     [[向前跳 ]]向后跳   [u upper parent node
 9. `C:\Users\yzl`的.NERDTreeBookmarks nerdtree的`:Bookmark`对应的文件夹名名字,`_vim_mru_files`保存着最近访问的文件,`_vimtags`保存着所有tag相关的记录.
@@ -18,7 +20,7 @@
 11. `gf` open file under cursor,如果是路径的话(配合上vimwiki).
 12. easymotion的<leader>j和k可以正常于运行
 13. 添加了TODO,FIXME等关键字的高亮，`F7` 添加TODO(yzl),`,g`调用`:ACK` 然后写上TODO就可以过滤项目中所有具有TODO字段的行了(习惯性地添加TODO,FIXME,BUG等) [TODO高亮](https://www.jb51.net/article/115922.htm)
-14. `,fu`查看当前代码文件的所有函数  `,fU`跳转到指定函数中
+14. `,fu`查看当前代码文件的所有函数(似乎有点用)  `,fU`跳转到指定函数中
 15.  `F8`添加so what 总结性声明.
 16. 编写perl文件常用命令，读取文件`\ii`,输出文件`\io`,while循环`\sw`,for循环`\sfe`, 另外你不能忘记的三个数据结构,标量`\id`,数组`\ia`,字典`\ih`
 17. Interesting,不妨试试! `,z`打开goyo界面，很好看
@@ -372,3 +374,4 @@ Just do following:
 [3]:https://github.com/garbas/vim-snipmate 
 [4]:http://vim-wiki.mawercer.de/wiki/topic/text-snippets-skeletons-templates.html 
 [5]:https://ovo.ltd/projects/globalvim/ 
+[6]:https://github.com/FelikZ/ctrlp-py-matcher/issues/41 

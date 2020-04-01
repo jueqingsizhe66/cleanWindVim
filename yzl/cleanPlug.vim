@@ -45,6 +45,7 @@ Plug 'rking/ag.vim'
 Plug 'skwp/greplace.vim' " }}}1
 ""  file search tools
 Plug 'kien/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'jlanzarotta/bufexplorer'
 """Plug 'Valloric/MatchTagAlways'
