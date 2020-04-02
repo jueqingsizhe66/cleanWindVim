@@ -45,8 +45,8 @@ func! DisableCtrlPMatchFunc(cmd)
     execute a:cmd
     let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endfunc
-nnoremap <F2> :call DisableCtrlPMatchFunc('CtrlPMRUFiles')<CR>
-nnoremap <F1> :call DisableCtrlPMatchFunc('CtrlPBuffer')<CR>
+"nnoremap <F2> :call DisableCtrlPMatchFunc('CtrlPMRUFiles')<CR>
+"nnoremap <F1> :call DisableCtrlPMatchFunc('CtrlPBuffer')<CR>
 
 """https://github.com/FelikZ/ctrlp-py-matcher/blob/master/doc/pymatcher.txt  """
 "let g:fuzzy_matcher_type.cur_val='py-matcher'
@@ -72,7 +72,6 @@ endif
 "" for ag"
 nmap <leader>a :Ag <c-r>=expand("<cword>")<cr><cr>
 nnoremap <space>/ :Ag
-
 
 command Todo Ag! 'TODO|FIXME|CHANGED|BUG|HACK'
 command Debug Ag! 'NOTE|INFO|IDEA'

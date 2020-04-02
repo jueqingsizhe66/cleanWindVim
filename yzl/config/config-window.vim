@@ -15,10 +15,6 @@ let w:full_screen=0
 
 map <F11> :call FullScreen()<CR>
 
-" if has("gui_running") && has("win32")
-"     map <F11> :call libcallnr("gvimfullscreen_64.dll", "ToggleFullScreen", 0)<CR>
-" endif
-"
 func! FullScreen()
 if w:full_screen==1
 let w:full_screen=0
@@ -28,6 +24,7 @@ else
 let w:full_screen=1
 endif
 endfunc
+
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
@@ -104,5 +101,3 @@ let g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='name'
 map <leader>o :BufExplorer<cr>
-
-

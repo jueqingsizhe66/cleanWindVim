@@ -6,7 +6,6 @@ nnoremap gd<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\
 nmap <F5> :TagbarToggle<cr>
 nmap <F6> :NERDTreeToggle<cr>
 nmap <F8> O<ESC>O<ESC>jO- Brief Summary(by yzl):<CR><ESC>0d$i{{{<CR><Tab><CR><ESC>v0xk$a1. so what?
-nmap <F7> <ESC>:Unite outline<ESC>
 
 
 " Return to last edit position when opening files (You want this!)

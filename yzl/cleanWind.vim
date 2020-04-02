@@ -20,6 +20,8 @@ source ~/.vim_runtime/yzl/config/config-goyo.vim
 "" ctrlp  ag  /"
 
 source ~/.vim_runtime/yzl/config/config-ctrlp.vim
+source ~/.vim_runtime/yzl/config/config-leaderf.vim
+
 source ~/.vim_runtime/yzl/config/config-fzf.vim
 
 

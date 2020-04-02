@@ -2,6 +2,10 @@
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
+
+"set lines=1000
+"set columns=1000
+
 " Ignore case when searching
 set ignorecase
 

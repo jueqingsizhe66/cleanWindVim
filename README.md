@@ -8,6 +8,7 @@
 4. 更快的ctrlp配置`F2`,`F1`和`,o`的bufferexplorer命令一样, 加入了第三方matcher 命中插件[ctrlp-py-matcher][6]
    并替换掉ctrlp默认的搜索为ag搜索  ctrlp_user_command. CtrlPMRU 和CtrlPMRUFiles的区别是，后面一个除了搜索MRU还
    包括文件的搜索
+   `C-o` 打开一个提示框，一般我选择t,在新窗口中打开文件。
 5. 原有的配置居然支持保存更新，很厉害
 6. 增加了nerdcomment方便注释`(,cc)`, 替换掉vim-commentary
 7. Comfortable-motion也是挺有用的`<C-f><C-d><C-u><C-b>`
@@ -35,6 +36,11 @@
 效率是一方面，有趣是最要的!(Solve your work, keep your life interesting)
 23. 我居然忘记怎么调用vim-surround, view模式下，大写S然后输入你的左边delimeter, 可以快速删除`ds"`,快速修改`cs"`,快速复制`ys''`
 24. csv文件，可以使用Ctrl_V批量幅值一列，然后使用vimfiler在不同文件夹中跳转，也可以复制宏，把刚才定位，选择一列，复制集合到一个宏命令，这样就可以减少你办公室后的噪音(无噪音式办公模式)
+35. 增加了[ leaderf ][7] 替换掉ctrlp, 需要vim+python3, windows下支持python的vim工具[ 下载地址 ][8]
+[ vim中如何使用python工具说明 ][9]， 记住必须知道支持编译vim的工具中使用的python和你的系统中安装的是同一版本，比如3.8.2python 64bit!
+保证一样即可使用。
+常用命令： `Leaderf file --popup   leaderf buffer --popup  Leaderf function --popup   leaderf rg`
+
 
 
 ![Vim-features][1]
@@ -375,3 +381,6 @@ Just do following:
 [4]:http://vim-wiki.mawercer.de/wiki/topic/text-snippets-skeletons-templates.html 
 [5]:https://ovo.ltd/projects/globalvim/ 
 [6]:https://github.com/FelikZ/ctrlp-py-matcher/issues/41 
+[7]:https://github.com/Yggdroot/LeaderF 
+[8]:https://github.com/vim/vim-win32-installer/releases 
+[9]:https://www.v2ex.com/t/410079 
