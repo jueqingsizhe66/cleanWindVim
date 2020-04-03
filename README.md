@@ -61,7 +61,7 @@
 - UP向上翻历史
 - Down向下翻历史
 - C-P 哈哈，居然有preview功能!!!功能
-
+37 . [ leaderf-marks ][10] 用于搜索vim marks功能
 
 
 ![Vim-features][1]
@@ -405,3 +405,4 @@ Just do following:
 [7]:https://github.com/Yggdroot/LeaderF 
 [8]:https://github.com/vim/vim-win32-installer/releases 
 [9]:https://www.v2ex.com/t/410079 
+[10]:https://github.com/Yggdroot/LeaderF-marks 
