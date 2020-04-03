@@ -9,6 +9,8 @@
    并替换掉ctrlp默认的搜索为ag搜索  ctrlp_user_command. CtrlPMRU 和CtrlPMRUFiles的区别是，后面一个除了搜索MRU还
    包括文件的搜索
    `C-o` 打开一个提示框，一般我选择t,在新窗口中打开文件。
+
+   此条内容已被leaderf替代!
 5. 原有的配置居然支持保存更新，很厉害
 6. 增加了nerdcomment方便注释`(,cc)`, 替换掉vim-commentary
 7. Comfortable-motion也是挺有用的`<C-f><C-d><C-u><C-b>`
@@ -21,7 +23,10 @@
 11. `gf` open file under cursor,如果是路径的话(配合上vimwiki).
 12. easymotion的<leader>j和k可以正常于运行
 13. 添加了TODO,FIXME等关键字的高亮，`F7` 添加TODO(yzl),`,g`调用`:ACK` 然后写上TODO就可以过滤项目中所有具有TODO字段的行了(习惯性地添加TODO,FIXME,BUG等) [TODO高亮](https://www.jb51.net/article/115922.htm)
-14. `,fu`查看当前代码文件的所有函数(似乎有点用)  `,fU`跳转到指定函数中
+
+    F7功能已被leaderf替换掉！
+
+14. `,fu`查看当前代码文件的所有函数(似乎有点用)  `,fU`跳转到指定函数中， 依然保留ctrlp-funky功能
 15.  `F8`添加so what 总结性声明.
 16. 编写perl文件常用命令，读取文件`\ii`,输出文件`\io`,while循环`\sw`,for循环`\sfe`, 另外你不能忘记的三个数据结构,标量`\id`,数组`\ia`,字典`\ih`
 17. Interesting,不妨试试! `,z`打开goyo界面，很好看
@@ -40,6 +45,12 @@
 [ vim中如何使用python工具说明 ][9]， 记住必须知道支持编译vim的工具中使用的python和你的系统中安装的是同一版本，比如3.8.2python 64bit!
 保证一样即可使用。
 常用命令： `Leaderf file --popup   leaderf buffer --popup  Leaderf function --popup   leaderf rg`
+
+- `C-S`: buffer内查找内容
+- `C-F`: 查找文件
+- `F1`: MRU files
+- `F2`: file间查找内容
+- `F7`: 查找当前buffer的函数(意义不大)
 
 
 

@@ -10,8 +10,10 @@ let g:Lf_PreviewInPopup = 1
 "let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
 let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
 let g:Lf_WindowPosition = 'popup'
-nmap <F2> :Leaderf file<cr>
+nmap <C-F> :Leaderf file<cr>
 nmap <F1> :Leaderf mru<cr>
+noremap <F2> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+noremap <C-S> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
 nmap <F7> :Leaderf function<cr>
 
 "buffer mru bugTag 
@@ -22,8 +24,6 @@ noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
-noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 
 " should use `Leaderf gtags --update` first
 "let g:Lf_GtagsAutoGenerate = 0
