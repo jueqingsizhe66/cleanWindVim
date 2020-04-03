@@ -49,6 +49,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
+Plug 'Yggdroot/LeaderF-marks'
 Plug 'jlanzarotta/bufexplorer'
 """Plug 'Valloric/MatchTagAlways'
 Plug 'szw/vim-maximizer'
