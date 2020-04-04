@@ -22,14 +22,14 @@ let g:startify_list_order = [
         \ 'commands',
         \ ]
 
-let g:startify_bookmarks = [ {'c': '~/.vim_runtime/yzl/cleanWind.vim'}, {'m': '~/.vim_runtime/yzl/cleanPlug.vim'}, {'r': '~/.vim_runtime/README.md'},   {'g': 'https://github.com/CyC2018/CS-Notes'}]
+let g:startify_bookmarks = [ {'c': '~/.vim_runtime/yzl/cleanWind.vim'}, {'m': '~/.vim_runtime/yzl/cleanPlug.vim'}, {'r': '~/.vim_runtime/README.md'},   {'d': 'D:\ManyHomes\IntellijHome\rupengImprove\designer\README.md'}, {'t': 'D:\ManyHomes\IntellijHome\The-Little-Java\README.md'}]
 let g:startify_commands = [
     \ ':help reference',
     \ ['Vim Reference', 'h ref'],
     \ {'h': 'h ref'},
     \ ':h easymotion',
     \ ':h easyalign',
-    \ ':h ctrlp',
+    \ ':h leaderf',
     \ ':h incsearch',
     \ ':h operator-flashy.txt',
     \ ':h cursorword',
@@ -38,6 +38,6 @@ let g:startify_commands = [
     \ ':h indexed',
     \ ':h splitjoin',
     \ ':h textobj',
-    \ ':h text object',
+    \ ':h vimwiki',
     \ ':h vim-copy-filename',
     \ ]

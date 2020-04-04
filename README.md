@@ -62,6 +62,7 @@
 - Down向下翻历史
 - C-P 哈哈，居然有preview功能!!!功能
 37 . [ leaderf-marks ][10] 用于搜索vim marks功能
+38.  [ 自动切换当前的buffer文件所在目录为工作目录 ][11], `set autochdir`
 
 
 ![Vim-features][1]
@@ -406,3 +407,4 @@ Just do following:
 [8]:https://github.com/vim/vim-win32-installer/releases 
 [9]:https://www.v2ex.com/t/410079 
 [10]:https://github.com/Yggdroot/LeaderF-marks 
+[11]:https://my.oschina.net/uniquejava/blog/225027 
