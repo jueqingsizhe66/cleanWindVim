@@ -34,12 +34,14 @@
 19. 修改了vimwiki配置到vim_runtime.  Ctrl+enter 垂直打开链接， shift+enter 水平打开链接, enter直接在当前窗口打开
     CTRL+Shift+@表示把list加上checkbox(gl-space或者glx表示取消掉checkbox，gln glp显示不同的任务状态)
     速度得快点摁下 gLa gLA gLi gL+ gL*
-    vikwikiTable cols rows(列行控制)  C-J/C-K上下行调换
-    Alt+left /right 左右列调换
-    viH/aH 选择一个header内的所有内容(配合上cih就可以修改一个标题内的所有内容了)
-    vi\/a\ 选择一个table里面的内容
-    vic/ac 选择一列内容(配合上cic 就很方便咯)
-    vil/val 列表内容的一项和所有项
+
+    - vikwikiTable cols rows(列行控制)  C-J/C-K上下行调换
+    - Alt+left /right 左右列调换
+    - viH/aH 选择一个header内的所有内容(配合上cih就可以修改一个标题内的所有内容了)
+    - vi\/a\ 选择一个table里面的内容
+    - vic/ac 选择一列内容(配合上cic 就很方便咯)
+    - vil/val 列表内容的一项和所有项
+
 20. 搞清楚[ vim-snipmate ][3]和[ vim-snippets ][2]的关系
 不断去学习[ vim-snippets ][2], [vim-snipmate设计理念][4]
 21. vim-mark 让你看代码更方便`,m`,`,n`,`,r`,  自写函数`,*`表示选择一行高亮
