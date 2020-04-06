@@ -5,24 +5,40 @@
 1. 下载，不破坏原始架构
 2. 写了my_configs.vim  并下载了自己插件到my_plugins文件夹
 3. rainbow_paratheses的好处是让括号好看些
-4. 更快的ctrlp配置`F2`,`F1`和`,o`的bufferexplorer命令一样, 加入了第三方matcher 命中插件[ctrlp-py-matcher][6]
+4. (deprecated)更快的ctrlp配置`F2`,`F1`和`,o`的bufferexplorer命令一样, 加入了第三方matcher 命中插件[ctrlp-py-matcher][6]
    并替换掉ctrlp默认的搜索为ag搜索  ctrlp_user_command. CtrlPMRU 和CtrlPMRUFiles的区别是，后面一个除了搜索MRU还
    包括文件的搜索
    `C-o` 打开一个提示框，一般我选择t,在新窗口中打开文件。
 
    此条内容已被leaderf替代!
+
 5. 原有的配置居然支持保存更新，很厉害
 6. 增加了nerdcomment方便注释`(,cc)`, 替换掉vim-commentary
 7. Comfortable-motion也是挺有用的`<C-f><C-d><C-u><C-b>`
+
+- `<C-e>` 向下慢移动
+- `<C-d>` 向下快移动
+- `<C-u>` 向上移动
+
 8. 增加我的`,a 搜索光标下单词 和<space>/打开Ag` (在config-ctrlp.vim中配置了),`,cad`调用calendar,然后写wiki,`,wi`写日记也是可以的,`[[#]]`在#之后可以使用`Ctrl-X Ctrl-o`会弹出一个列表
     不忍放弃vim的一个原因，很方便; 摁下`+`表示增加header，`-`表示较少header
     [[向前跳 ]]向后跳   [u upper parent node
+
+- `,a` 搜索， 可以配合`,fr`, 使用leaderf rg进行异步搜索
+- `,cal` 打开日历窗口
+- `,wi` 打开diary文件
+- `[[` wiki文件内向前一header跳转
+- `]]` wiki文件内向后一header跳转
+
 9. `C:\Users\yzl`的.NERDTreeBookmarks nerdtree的`:Bookmark`对应的文件夹名名字,`_vim_mru_files`保存着最近访问的文件,`_vimtags`保存着所有tag相关的记录.
-10. `C-s`变成加入光标, `Alt-S`变成添加符合全部单词下的光标,`ESC`推出MC(multiple cursors)模式
+10. (deprecated)`C-s`变成加入光标, `Alt-S`变成添加符合全部单词下的光标,`ESC`推出MC(multiple cursors)模式
 [[#pringout]]
+
+- `C-s` 换为`:leaderf rg搜索本buffer命令`
+
 11. `gf` open file under cursor,如果是路径的话(配合上vimwiki).
 12. easymotion的<leader>j和k可以正常于运行
-13. 添加了TODO,FIXME等关键字的高亮，`F7` 添加TODO(yzl),`,g`调用`:ACK` 然后写上TODO就可以过滤项目中所有具有TODO字段的行了(习惯性地添加TODO,FIXME,BUG等) [TODO高亮](https://www.jb51.net/article/115922.htm)
+13. (deprecated) 添加了TODO,FIXME等关键字的高亮，`F7` 添加TODO(yzl),`,g`调用`:ACK` 然后写上TODO就可以过滤项目中所有具有TODO字段的行了(习惯性地添加TODO,FIXME,BUG等) [TODO高亮](https://www.jb51.net/article/115922.htm)
 
     F7功能已被leaderf替换掉！
 
@@ -44,7 +60,11 @@
 
 20. 搞清楚[ vim-snipmate ][3]和[ vim-snippets ][2]的关系
 不断去学习[ vim-snippets ][2], [vim-snipmate设计理念][4]
-21. vim-mark 让你看代码更方便`,m`,`,n`,`,r`,  自写函数`,*`表示选择一行高亮
+21. vim-mark 让你看代码更方便,  自写函数`,*`表示选择一行高亮
+
+- `,r` 有效
+- `,j` 向上标记行
+- `,k` 向下标记行
 22. [GlobalVim][5] 全局vim功能，事先设置好GK键即可，设置为CapsLock key ,win10-->设置-->讲述人--->更改光标粗细，这样看起来会更好些
 效率是一方面，有趣是最要的!(Solve your work, keep your life interesting)
 23. 我居然忘记怎么调用vim-surround, view模式下，大写S然后输入你的左边delimeter, 可以快速删除`ds"`,快速修改`cs"`,快速复制`ys''`
@@ -55,22 +75,38 @@
 常用命令： `Leaderf file --popup   leaderf buffer --popup  Leaderf function --popup   leaderf rg`
 
 - `C-S`: buffer内查找内容
-- `C-F`: 查找文件
-- `F1`: MRU files
+- `C-F`: 查找文件, `,ff`
+- `F1`: MRU files, `,fm`
 - `F2`: file间查找内容
 - `F7`: 查找当前buffer的函数(意义不大)
 36. very good! 效果很好
 `C-f` 弹出一个搜索框 , 然后`C-J`or `C-K` 向下或者向上查找文件亦或者具体输入字母， 
 
-- C-] 直接右边打开(垂直打开)
-- C-X 直接水平划分窗口
-- C-T 新的tab窗口打开
-- C-U 可以清除输入区
-- UP向上翻历史
-- Down向下翻历史
-- C-P 哈哈，居然有preview功能!!!功能
-37 . [ leaderf-marks ][10] 用于搜索vim marks功能
+- `C-]` 直接右边打开(垂直打开)
+- `C-X` 直接水平划分窗口
+- `C-T` 新的tab窗口打开
+- `C-U` 可以清除输入区
+- `UP`向上翻历史
+- `Down`向下翻历史
+- `C-P` 哈哈，居然有preview功能!!!功能
+
+37 . [ leaderf-marks ][10] 用于搜索vim marks功能， 对应
+- `<F9>`,
+- `,fn`
+
 38.  [ 自动切换当前的buffer文件所在目录为工作目录 ][11], `set autochdir`
+
+39. `,td`关闭当前标签替换掉`:wq`, `,tn` `,tp`前后标签切换。
+
+- `,td`
+- `,tn`
+- `,tp`
+
+40. `:Leaderf buffer`对应
+
+- <F10> 和
+- `,b`,
+- `,fb`
 
 
 ![Vim-features][1]
