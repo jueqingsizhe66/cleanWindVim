@@ -4,6 +4,7 @@
     分层配置，层层玻璃纸化，系统有机构成，打造适合writer的乐园
     牢记利器是来解决问题，干有挑战事情的，做有意义工作
 
+<hr/>
 
 ## funny 
 
@@ -17,15 +18,17 @@
 
    此条内容已被leaderf替代!
 
-5. 原有的配置居然支持保存更新，很厉害
-6. 增加了nerdcomment方便注释`(,cc)`, 替换掉vim-commentary
-7. Comfortable-motion也是挺有用的`<C-f><C-d><C-u><C-b>`
+5. 增加了nerdcomment方便注释`(,cc)`, 替换掉vim-commentary
+
+- `,cc`
+
+6. Comfortable-motion也是挺有用的`<C-f><C-d><C-u><C-b>`
 
 - `<C-e>` 向下慢移动
 - `<C-d>` 向下快移动
 - `<C-u>` 向上移动
 
-8. 增加我的`,a 搜索光标下单词 和<space>/打开Ag` (在config-ctrlp.vim中配置了),`,cad`调用calendar,然后写wiki,`,wi`写日记也是可以的,`[[#]]`在#之后可以使用`Ctrl-X Ctrl-o`会弹出一个列表
+7. 增加我的`,a 搜索光标下单词 和<space>/打开Ag` (在config-ctrlp.vim中配置了),`,cad`调用calendar,然后写wiki,`,wi`写日记也是可以的,`[[#]]`在#之后可以使用`Ctrl-X Ctrl-o`会弹出一个列表
     不忍放弃vim的一个原因，很方便; 摁下`+`表示增加header，`-`表示较少header
     [[向前跳 ]]向后跳   [u upper parent node
 
@@ -35,24 +38,35 @@
 - `[[` wiki文件内向前一header跳转
 - `]]` wiki文件内向后一header跳转
 
-9. `C:\Users\yzl`的.NERDTreeBookmarks nerdtree的`:Bookmark`对应的文件夹名名字,`_vim_mru_files`保存着最近访问的文件,`_vimtags`保存着所有tag相关的记录.
-10. (deprecated)`C-s`变成加入光标, `Alt-S`变成添加符合全部单词下的光标,`ESC`推出MC(multiple cursors)模式
+8. `C:\Users\yzl`的.NERDTreeBookmarks nerdtree的`:Bookmark`对应的文件夹名名字,`_vim_mru_files`保存着最近访问的文件,`_vimtags`保存着所有tag相关的记录.
+9. (deprecated)`C-s`变成加入光标, `Alt-S`变成添加符合全部单词下的光标,`ESC`推出MC(multiple cursors)模式
 [[#pringout]]
 
 - `C-s` 换为`:leaderf rg搜索本buffer命令`
 
-11. `gf` open file under cursor,如果是路径的话(配合上vimwiki).
-12. easymotion的<leader>j和k可以正常于运行
-13. (deprecated) 添加了TODO,FIXME等关键字的高亮，`F7` 添加TODO(yzl),`,g`调用`:ACK` 然后写上TODO就可以过滤项目中所有具有TODO字段的行了(习惯性地添加TODO,FIXME,BUG等) [TODO高亮](https://www.jb51.net/article/115922.htm)
+10. `gf` open file under cursor,如果是路径的话(配合上vimwiki).
+11. easymotion的<leader>j和k可以正常于运行
+12. (deprecated) 添加了TODO,FIXME等关键字的高亮，`F7` 添加TODO(yzl),`,g`调用`:ACK` 然后写上TODO就可以过滤项目中所有具有TODO字段的行了(习惯性地添加TODO,FIXME,BUG等) [TODO高亮](https://www.jb51.net/article/115922.htm)
 
     F7功能已被leaderf替换掉！
 
-14. `,fu`查看当前代码文件的所有函数(似乎有点用)  `,fU`跳转到指定函数中， 依然保留ctrlp-funky功能
-15.  `F8`添加so what 总结性声明.
-16. 编写perl文件常用命令，读取文件`\ii`,输出文件`\io`,while循环`\sw`,for循环`\sfe`, 另外你不能忘记的三个数据结构,标量`\id`,数组`\ia`,字典`\ih`
-17. Interesting,不妨试试! `,z`打开goyo界面，很好看
-18. 先设置一个mark`mA`,然后由于大写字母支持文件间跳转，于是`~A`也是可以跳转到先前的位置 很方便
-19. 修改了vimwiki配置到vim_runtime.  Ctrl+enter 垂直打开链接， shift+enter 水平打开链接, enter直接在当前窗口打开
+13. `,fu`查看当前代码文件的所有函数(似乎有点用)  `,fU`跳转到指定函数中， 依然保留ctrlp-funky功能
+
+- `,fu`
+- `,fU`
+
+14.  `F8`添加so what 总结性声明.
+15. 编写perl文件常用命令，读取文件`\ii`,输出文件`\io`,while循环`\sw`,for循环`\sfe`, 另外你不能忘记的三个数据结构,标量`\id`,数组`\ia`,字典`\ih`
+16. Interesting,不妨试试! `,z`打开goyo界面，很好看
+
+- `,z`
+
+17. 先设置一个mark`mA`,然后由于大写字母支持文件间跳转，于是`~A`也是可以跳转到先前的位置 很方便
+
+- `m[A-Z]`
+- `~[A-Z]`
+
+18. 修改了vimwiki配置到vim_runtime.  Ctrl+enter 垂直打开链接， shift+enter 水平打开链接, enter直接在当前窗口打开
     CTRL+Shift+@表示把list加上checkbox(gl-space或者glx表示取消掉checkbox，gln glp显示不同的任务状态)
     速度得快点摁下 gLa gLA gLi gL+ gL*
 
@@ -63,18 +77,26 @@
     - vic/ac 选择一列内容(配合上cic 就很方便咯)
     - vil/val 列表内容的一项和所有项
 
-20. 搞清楚[ vim-snipmate ][3]和[ vim-snippets ][2]的关系
+19. 搞清楚[ vim-snipmate ][3]和[ vim-snippets ][2]的关系
 不断去学习[ vim-snippets ][2], [vim-snipmate设计理念][4]
-21. vim-mark 让你看代码更方便,  自写函数`,*`表示选择一行高亮
+20. vim-mark 让你看代码更方便,  自写函数`,*`表示选择一行高亮
 
 - `,r` 有效
 - `,j` 向上标记行
 - `,k` 向下标记行
-22. [GlobalVim][5] 全局vim功能，事先设置好GK键即可，设置为CapsLock key ,win10-->设置-->讲述人--->更改光标粗细，这样看起来会更好些
+
+21. [GlobalVim][5] 全局vim功能，事先设置好GK键即可，设置为CapsLock key ,win10-->设置-->讲述人--->更改光标粗细，这样看起来会更好些
 效率是一方面，有趣是最要的!(Solve your work, keep your life interesting)
-23. 我居然忘记怎么调用vim-surround, view模式下，大写S然后输入你的左边delimeter, 可以快速删除`ds"`,快速修改`cs"`,快速复制`ys''`
-24. csv文件，可以使用Ctrl_V批量幅值一列，然后使用vimfiler在不同文件夹中跳转，也可以复制宏，把刚才定位，选择一列，复制集合到一个宏命令，这样就可以减少你办公室后的噪音(无噪音式办公模式)
-35. 增加了[ leaderf ][7] 替换掉ctrlp, 需要vim+python3, windows下支持python的vim工具[ 下载地址 ][8], 注意一定得支持python功能的vim，否则无法使用leaderf
+22. 我居然忘记怎么调用vim-surround, view模式下，大写S然后输入你的左边delimeter, 可以快速删除`ds"`,快速修改`cs"`,快速复制`ys''`
+
+- `ds"`
+- `cs"`
+- `ys"`
+
+23. csv文件，可以使用`Ctrl_V`批量幅值一列，然后使用vimfiler在不同文件夹中跳转，也可以复制宏，把刚才定位，选择一列，复制集合到一个宏命令，
+这样就可以减少你办公室后的噪音(无噪音式办公模式)
+
+24. 增加了[ leaderf ][7] 替换掉ctrlp, 需要vim+python3, windows下支持python的vim工具[ 下载地址 ][8], 注意一定得支持python功能的vim，否则无法使用leaderf
 [ vim中如何使用python工具说明 ][9]， 记住必须知道支持编译vim的工具中使用的python和你的系统中安装的是同一版本，比如3.8.2python 64bit!
 保证一样即可使用。
 常用命令： `Leaderf file --popup   leaderf buffer --popup  Leaderf function --popup   leaderf rg`
@@ -84,7 +106,8 @@
 - `F1`: MRU files, `,fm`
 - `F2`: file间查找内容
 - `F7`: 查找当前buffer的函数(意义不大)
-36. very good! 效果很好
+
+25. very good! 效果很好
 `C-f` 弹出一个搜索框 , 然后`C-J`or `C-K` 向下或者向上查找文件亦或者具体输入字母， 
 
 - `C-]` 直接右边打开(垂直打开)
@@ -95,27 +118,28 @@
 - `Down`向下翻历史
 - `C-P` 哈哈，居然有preview功能!!!功能
 
-37 . [ leaderf-marks ][10] 用于搜索vim marks功能， 对应
+26. [ leaderf-marks ][10] 用于搜索vim marks功能， 对应
 - `<F9>`,
 - `,fn`
 
-38.  [ 自动切换当前的buffer文件所在目录为工作目录 ][11], `set autochdir`
+27.  [ 自动切换当前的buffer文件所在目录为工作目录 ][11], `set autochdir`
 
-39. `,td`关闭当前标签替换掉`:wq`, `,tn` `,tp`前后标签切换。
+28. `,td`关闭当前标签替换掉`:wq`, `,tn` `,tp`前后标签切换。
 
 - `,td`
 - `,tn`
 - `,tp`
 
-40. `:Leaderf buffer`对应
+29. `:Leaderf buffer`对应
 
-- <F10> 和
+- `<F10>` 和
 - `,b`,
 - `,fb`
 
 
 ![Vim-features][1]
 
+<hr/>
 # The Ultimate vimrc
 
 Over the last 10 years, I have used and tweaked Vim. This configuration is the ultimate vimrc (or at least my version of it).
