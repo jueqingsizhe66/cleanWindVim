@@ -1,5 +1,10 @@
 ![VIM](https://dnp4pehkvoo6n.cloudfront.net/43c5af597bd5c1a64eb1829f011c208f/as/Ultimate%20Vimrc.svg)
 
+    vim有一点不能忘，模式化无鼠标编辑, 禅定!
+    分层配置，层层玻璃纸化，系统有机构成，打造适合writer的乐园
+    牢记利器是来解决问题，干有挑战事情的，做有意义工作
+
+
 ## funny 
 
 1. 下载，不破坏原始架构
@@ -69,7 +74,7 @@
 效率是一方面，有趣是最要的!(Solve your work, keep your life interesting)
 23. 我居然忘记怎么调用vim-surround, view模式下，大写S然后输入你的左边delimeter, 可以快速删除`ds"`,快速修改`cs"`,快速复制`ys''`
 24. csv文件，可以使用Ctrl_V批量幅值一列，然后使用vimfiler在不同文件夹中跳转，也可以复制宏，把刚才定位，选择一列，复制集合到一个宏命令，这样就可以减少你办公室后的噪音(无噪音式办公模式)
-35. 增加了[ leaderf ][7] 替换掉ctrlp, 需要vim+python3, windows下支持python的vim工具[ 下载地址 ][8]
+35. 增加了[ leaderf ][7] 替换掉ctrlp, 需要vim+python3, windows下支持python的vim工具[ 下载地址 ][8], 注意一定得支持python功能的vim，否则无法使用leaderf
 [ vim中如何使用python工具说明 ][9]， 记住必须知道支持编译vim的工具中使用的python和你的系统中安装的是同一版本，比如3.8.2python 64bit!
 保证一样即可使用。
 常用命令： `Leaderf file --popup   leaderf buffer --popup  Leaderf function --popup   leaderf rg`
