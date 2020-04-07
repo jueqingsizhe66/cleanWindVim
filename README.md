@@ -8,7 +8,9 @@
 
 ## funny 
 
-1. 下载，不破坏原始架构
+1. (Deprecated)下载，不破坏原始架构
+   引入leaderf后，需要满足两个条件 带python的vim安装包，python的详细版本信息请查看[ vim windows版本下载链接 ][12]
+
 2. 写了my_configs.vim  并下载了自己插件到my_plugins文件夹
 3. rainbow_paratheses的好处是让括号好看些
 4. (deprecated)更快的ctrlp配置`F2`,`F1`和`,o`的bufferexplorer命令一样, 加入了第三方matcher 命中插件[ctrlp-py-matcher][6]
@@ -35,18 +37,22 @@
 - `,a` 搜索， 可以配合`,fr`, 使用leaderf rg进行异步搜索
 - `,cal` 打开日历窗口
 - `,wi` 打开diary文件
-- `[[` wiki文件内向前一header跳转
-- `]]` wiki文件内向后一header跳转
+- `[[` wiki文件内向前一header跳转(只要是header即可，不考虑是否同级)
+- `]]` wiki文件内向后一header跳转(只要是header即可，不考虑是否同级)
+- `[=` wiki文件内同级向前跳转(有用)
+- `]=` wiki文件内同级向后跳转(有用)
+- `[u` wiki文件内向父级跳转, 如果有父节点(有用)
+- `]u` wiki文件内向子级跳转,如果有子节点(有用)
 
 8. `C:\Users\yzl`的.NERDTreeBookmarks nerdtree的`:Bookmark`对应的文件夹名名字,`_vim_mru_files`保存着最近访问的文件,`_vimtags`保存着所有tag相关的记录.
-9. (deprecated)`C-s`变成加入光标, `Alt-S`变成添加符合全部单词下的光标,`ESC`推出MC(multiple cursors)模式
+9. (Deprecated)`C-s`变成加入光标, `Alt-S`变成添加符合全部单词下的光标,`ESC`推出MC(multiple cursors)模式
 [[#pringout]]
 
 - `C-s` 换为`:leaderf rg搜索本buffer命令`
 
 10. `gf` open file under cursor,如果是路径的话(配合上vimwiki).
 11. easymotion的<leader>j和k可以正常于运行
-12. (deprecated) 添加了TODO,FIXME等关键字的高亮，`F7` 添加TODO(yzl),`,g`调用`:ACK` 然后写上TODO就可以过滤项目中所有具有TODO字段的行了(习惯性地添加TODO,FIXME,BUG等) [TODO高亮](https://www.jb51.net/article/115922.htm)
+12. (Deprecated) 添加了TODO,FIXME等关键字的高亮，`F7` 添加TODO(yzl),`,g`调用`:ACK` 然后写上TODO就可以过滤项目中所有具有TODO字段的行了(习惯性地添加TODO,FIXME,BUG等) [TODO高亮](https://www.jb51.net/article/115922.htm)
 
     F7功能已被leaderf替换掉！
 
@@ -99,6 +105,11 @@
 24. 增加了[ leaderf ][7] 替换掉ctrlp, 需要vim+python3, windows下支持python的vim工具[ 下载地址 ][8], 注意一定得支持python功能的vim，否则无法使用leaderf
 [ vim中如何使用python工具说明 ][9]， 记住必须知道支持编译vim的工具中使用的python和你的系统中安装的是同一版本，比如3.8.2python 64bit!
 保证一样即可使用。
+
+到此为止，本项目需要满足两个条件:
+
+1. 支持python功能的vim安装包
+2. vim安装包内对应的python版本，现在vim，然后`:version`查看一下python版本
 常用命令： `Leaderf file --popup   leaderf buffer --popup  Leaderf function --popup   leaderf rg`
 
 - `C-S`: buffer内查找内容
@@ -119,6 +130,7 @@
 - `C-P` 哈哈，居然有preview功能!!!功能
 
 26. [ leaderf-marks ][10] 用于搜索vim marks功能， 对应
+
 - `<F9>`,
 - `,fn`
 
@@ -132,7 +144,7 @@
 
 29. `:Leaderf buffer`对应
 
-- `<F10>` 和
+- `<F10>` 
 - `,b`,
 - `,fb`
 
@@ -481,3 +493,4 @@ Just do following:
 [9]:https://www.v2ex.com/t/410079 
 [10]:https://github.com/Yggdroot/LeaderF-marks 
 [11]:https://my.oschina.net/uniquejava/blog/225027 
+[12]:https://github.com/vim/vim-win32-installer/blob/master/README.md 
