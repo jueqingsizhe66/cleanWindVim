@@ -148,6 +148,11 @@
 - `,b`,
 - `,fb`
 
+30. vim-mark 很方便，查看文件可以标记文字， 感觉比[ symbol-overlay ][13]还好用(在非代码文件中)
+
+- `,m` 标记选择区域一种颜色
+- `,#` 向上查看标记区域(按的速度得快点)
+-  `,*` 向下查看标记区域
 
 ![Vim-features][1]
 
@@ -494,3 +499,4 @@ Just do following:
 [10]:https://github.com/Yggdroot/LeaderF-marks 
 [11]:https://my.oschina.net/uniquejava/blog/225027 
 [12]:https://github.com/vim/vim-win32-installer/blob/master/README.md 
+[13]:https://emacs-china.org/t/package-symbol-overlay-symbol 

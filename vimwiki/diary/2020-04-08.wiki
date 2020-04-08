@@ -1,0 +1,99 @@
+= 基于高斯分布的半经验尾流模型研究 =
+白 鹤1†，张晓东1，张勇2，王聪2
+（1. 华北电力大学能源动力与机械工程学院，北京 102206；2. 龙源（北京）风电工程设计咨询有限公司，北京 100034）
+
+== 摘要: ==
+风电机组尾流问题一直是风电发展中不可忽略的一大问题。随着风电的迅速发展，人们对风电场尾流模型的研究越来越重视。本文在Jensen模型基础上,引入服从高斯分布的速度亏损模型得到了一种新的适用于远场尾流的分析模型，并以此为理论基础通过编程建立了三维的全场尾流模型。采用新的尾流模型和另外两种尾流模型分别对Horns ver风电场和大丰风电场的部分风电机组进行尾流模拟，模拟计算的数据和实际运行数据进行了对比，发现新模型的模拟效果优于其他两种模型。
+关键词：风力发电;风电场;全场尾流模型;高斯分布;速度亏损;功率亏损
+Research of Wind Turbine Wake Model Based on Gaussian Distribution
+ BAI He1, ZHANG Xiao-dong1 ,ZHANG Yong2,Wang Cong2
+(1. School of Energy, Power Mechanical Engineering, North China Electric Power University, Beijing 102206,China; 2. Longyuan(Beijing)Wind Power Engineering& Consulting Co.Ltd., Beijing 100034,China) 
+
+Abstract: Wind turbine wakes has been a significant topic of wind energy development. With the rapid development of wind power, people pay more attention to the wind turbine wake research. Contraposing the shortage of  Jensen model ,velocity deficit following Gaussian distribution has been introduced, a new far-field analytical wake model is obtained, after programming a 3d audience wake model is established. New model and other two models are used to simulate the wind turbine wakes from Horns ver wind farm and Dafeng wind farm. The results show that power calculation results of new model agree with the operating data, better than used improved Jensen model and its amended model.      
+Keywords: wind power; wind farm; the audience wake model; Gaussian distribution; velocity deficit; power deficit 
+== 0引言 ==
+    随着全球气候的不断变化和化石燃料的日益缺乏，新能源的发展受到世界各国的关注。作为新能源中技术相对成熟并具有规模化发展条件的风能更是受到了各国的青睐。
+    作为一个风能大国，风电在中国近十几年来发展迅速。风电发展过程中势必会伴随有一些问题，而尾流问题就是其中之一。
+    尾流会导致下风向风机发电量损失和风机载荷的增加，尾流折减是风资源评估中非常关键的一步，尾流模型的准确性直接影响到发电量估算的准确度。
+    目前，人们主要通过简化假设建立模型来研究尾流。Jensen模型[1]是工程中使用最普遍的尾流模型，其具有原理简单计算速度快的特点。Jensen模型是丹麦国家实验室的N.O. Jensen于1983年提出的，WASP软件中用到的尾流模型Park模型[2]也是基于Jensen模型建立的；Frandsen等[3]在Jensen模型基础上引入动量守恒方程创建出新的分析模型，并采用实验数据对其建立的分析模型进行了修正。
+    本文在Jensen模型基础上引入服从高斯分布的速度亏损模型得到了一种新的适用于远场尾流的分析模型，并以此为理论基础通过编程建立了三维的全场尾流模型，
+    与Horns ver风电场[4]和大丰风电场的实际运行数据进行了对比。结果表明，所建立的全场尾流模型可以很好地模拟实际风场的风机风功率的尾流变化趋势。
+
+== 1建立模型 ==
+=== 1.1 Jensen模型及其改进模型简介 ===
+Jensen模型基于如下三点假设建立。
+1、尾流场横截面初始直径为风轮直径；
+2、尾流场横截面半径呈线性增长；
+3、尾流场横截面上的速度是均匀的[5]。
+根据所研究的控制体满足质量守恒定律、尾流场横截面半径呈线性增长且假定所研究风力机满足贝茨极限等这些条件可以推导出Jensen尾流模型速度计算公式如下：
+ 
+式中， 为来流风速， 是风力机下游距离 位置的轮毂高度处风速， 是风力机叶片长度， 是尾流扩散率。
+因为上式是把风力机考虑成理想风力机推导出来的，而实际风力机的功率系数是达不到0.953的，
+为此相关人士对Jensen模型进行了改进，引入了风力机速度轴向诱导因子 ，得出了如下尾流速度计算公式：
+ 
+轴向诱导因子 与推力系数 之间存在下面的关系
+ 
+所以速度计算公式也可表示成如下形式：
+ 
+此后多位研究人员曾对改进Jensen模型进行了修正，其中张晓东等[6]考虑了远场尾流的能量补给问题对改进Jensen模型进行了修正引进了混合常数β，并采用多个算例进行验证。得到的远场尾流速度计算公式如下：
+ 
+=== 1.2引入服从高斯分布的速度亏损 ===
+大量实测结果表明，实际风机尾流区任意截面上的速度不是均匀分布的，即实际尾流不符合上面模型的第三条假设，
+实际风机尾流区横截面上的速度亏损呈现高斯分布[7]。基于这一现象，本文对上面修正后的改进Jensen模型做了进一步改进，在模型中引入了尾流横截面速度亏损服从高斯分布这一条件。下面是本文模型的具体推导过程：
+建立三维坐标系， 方向表示风的来流方向， 方向是尾流截面的水平方向， 方向是尾流截面的垂直方向； 表示尾流截面的速度亏损，  表示来流风速， 表示尾流截面半径。
+控制体中因尾流速度亏损引起的空气质量流量的损失量与总空气质量流量之间的比值 可表示为：
+ 
+尾流界面速度亏损呈现高斯分布得[8]：
+ 
+则：
+    是高斯分布函数的标准差， 为关于 和标准差 的函数。新模型在 方向上满足上面提到的修正后的改进Jensen模型，则
+ 
+那么 也可以表示为
+ 
+所以
+ 
+将此式代入高斯分布的定义式得：
+ 
+便可得到远场尾流区的速度计算公式如下：
+ 
+公式中存在三个需要调节的参数，分别是尾流下降系数 、混合常数β和参数 。尾流下降系数 的取值范围是0.04~0.08，来流湍流强度低时 取0.04，湍流强度较高时 取0.08；根据张晓东等[6]的研究，混合参数β取0.6最为合适；参数 的取值由风电场实际情况所决定。
+== 2模型程序编写 ==
+    采用Matlab软件对本文建立的新尾流模型编写程序，并在程序中引入了风廓线。所编程序可依据设定的参数计算规则风电场的全场风速分布和风功率分布。
+== 3算例分析 ==
+=== 3.1算例1 ===
+选用Horns Rev海上风电场[4]的实测数据进行研究。Horns Rev海上风电场装机总容量为160 MW，装有80台2 MW的Vestas V80机型，轮毂高度为70 m，叶轮直径为80 m，呈8排10列规则排布，行列间距均为7倍的叶轮直径。选取第7排风电机组来流风速为8 m/s方位角在270°±2.5°时的实测数据与模型计算结果进行了对比，模拟时用到的参数表1已经列出，对比结果如图1。 
+表1模型计算参数
+Table 1 The calculate parameters of model
+来流风速	风向	 
+β	 
+8 m/s	270°	0.04	0.6	1.02
+
+从图中明显可以看出改进Jensen模型和修正后的改进Jensen模型高估了风电场风机尾流引起的功率亏损，本文提出的新模型在给定参数下的模拟结果与实际运行结果相近，说明新模型可以很好的模拟此风电场第7排风电机组的尾流情况。
+  
+图1 实测值与三模型模拟值对比
+Fig1 The comparison of measured and three models calculated values
+=== 3.2算例2 ===
+选取大丰风电场中自西向东排列的六台金风的风电机组作为研究对象。风电机组额定功率为2.5 MW，叶轮直径109米，轮毂高度为90米。在运行数据中筛选了两段风速在7 m/s~9 m/s、风向在270°左右的连续时间段数据作为实际运行数据与新模型模拟结果进行对比。由于大丰属温带和亚热带湿润气候区，具有海洋、大陆性气候双重影响的气候特征，理论上湍流强度大于海上风电场，故尾流下降系数 取0.06。其他两个参数选取的值和上个算例相同。选距离风电场较近的测风塔同期的平均风速作为模拟时的来流风速。尾流模型模拟结果和实际运行数据的对比结果如下图所示：
+ 
+图2 时段1实测值与三模型模拟值对比
+Fig2 The comparison of measured and three models calculated values for the first part
+
+ 
+图3 时段2实测值与三模型模拟值对比
+Fig3 The comparison of measured and three models calculated values for the second part
+从图中可以看出改进Jensen模型和修正后的改进Jensen模型模拟的尾流功率亏损偏高；整体来看，图中模拟结果与实际运行数据对应的两条曲线变化趋势基本一致；此外，实际运行数据的无量纲功率亏损曲线上下波动很明显，这与选取的有用数据数量太少有关。 
+== 4 结束语 ==
+
+本文推导研究了改进Jensen模型和修正后的改进Jensen模型与速度亏损高斯分布模型结合得到的新尾流模型，并以此为理论基础建立了三维的新全场尾流模型；采用三种模型分别模拟了Horns ver风电场和大丰风电场部分机组的尾流情况，证明了对修正后的改进Jensen模型做出的改进符合实际，新模型可以很好的模拟风电场中风电机组的尾流功率亏损情况。
+
+参考文献：
+[1]	Jensen N O. A note on wind generator interaction［R］. Roskilde，Denmark: Risø-m-2411，1983．
+[2]	Katic I, Højstrup J, Jensen NO. A simple model for cluster efficiency[C]. Proceedings of the European Wind Energy Association Conference & Exhibition, Rome, 1986: 407–410.
+[3]	S. Frandsen, R. Barthelmie, S. Pryor, O. Rathmann, S. Larsen, J. Højstrup, and M.Thøgersen. Analytical modelling of wind speed deficit in large offshore wind farms[J], Wind Energy, 2006, 39-53.
+[4]	Peña A, Réthoré PE, Hasager CB, Hansen K. Results of wake simulations at the Horns Rev I and Lillgrund wind farms using the modified Park model[R].Denmark: DTU Wind Energy,Roskilde, 2013.
+[5]	贺德馨. 风工程与工业空气动力学［M］. 北京: 国防工业出版社, 2006, 238—240. 
+[6]	张晓东, 张镇. 半经验风力机尾流模型的研究[J]. 太阳能学报, 出版年2014,35（1）: 101-105.
+[7]	D. Medici and P. Alfredsson, Measurement on a wind turbine wake: 3d effects and bluff body vortex shedding[J], Wind Energy, 2006, 219–236.
+[8]	Majid Bastankhah, Fernando Port´e-Agel. A New Analytical Model for Wind-Turbine Wakes [C]. ICOWE, Lyngby, Denmark, 17-19 June, 2013: 14-25.
+ 
+[[中国华能集团有限公司标准化工作定]]
