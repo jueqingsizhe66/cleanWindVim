@@ -23,13 +23,13 @@ let g:startify_list_order = [
         \ ]
 
 let g:startify_bookmarks = [ 
-{'c': '~/.vim_runtime/yzl/cleanWind.vim'}, 
-{'m': '~/.vim_runtime/yzl/cleanPlug.vim'}, 
-{'r': '~/.vim_runtime/README.md'},   
-{'d': 'D:\ManyHomes\IntellijHome\rupengImprove\designer\README.md'}, 
-{'t': 'D:\ManyHomes\IntellijHome\The-Little-Java\README.md'}
-{'o': 'D:\ManyHomes\IntellijHome\t-io\t-io-20200409\t-io\README.md'}
-]
+            \{'c': '~/.vim_runtime/yzl/cleanWind.vim'}, 
+            \{'m': '~/.vim_runtime/yzl/cleanPlug.vim'}, 
+            \{'r': '~/.vim_runtime/README.md'},   
+            \{'d': 'D:\ManyHomes\IntellijHome\rupengImprove\designer\README.md'}, 
+            \{'t': 'D:\ManyHomes\IntellijHome\The-Little-Java\README.md'},
+            \{'o': 'D:\ManyHomes\IntellijHome\t-io\t-io-20200409\t-io\README.md'},
+            \]
 let g:startify_commands = [
     \ ':help reference',
     \ ['Vim Reference', 'h ref'],

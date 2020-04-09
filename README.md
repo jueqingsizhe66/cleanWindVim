@@ -61,7 +61,12 @@
 - `u` 将当前根结点的父目录设为根目录，并变成合拢原根结点(move tree root up a dir)
 - `U` 将当前根结点的父目录设为根目录，但保持展开原根结点(move tree root up a dir, but leave old root open)
 - `cd` change the CWD to the selected dir
-- `CD` change tree root to CWD
+- `CD` change tree root to CWD(当无法正常切换目录时候,先关闭nerdtree，然后打开Nerdtree，大写CD，然后再关掉Nerdtree，R刷新一下)
+    - `<F6>`
+    - `<F6>`
+    - `CD`
+    - `<F6>`
+    - `R`
 
 9. (Deprecated)`C-s`变成加入光标, `Alt-S`变成添加符合全部单词下的光标,`ESC`推出MC(multiple cursors)模式
 [[#pringout]]
