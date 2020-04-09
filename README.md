@@ -45,6 +45,24 @@
 - `]u` wiki文件内向子级跳转,如果有子节点(有用)
 
 8. `C:\Users\yzl`的.NERDTreeBookmarks nerdtree的`:Bookmark`对应的文件夹名名字,`_vim_mru_files`保存着最近访问的文件,`_vimtags`保存着所有tag相关的记录.
+
+- `:Bookmark` 添加当前项目文件夹进入Nerdtree中
+- `B` 在nerdtree框中可以toggle bookmark中的文件，也可以通过`let NERDTreeShowBookmarks=1 `,默认打开bookmark
+- `F` 是否显示文件(有时候只关注目录)
+- `l` toggle隐藏文件
+- `D` 删除当前书签
+- `P` 调到根节点
+- `p` 小写p跳到父节点
+- `K` 跳到当前目录下同级的第一个结点
+- `J` 跳到当前目录下同级的最后一个结点
+- `k` 跳到当前目录下同级的前一个结点(类似vimwiki的`[=`)
+- `j` 跳到当前目录下同级的后一个结点(类似vimwiki的`]=`)
+- `C` 将选中目录或选中文件的父目录设为根结点(有时候很方便 可以简化视角区域)-->`u`反向
+- `u` 将当前根结点的父目录设为根目录，并变成合拢原根结点(move tree root up a dir)
+- `U` 将当前根结点的父目录设为根目录，但保持展开原根结点(move tree root up a dir, but leave old root open)
+- `cd` change the CWD to the selected dir
+- `CD` change tree root to CWD
+
 9. (Deprecated)`C-s`变成加入光标, `Alt-S`变成添加符合全部单词下的光标,`ESC`推出MC(multiple cursors)模式
 [[#pringout]]
 
@@ -62,7 +80,19 @@
 - `,fU`
 
 14.  `F8`添加so what 总结性声明.
+
+- `F8`
+
 15. 编写perl文件常用命令，读取文件`\ii`,输出文件`\io`,while循环`\sw`,for循环`\sfe`, 另外你不能忘记的三个数据结构,标量`\id`,数组`\ia`,字典`\ih`
+
+- `\ii` 读取
+- `\io` 输出
+- `\sw` while
+- `\sfe` for
+- `\id` 标量
+- `\ia` 数组
+- `\ih` 字典
+
 16. Interesting,不妨试试! `,z`打开goyo界面，很好看
 
 - `,z`

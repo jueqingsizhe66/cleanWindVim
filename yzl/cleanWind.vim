@@ -53,6 +53,7 @@ source ~/.vim_runtime/yzl/config/config-xdate.vim
 source ~/.vim_runtime/yzl/config/config-status.vim
 """""""""""""""""""""""""""""""" Computer language """"""""""""""""""""""""""""""""""""
 source ~/.vim_runtime/yzl/config/config-language.vim
+source ~/.vim_runtime/yzl/config/config-nerdtree.vim
 
 set nocompatible
 filetype plugin on
