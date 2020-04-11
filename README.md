@@ -150,7 +150,7 @@
 - `C-S`: buffer内查找内容
 - `C-F`: 查找文件, `,ff`
 - `F1`: MRU files, `,fm`
-- `F2`: file间查找内容
+- `F2`: file间查找内容, 如果是一长串单词，得用双引号
 - `F7`: 查找当前buffer的函数(意义不大)
 
 25. very good! 效果很好
@@ -200,6 +200,37 @@
 -  `#` `g#` 向上查找当前cursor下的单词(`z#`不给力)
 - `z/` `z?` `zg/` 都可以输入查找 很方便
 
+32. [ vim-surround ][15]在vim中可以使用`:echo char2nr('-')` 会返回45，表示`-`的ASCII是45
+可以查看[ ASCII码表 ][14]进行其他关键字符的定义
+
+通过下面的配置，就可以在vimwiki文件中使用可视模式选择多行+`S-`来完成多个字符的输入。
+
+``` vim 
+
+"Code block for markdown
+autocmd FileType vimwiki let b:surround_45 = "{{{java \n\r\n}}}"
+
+"Code block for markdown
+ autocmd FileType markdown let b:surround_45 = "```\n\r\n```"
+
+"Block comment for python
+ autocmd FileType python let b:surround_45 = "\"\"\"\n\r\n\"\"\""
+
+```
+
+latex部分，可以通过添加额外的输入，很方便， 其中
+
+- `\\begin`表示`\begin`, `\`需要进行转义,有特殊含义
+- `\1\1`两个slash1对代表要输入额外的提示词, 最多可以达到`\7\7`,在`\1`之前还可以插入提示信息，比如environment: 
+   就会在minibuffer中显示出来。
+- `{ }` 不需要进行转移
+- `108` 则代表的`\`所代表的的ASCII码， `:echo char2nr('\')`
+
+```vim
+
+" vertical |
+autocmd FileType vimwiki let g:surround_108 = "\\begin{\1environment: \1}\r\\end{\1\1}"
+```
 
 
 ![Vim-features][1]
@@ -548,3 +579,5 @@ Just do following:
 [11]:https://my.oschina.net/uniquejava/blog/225027 
 [12]:https://github.com/vim/vim-win32-installer/blob/master/README.md 
 [13]:https://emacs-china.org/t/package-symbol-overlay-symbol 
+[14]:https://baike.baidu.com/item/ASCII/309296?fromtitle=ascii%E7%A0%81&fromid=99077&fr=aladdin 
+[15]:https://github.com/tpope/vim-surround/ 

@@ -1,0 +1,44 @@
+= 不要过度分心，学会多提问 =
+
+== the little prover ==
+Working with Dan, I learned a lot about how to take a research insight and think it over until the explanation was accessible to freshman students.
+
+I eventually realized that we needed Dan’s way of studying, twisting, refining this material.
+
+- twisting(rephrasing变换)
+- refining(咀嚼 )
+- recursing
+
+the little book distills a topic to its =essential elements=
+
+== the season scheme ==
+<The season scheme> Programming languages seem the best way to convey the nature of computation. They share with mathematics the ability to give a formal meaning to a set of symbols. But unlike mathematics, programming
+languages can be directly experienced-you can take the programs in this book, observe their behavior, modify them, and experience the effect of these modifications.
+
+Perhaps the best programming language for teaching about the nature of computation is =Scheme=. Scheme is =symbolic= and =numeric= 
+-the programmer does not have to make an explicit mapping between the symbols and numerals of his own language and the representations in the computer(represent the value of the computation)
+
+== The value of the thing ==
+(define 问题
+  (cond
+     (...)
+     (...)
+     (...)
+     (...)
+     (...)
+     (else (问题 ...))
+     ))
+
+terminate line values: 0        1          空
+terminate line predicates: zero?    one?       null?    atom?    list?
+recursing part :    (sub1 n)  (sub1 n)   (cdr list)
+build operators:    add        multiple     cons
+
+- quote?
+- symbol?
+- cond?
+- primitive?
+- closure?
+- else?
+
+
