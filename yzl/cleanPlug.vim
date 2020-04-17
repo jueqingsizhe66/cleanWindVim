@@ -102,7 +102,11 @@ Plug 'mechatroner/rainbow_csv'
 "Plug 'xolox/vim-easytags'
 "Plug 'xolox/vim-misc'
 "Plug 'elentok/todo.vim'
-
+"
+"New add 2020-04-17 
+"
+Plug 'ap/vim-css-color'
+"Plug 'vifm/vifm.vim'
 
 ":MRU
 Plug 'vim-scripts/mru.vim'

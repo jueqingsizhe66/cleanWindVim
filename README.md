@@ -46,20 +46,26 @@
 
 8. `C:\Users\yzl`的.NERDTreeBookmarks nerdtree的`:Bookmark`对应的文件夹名名字,`_vim_mru_files`保存着最近访问的文件,`_vimtags`保存着所有tag相关的记录.
 
+增删部分:
+
 - `:Bookmark` 添加当前项目文件夹进入Nerdtree中
 - `B` 在nerdtree框中可以toggle bookmark中的文件，也可以通过`let NERDTreeShowBookmarks=1 `,默认打开bookmark
 - `F` 是否显示文件(有时候只关注目录)
 - `l` toggle隐藏文件
 - `D` 删除当前书签
+
+导航部分:
+
 - `P` 调到根节点
 - `p` 小写p跳到父节点
 - `K` 跳到当前目录下同级的第一个结点
 - `J` 跳到当前目录下同级的最后一个结点
 - `k` 跳到当前目录下同级的前一个结点(类似vimwiki的`[=`)
 - `j` 跳到当前目录下同级的后一个结点(类似vimwiki的`]=`)
-- `C` 将选中目录或选中文件的父目录设为根结点(有时候很方便 可以简化视角区域)-->`u`反向
+- `C` 将选中目录或选中文件的父目录设为根结点(有时候很方便 可以简化视角区域)-->`u`反向(大小的C)
 - `u` 将当前根结点的父目录设为根目录，并变成合拢原根结点(move tree root up a dir)
 - `U` 将当前根结点的父目录设为根目录，但保持展开原根结点(move tree root up a dir, but leave old root open)
+
 - `cd` change the CWD to the selected dir
 - `CD` change tree root to CWD(当无法正常切换目录时候,先关闭nerdtree，然后打开Nerdtree，大写CD，然后再关掉Nerdtree，R刷新一下)
     - `<F6>`
@@ -186,6 +192,7 @@
 30. vim-mark 很方便，查看文件可以标记文字， 感觉比[ symbol-overlay ][13]还好用(在非代码文件中)
 
 - `,m` 标记选择区域一种颜色
+- `,r` 输入一段regex或者字符进行着色！
 - `,#` 向上查看标记区域(按的速度得快点)
 -  `,*` 向下查看标记区域
 
@@ -231,6 +238,32 @@ latex部分，可以通过添加额外的输入，很方便， 其中
 " vertical |
 autocmd FileType vimwiki let g:surround_108 = "\\begin{\1environment: \1}\r\\end{\1\1}"
 ```
+
+33. [ vifm ][16]是类似于[ leaderf ][7]、[ unite.vim ][17]、[ nnn.vim ][18]的文件浏览器
+
+unite常用命令，因为安装了[Shougo/neomru.vim][19],所以可以使用`:Unite mru`
+
+
+- `,f` 打开文件目录
+- `,l` 进行文件内搜索(), 类似与`z?`，但是`z?`有个好处可以显示当前是第几个匹配位置,不同于`z/`,`zg/`,因为后两者是类似于easymotion的功能，可以快速字符定位； `g*`,`g#`,`z*` , 
+- `:unite mru`  or `:unite neo/`
+
+
+34. 打开所有当前配置的快捷键
+
+- `:Map` or `:Maps` 可输入查找的形式 推荐！
+- `:map`  阅读模式
+
+35. vim方式的快速定位easymotion
+
+- `z?`,`z/` 的incsearch+easymotion的组合体模糊搜索
+- `,w`,`,W` 向下查找 forward 跳转到档次前方
+- `,B` backward跳转到当前前方
+- `,j` 向下定位行数 line forward
+- `,k` 向上定位行数 line downword
+- `,s`,`,T`,`,t` 查找一个字母
+- `,n`  jump to latest 查找的单词, 类似[ cleverf ][21] 的`f`
+- `,N`  反向jump to latest 查找的单词， 类似[ cleverf ][21]的`F`
 
 
 ![Vim-features][1]
@@ -581,3 +614,9 @@ Just do following:
 [13]:https://emacs-china.org/t/package-symbol-overlay-symbol 
 [14]:https://baike.baidu.com/item/ASCII/309296?fromtitle=ascii%E7%A0%81&fromid=99077&fr=aladdin 
 [15]:https://github.com/tpope/vim-surround/ 
+[16]:https://github.com/vifm/vifm.vim 
+[17]:https://github.com/Shougo/unite.vim 
+[18]:https://github.com/mcchrish/nnn.vim 
+[19]:https://github.com/Shougo/neomru.vim/ 
+[20]:https://github.com/easymotion/vim-easymotion 
+[21]:https://github.com/rhysd/clever-f.vim 

@@ -120,7 +120,6 @@ Hu Hui: It is a job of homework(learning process) or a job of research(creating 
     *      https://github.com/jwiegley/use-package
     *       [[org-capture-template]]
     *  [[2017-09-28]]
-    * w,i
     *       [[spacemacs]]
     *  [[2017-10-03]]
     *  [[2017-10-07]] design something hard to use
