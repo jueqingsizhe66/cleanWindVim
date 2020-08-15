@@ -1,1 +1,13 @@
+二代遗传算法NSGA-II(多目标遗传算法) 
+https://www.zhihu.com/question/26990498
 
+https://github.com/msku-coinlab/pymoo
+
+
+
+geatpy
+https://github.com/geatpy-dev/geatpy
+
+
+多目标优化
+https://pymoo.org/
