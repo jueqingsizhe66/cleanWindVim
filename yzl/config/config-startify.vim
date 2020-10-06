@@ -26,9 +26,13 @@ let g:startify_bookmarks = [
             \{'c': '~/.vim_runtime/yzl/cleanWind.vim'}, 
             \{'m': '~/.vim_runtime/yzl/cleanPlug.vim'}, 
             \{'r': '~/.vim_runtime/README.md'},   
-            \{'d': 'D:\ManyHomes\IntellijHome\rupengImprove\designer\README.md'}, 
-            \{'t': 'D:\ManyHomes\IntellijHome\The-Little-Java\README.md'},
-            \{'o': 'D:\ManyHomes\IntellijHome\t-io\t-io-20200409\t-io\README.md'},
+            \{'d': 'E:\codeRoom\java\designer\README.md'}, 
+            \{'w': 'E:\codeRoom\java\tio-site\文档.html'},
+            \{'s': 'E:\codeRoom\java\tio-Study\README.md'},
+            \{'o': 'E:\codeRoom\java\The-Little-Java\README.md'},
+            \{'a': 'E:\codeRoom\SICP-in-Elisp\README.md'},
+            \{'f': 'E:\codeRoom\WindFarmSimulation\WFSim-master\README.md'},
+            \{'b': 'E:\codeRoom\LiuXinPythonGaussian\FLORISSE-basic\README.md'},
             \]
 let g:startify_commands = [
     \ ':help reference',

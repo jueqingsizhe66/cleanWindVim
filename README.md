@@ -3,6 +3,12 @@
     vim有一点不能忘，模式化无鼠标编辑, 禅定!
     分层配置，层层玻璃纸化，系统有机构成，打造适合writer的乐园
     牢记利器是来解决问题，干有挑战事情的，做有意义工作
+    
+    2个特色(足矣)：
+    
+    - Leaderf + Vimmark
+    - g* z* + vimmark
+         
 
 <hr/>
 
@@ -167,7 +173,7 @@
 - `C-T` 新的tab窗口打开
 - `C-U` 可以清除输入区
 - `UP`向上翻历史
-- `Down`向下翻历史
+- `down`向下翻历史
 - `C-P` 哈哈，居然有preview功能!!!功能
 
 26. [ leaderf-marks ][10] 用于搜索vim marks功能， 对应
@@ -199,6 +205,7 @@
 31. vim-asterisk在同一个buffer内查找也挺方便的，配合上`<C-S>`对应的`Leaderf buffer`以及`,l`对应的`unite line`使得单个文件查找很方便
 
 -  `*` `g*` `z*` 向下查找当前cursor下的单词(查找词会处于高亮形式)-----已经成为少不了的工具，再配合上`,m` vim mark一下，perfect！
+- 2020-10-06 有用 leaderf buffer配合vim mark也是不错的！
     - `n` 向下查
     - `N` 向上查
     - 优化流程:
