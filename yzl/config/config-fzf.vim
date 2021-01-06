@@ -1,5 +1,6 @@
 " This is the default extra key bindings
-set rtp+=~/.vim_runtime/fzf.exe
+set rtp+=~/.vim_runtime/fzf.exe  " 注意更新fzf版本号！ 当前版本0.25 "
+" https://github.com/junegunn/fzf/releases 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
@@ -94,8 +95,8 @@ omap <leader><tab> <plug>(fzf-maps-o)
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-j> <plug>(fzf-complete-path)
+"imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Advanced customization using autoload functions

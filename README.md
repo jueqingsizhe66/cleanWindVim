@@ -273,6 +273,23 @@ unite常用命令，因为安装了[Shougo/neomru.vim][19],所以可以使用`:U
 - `,N`  反向jump to latest 查找的单词， 类似[ cleverf ][21]的`F`
 
 
+36.  fzf
+[vim-fzf][23] 是一个快速编辑的工具， 见配置文件config-fzf 
+
+可以快速插入行和文件路径
+
+```
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-j> <plug>(fzf-complete-path)
+"imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+```
+
+
+
 ![Vim-features][1]
 
 <hr/>
@@ -627,3 +644,5 @@ Just do following:
 [19]:https://github.com/Shougo/neomru.vim/ 
 [20]:https://github.com/easymotion/vim-easymotion 
 [21]:https://github.com/rhysd/clever-f.vim 
+[22]:https://www.youtube.com/watch?v=qgG5Jhi_Els 
+[23]:https://github.com/junegunn/fzf#windows 

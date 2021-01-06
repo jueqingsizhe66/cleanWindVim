@@ -33,6 +33,7 @@ let g:startify_bookmarks = [
             \{'a': 'E:\codeRoom\SICP-in-Elisp\README.md'},
             \{'f': 'E:\codeRoom\WindFarmSimulation\WFSim-master\README.md'},
             \{'b': 'E:\codeRoom\LiuXinPythonGaussian\FLORISSE-basic\README.md'},
+            \{'p': 'E:\codeRoom\perl\README.md'},
             \]
 let g:startify_commands = [
     \ ':help reference',
