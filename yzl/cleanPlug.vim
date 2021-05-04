@@ -272,6 +272,8 @@ Plug 'vimwiki/vimwiki'
 "Plug 'tpope/vim-fireplace'
 Plug 'w0rp/ale'
 
+Plug 'chr4/nginx.vim'
+Plug 'ekalinin/Dockerfile.vim'
 "Plug 'maxbrunsfeld/vim-yankstack'
 
 "" language specified end----------------------------------------------------------"

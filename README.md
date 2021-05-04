@@ -288,9 +288,21 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 ```
 
+37. vim perl
+[ 好的代码风格决定你产生更好的bug ][24]
+- `\rr` 运行脚本， 不用在使用`:perl %`了
+- `\rs` 检查语法
+- `\cy` 执行perltity , 前提得安装`PERL::TITY`
+- `\ci` 展示已经安装的perl模块
+- `\rk` 检查一下你的设置是否安装了`PERL::TITY` 和 `PERL::CRITIC`
 
 
 ![Vim-features][1]
+
+38. vim multiple-cursor(多重选择)
+
+- 选择一个单词或者一个单元，`ctrl-n`会选择相同的regexp，选好后执行vim相关编辑命令即可，比如删除，添加
+- `ctrl-v` [不断往下走，添加行cursors，执行相关操作](不断往下走，添加行cursors，执行相关操作), ESC两下即可全部执行大写I和大写A或者大写D
 
 <hr/>
 # The Ultimate vimrc
@@ -646,3 +658,4 @@ Just do following:
 [21]:https://github.com/rhysd/clever-f.vim 
 [22]:https://www.youtube.com/watch?v=qgG5Jhi_Els 
 [23]:https://github.com/junegunn/fzf#windows 
+[24]:https://perlmaven.com/how-to-improve-my-perl-program 

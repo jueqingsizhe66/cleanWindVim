@@ -6,3 +6,5 @@ READ
 config_sc
 config_sco
 clean
+config
+config
