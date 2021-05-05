@@ -8,7 +8,6 @@
     
     - Leaderf + Vimmark
     - g* z* + vimmark
-         
 
 <hr/>
 
@@ -135,7 +134,7 @@
 20. vim-mark 让你看代码更方便,  自写函数`,*`表示选择一行高亮
 
 - `,r` 有效
-- `,j` 向上标记行
+- `,j` 向上标记行 2021-05-05 
 - `,k` 向下标记行
 
 21. [GlobalVim][5] 全局vim功能，事先设置好GK键即可，设置为CapsLock key ,win10-->设置-->讲述人--->更改光标粗细，这样看起来会更好些
@@ -159,18 +158,19 @@
 2. vim安装包内对应的python版本，现在vim，然后`:version`查看一下python版本
 常用命令： `Leaderf file --popup   leaderf buffer --popup  Leaderf function --popup   leaderf rg`
 
-- `C-S`: buffer内查找内容
+- `C-S`: buffer内查找内容 , `,fb  2021-05-05 `
 - `C-F`: 查找文件, `,ff`
 - `F1`: MRU files, `,fm`
 - `F2`: file间查找内容, 如果是一长串单词，得用双引号
-- `F7`: 查找当前buffer的函数(意义不大)
+- `F7`: 查找当前buffer的函数(意义不大), 有点作用. 
+
 
 25. very good! 效果很好
 `C-f` 弹出一个搜索框 , 然后`C-J`or `C-K` 向下或者向上查找文件亦或者具体输入字母， 
 
 - `C-]` 直接右边打开(垂直打开)
 - `C-X` 直接水平划分窗口
-- `C-T` 新的tab窗口打开
+- `C-T` 新的tab窗口打开, good
 - `C-U` 可以清除输入区
 - `UP`向上翻历史
 - `down`向下翻历史
@@ -192,7 +192,7 @@
 29. `:Leaderf buffer`对应
 
 - `<F10>` 
-- `,b`,
+- `,b`, good!
 - `,fb`
 
 30. vim-mark 很方便，查看文件可以标记文字， 感觉比[ symbol-overlay ][13]还好用(在非代码文件中)
