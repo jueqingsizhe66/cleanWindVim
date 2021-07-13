@@ -15,7 +15,7 @@ Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 "------ snipmate dependencies -------
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
+"Plug 'tomtom/tlib_vim'
 
 "-----------------
 " Fast navigation
@@ -103,7 +103,7 @@ Plug 'mechatroner/rainbow_csv'
 "Plug 'xolox/vim-misc'
 "Plug 'elentok/todo.vim'
 "
-"New add 2020-04-17 
+"New add 2020-04-17
 "
 Plug 'ap/vim-css-color'
 "Plug 'vifm/vifm.vim'
@@ -166,6 +166,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
 "git 1
 Plug 'tpope/vim-fugitive'
+Plug 'zivyangll/git-blame.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
@@ -178,6 +179,8 @@ Plug 'haya14busa/vim-asterisk'
 "" see your yawed part
 Plug 'kana/vim-operator-user'
 Plug 'haya14busa/vim-operator-flashy'
+
+"" Plug 'DeXP/xkb-switch-win'
 
 "" underline the word at the current current
 "Plug 'itchyny/vim-cursorword'

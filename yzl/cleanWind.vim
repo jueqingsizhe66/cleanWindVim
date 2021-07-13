@@ -54,6 +54,7 @@ source ~/.vim_runtime/yzl/config/config-status.vim
 """""""""""""""""""""""""""""""" Computer language """"""""""""""""""""""""""""""""""""
 source ~/.vim_runtime/yzl/config/config-language.vim
 source ~/.vim_runtime/yzl/config/config-nerdtree.vim
+"" let g:XkbSwitchLib = '~/.vim_runtime/yzl/libxkbswitch64.dll'
 
 set nocompatible
 filetype plugin on

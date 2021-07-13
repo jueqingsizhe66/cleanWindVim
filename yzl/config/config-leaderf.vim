@@ -28,6 +28,7 @@ noremap <leader>fr :<C-U><C-R>=printf("Leaderf rg %s", "")<CR><CR>
 noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
+noremap <leader>y :<C-u>call gitblame#echo()<CR>
 
 " should use `Leaderf gtags --update` first
 "let g:Lf_GtagsAutoGenerate = 0

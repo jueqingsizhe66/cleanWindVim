@@ -9,9 +9,15 @@
     - Leaderf + Vimmark
     - g* z* + vimmark
 
+  gvim_8.2.3154_x64.exe match  python-3.9.6-amd64(python3.8.2 cannot work , you need to download older gvim version!)
+  
+  2021-07-13 updated gvim_8.2.3154(with vim9 support)+python3.9.6
+  
 <hr/>
 
 ## funny 
+
+`:GitBlame` 可以查看当前文件的所有更改过程
 
 1. (Deprecated)下载，不破坏原始架构
    引入leaderf后，需要满足两个条件 带python的vim安装包，python的详细版本信息请查看[ vim windows版本下载链接 ][12]
