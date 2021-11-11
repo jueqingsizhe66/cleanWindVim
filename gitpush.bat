@@ -1,17 +1,18 @@
 @echo off
 
-title GIT one key commit tool
+title GIT one key commit
 color 3
-echo Current pwd is：%cd%
+echo Current directory %cd%
 echo;
 
-echo Begin add changes：git add .
+echo Operation: git add .
 git add .
 echo;
 
-set /p declation=inputcommit message:
+set /p declation= please input commit msg:
 git commit -m "%declation%"
 echo;
 
-git push origin develop
+set /p current_branch= Which branch do you wanna push?: git push origin master? or develop?: 
+git push origin "%current_branch%"
 echo;
