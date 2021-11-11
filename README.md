@@ -310,6 +310,13 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 - 选择一个单词或者一个单元，`ctrl-n`会选择相同的regexp，选好后执行vim相关编辑命令即可，比如删除，添加
 - `ctrl-v` [不断往下走，添加行cursors，执行相关操作](不断往下走，添加行cursors，执行相关操作), ESC两下即可全部执行大写I和大写A或者大写D
 
+40. 多个vimwiki配置
+
+``` vim
+
+let g:vimwiki_list = [{ 'path': '~/.vim_runtime/vimwiki/', 'path_html': '~/.vim_runtime/vimwiki_html','auto_toc': 1, 'syntax':'default'}, { 'path': '~/.vim_runtime/vimwikiTODO/', 'path_html': '~/.vim_runtime/vimwikiTODOHTML','auto_toc': 1, 'syntax':'default'}, { 'path': '~/.vim_runtime/vimwikiOffshore/', 'path_html': '~/.vim_runtime/vimwikiOffshoreHTML','auto_toc': 1, 'syntax':'default'}]
+```
+
 <hr/>
 # The Ultimate vimrc
 
