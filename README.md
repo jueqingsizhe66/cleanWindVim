@@ -186,6 +186,8 @@
 
 - `<F9>`,
 - `,fn`
+- `<F1>` 调用`leaderf-mru`
+- `<F2>`调用leader-rg in project,windows使用`C-s`调用leader-rg-in buffer, linux调用`F4`调用leader-rg-in buffer.
 
 27.  [ 自动切换当前的buffer文件所在目录为工作目录 ][11], `set autochdir`
 
@@ -284,6 +286,7 @@ unite常用命令，因为安装了[Shougo/neomru.vim][19],所以可以使用`:U
 
 可以快速插入行和文件路径
 
+Linux底下使用该功能就是核弹级的功能
 ```
 
 " Insert mode completion
