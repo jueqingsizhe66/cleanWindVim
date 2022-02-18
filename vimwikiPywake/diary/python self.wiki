@@ -1,0 +1,35 @@
+class Test:
+    def prt(self):
+        print(self)
+        print(self.__class__)
+
+t = Test()
+t.prt()
+self就是实例对象   不是类对象！
+self可以不写吗
+在Python的解释器内部，当我们调用t.prt()时，实际上Python解释成Test.prt(t)，也就是说把self替换成类的实例。
+有兴趣的童鞋可以把上面的t.prt()一行改写一下，运行后的实际结果完全相同。
+实际上已经部分说明了self在定义时不可以省略，如果非要试一下，那么请看下面：
+
+class Test:
+    def prt():
+        print(self)
+
+t = Test()
+t.prt()
+运行时提醒错误如下：prt在定义时没有参数，但是我们运行时强行传了一个参数。
+由于上面解释过了t.prt()等同于Test.prt(t)，所以程序提醒我们多传了一个参数t。
+
+Traceback (most recent call last):
+  File "h.py", line 6, in <module>
+    t.prt()
+TypeError: prt() takes 0 positional arguments but 1 was given
+当然，如果我们的定义和调用时均不传类实例是可以的，这就是类方法。
+
+class Test:
+    def prt():
+        print(__class__)
+Test.prt()
+运行结果如下
+
+<class '__main__.Test'> 

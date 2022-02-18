@@ -1,0 +1,9 @@
+!_TAG_FILE_FORMAT	2
+!_TAG_FILE_SORTED	1
+!_TAG_OUTPUT_MODE	vimwiki-tags
+!_TAG_PROGRAM_AUTHOR	Vimwiki
+!_TAG_PROGRAM_NAME	Vimwiki Tags
+!_TAG_PROGRAM_URL	https://github.com/vimwiki/vimwiki
+!_TAG_PROGRAM_VERSION	2.5
+test1	diary/2021-11-21.wiki	21;"	vimwiki:diary/2021-11-21\tdiary/2021-11-21#test1
+test2	diary/2021-11-21.wiki	27;"	vimwiki:diary/2021-11-21\tdiary/2021-11-21#test2

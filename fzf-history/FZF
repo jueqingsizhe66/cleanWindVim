@@ -8,3 +8,5 @@ config_sco
 clean
 config
 config
+cleanPlu
+config-tab
