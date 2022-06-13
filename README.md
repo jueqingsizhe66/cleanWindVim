@@ -137,7 +137,7 @@
 
 19. 搞清楚[ vim-snipmate ][3]和[ vim-snippets ][2]的关系
 不断去学习[ vim-snippets ][2], [vim-snipmate设计理念][4]
-[20](20). vim-mark 让你看代码更方便,  自写函数`,*`表示选择一行高亮
+20. vim-mark 让你看代码更方便,  自写函数`,*`表示选择一行高亮
 
 - `,r` 有效
 - `,j` 向上标记行 2021-05-05 
@@ -187,7 +187,7 @@
 - `<F9>`,
 - `,fn`
 - `<F1>` 调用`leaderf-mru`
-- `<F2>`调用leader-rg in project,windows使用`C-s`调用leader-rg-in buffer, linux调用`F4`调用leader-rg-in buffer.
+- <F2>调用,windows使用`C-s`
 
 27.  [ 自动切换当前的buffer文件所在目录为工作目录 ][11], `set autochdir`
 
@@ -319,6 +319,8 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 let g:vimwiki_list = [{ 'path': '~/.vim_runtime/vimwiki/', 'path_html': '~/.vim_runtime/vimwiki_html','auto_toc': 1, 'syntax':'default'}, { 'path': '~/.vim_runtime/vimwikiTODO/', 'path_html': '~/.vim_runtime/vimwikiTODOHTML','auto_toc': 1, 'syntax':'default'}, { 'path': '~/.vim_runtime/vimwikiOffshore/', 'path_html': '~/.vim_runtime/vimwikiOffshoreHTML','auto_toc': 1, 'syntax':'default'}]
 ```
+如何切换vimwiki? 
+`<leader> ws`, 执行vimwikiUISelect命令，通过`:Maps`,可以查看所有的map视图
 
 <hr/>
 # The Ultimate vimrc

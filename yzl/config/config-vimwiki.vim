@@ -1,4 +1,5 @@
 
+" ,ws  execute the vimwikiSelectUI command
 "let g:vimwiki_list = [{ 'path': '~/.vim_runtime/vimwiki/', 'path_html': '~/.vim_runtime/vimwiki_html','auto_toc': 1, 'syntax':'markdown'}]
 let g:vimwiki_list = [{ 'path': '~/.vim_runtime/vimwiki/', 'path_html': '~/.vim_runtime/vimwiki_html','auto_toc': 1, 'syntax':'default'}, { 'path': '~/.vim_runtime/vimwikiTODO/', 'path_html': '~/.vim_runtime/vimwikiTODOHTML','auto_toc': 1, 'syntax':'default'}, { 'path': '~/.vim_runtime/vimwikiOffshore/', 'path_html': '~/.vim_runtime/vimwikiOffshoreHTML','auto_toc': 1, 'syntax':'default'}, { 'path': '~/.vim_runtime/vimwikiQblade/', 'path_html': '~/.vim_runtime/vimwikiQbladeHTML','auto_toc': 1, 'syntax':'default'}, { 'path': '~/.vim_runtime/vimwikiOpenfast/', 'path_html': '~/.vim_runtime/vimwikiOpenfastHTML','auto_toc': 1, 'syntax':'default'},{ 'path': '~/.vim_runtime/vimwikiPywake/', 'path_html': '~/.vim_runtime/vimwikiPywakeHTML','auto_toc': 1, 'syntax':'default'}]
 
