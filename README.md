@@ -8,6 +8,7 @@
     
     - Leaderf + Vimmark
     - g* z* + vimmark
+    - ctrl +] 跳转到定义  Ctrl+o跳转回去
 
   gvim_8.2.3154_x64.exe match  python-3.9.6-amd64(python3.8.2 cannot work , you need to download older gvim version!)
   
@@ -64,6 +65,13 @@
 - `F` 是否显示文件(有时候只关注目录)
 - `l` toggle隐藏文件
 - `D` 删除当前书签
+- m 显示nerdtree的一般操作命令
+    - p拷贝当前的文件名路径
+    - a添加节点
+    - d删除节点
+    - m移动节点
+    - c拷贝节点
+    - o有趣的命令，使用系统打开工具
 
 导航部分:
 
@@ -78,6 +86,7 @@
 - `U` 将当前根结点的父目录设为根目录，但保持展开原根结点(move tree root up a dir, but leave old root open)
 
 - `cd` change the CWD to the selected dir
+- 注意是大写的CD,而不是小写的,首先是:cd到某个目录下，可以通过:pwd查看，然后切换nerdtre目录下，执行大写CD
 - `CD` change tree root to CWD(当无法正常切换目录时候,先关闭nerdtree，然后打开Nerdtree，大写CD，然后再关掉Nerdtree，R刷新一下)
     - `<F6>`
     - `<F6>`
@@ -320,7 +329,9 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 let g:vimwiki_list = [{ 'path': '~/.vim_runtime/vimwiki/', 'path_html': '~/.vim_runtime/vimwiki_html','auto_toc': 1, 'syntax':'default'}, { 'path': '~/.vim_runtime/vimwikiTODO/', 'path_html': '~/.vim_runtime/vimwikiTODOHTML','auto_toc': 1, 'syntax':'default'}, { 'path': '~/.vim_runtime/vimwikiOffshore/', 'path_html': '~/.vim_runtime/vimwikiOffshoreHTML','auto_toc': 1, 'syntax':'default'}]
 ```
 如何切换vimwiki? 
-`<leader> ws`, 执行vimwikiUISelect命令，通过`:Maps`,可以查看所有的map视图
+`<leader> ws`, 执行vimwikiUISelect命令，通过`:Maps`,默认调用fzf配置，可以查看`config-fzf.vim`,可以查看所有的map视图
+    <2022-06-21 19:15>
+
 
 <hr/>
 # The Ultimate vimrc
