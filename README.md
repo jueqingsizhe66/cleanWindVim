@@ -84,6 +84,8 @@
 - `C` 将选中目录或选中文件的父目录设为根结点(有时候很方便 可以简化视角区域)-->`u`反向(大小的C)
 - `u` 将当前根结点的父目录设为根目录，并变成合拢原根结点(move tree root up a dir)
 - `U` 将当前根结点的父目录设为根目录，但保持展开原根结点(move tree root up a dir, but leave old root open)
+- ctrl+T 往后一个tab
+- ind+Ctrlo 3gt
 
 - `cd` change the CWD to the selected dir
 - 注意是大写的CD,而不是小写的,首先是:cd到某个目录下，可以通过:pwd查看，然后切换nerdtre目录下，执行大写CD

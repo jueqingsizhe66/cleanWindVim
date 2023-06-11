@@ -64,3 +64,4 @@ set wrap "Wrap lines
 
 let g:easytags_suppress_ctags_warning = 1 
 set autochdir " 自动设置当前标记的文件所在目录为当前工作目录"
+set tags+=./tags

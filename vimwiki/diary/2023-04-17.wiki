@@ -1,0 +1,68 @@
+In lisp , procedures are first-class data, to be passed as arguments
+returned as values and stored in data structures. 
+This flexibility is valuable, but most importantly, it provides mechamisms
+for formulating, naming and saving the idioms.
+
+
+Recursion is the act of defining an object or solving a problem in terms of itself.
+Recursion is a powerful problem solving technique, both in artificial domains like mathematics
+and computer programming, and in real life.
+
+Recursion is Lisp's natural computational mechanism; the primary programming activity is the creation
+of(potentially) recursive definites. Lisp implementations are predominatly interactive- the programmer
+can immediately participate in and observe the behavior of his programs(then modify the program, reobserver the new behavior
+of the program)
+
+每一个计算过程都是recursive，每一个程序都是递归过程，你的人生也是一个递归过程；你走的每一步路似乎也都在进行反复迭代的
+每天似乎有一个新的程序，输入进入参数，得到新的值；每天似乎有一个新的问题，输入新的解决方法，得到新的解决办法
+We believe that you can form your own definitions and will thus remember them and understand them better that if
+we had written each one for you. It is our belief that writing programs recursively in lisp is essentially simple
+pattern recognition.
+
+What is the value of I? 说这句话的背后是我认识了procudures的本质、递归的本质，都是通过不断的迭代，最后得到一个vlue
+但是我们是否有value?
+我们可以轻松知道(car (cdr (cdr '(a (d g) b c))))的值
+
+What is the meaning of the cond-line ((null? l) t), where l is (bacon and eggs)
+(null? l) asks if the argument l is the null list. If it is , then the value of the application is true.
+If it is not, then we ask the next question. In this case,l is not the null list, so we ask the next question.
+
+what is the meaning of that-line? 教你的小孩怎么提问题
+递归的过程就是在不断地更新你的procedure arguments
+
+再次使用递归的过程，去思考模块化编程、Io编程、并发编程的事情，其实都是殊途同归。
+你的lambda不断在变化，你的数据结构不断在变化，导致你程序的值不断在变化！
+什么是你的结束点？ 如何进行下一步迭代，成为你理解程序过程的不二法则
+
+the season sceheme才开始接触到模块化和封装的事情，即使用let、letrec、let等
+
+每个人都有自己的解析系统，自己的思考系统，自己的处理逻辑，或简单或复杂
+(find your value and do it again and again)
+
+what is the value of the thing? 
+what is the value of the direction?
+what is the value of you?
+what is the value of the project?
+
+
+Continuation , CPS(Continuation passing style), 续延
+closure
+multirember multiinsertLR都是在找到了相应删除、替代项之后 继续做后续相关事情（知道自己接下来要继续干什么事情）--思路！
+
+```
+    (define value
+     (lambda aexp)
+        (cond 
+          ((number? aexp) axep)
+          (t ((atom-to-function (operator aexp))
+             (value (lst-sub-exp aexp))
+             (value (2nd-sub-exp aexp)))))
+    )
+```
+
+To be able to manage yourself, you finally have to ask, What are my
+values? This is not a question of ethics. With respect to ethics, the
+rules are the same for everybody, and the test is a simple one. I call it
+the “mirror test.”
+
+

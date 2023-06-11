@@ -45,6 +45,8 @@ nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
 autocmd TabLeave * let g:last_active_tab = tabpagenr()
 
 " 新建tab  Ctrl+t
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-t>     <Esc>:tabnew<CR>
+"nnoremap <C-t>     :tabnew<CR>
+"inoremap <C-t>     <Esc>:tabnew<CR>
 
+nnoremap <C-w>t     :tabnew<CR>
+inoremap <C-w>t     <Esc>:tabnew<CR>
