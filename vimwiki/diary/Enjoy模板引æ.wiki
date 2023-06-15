@@ -1,0 +1,708 @@
+= 主要特点 =
+  * 轻量级：主体仅6671 行代码，其余 2454 行代码为扩展与性能优化。      手写 Lexer Parser，不依赖任何第三方
+  * 学习成本极低：仅七个核心指令，消灭大量传统模板引擎概念（如：用 function 消灭 macro、layout）
+  * 用户体验好：表达式与 java 打通式设计，10 分钟掌握 90% 用法
+  * 性能超高：是 Thymeleaf 的 9.95 倍，是 Freemarker 的 3.11 倍，是 Velocity 的 2.78 倍
+  * 扩展性强：指令级扩展 + 多种简单且符合直觉的扩展方式
+https://gitee.com/jfinal/template-benchmark
+
+= 极简设计 =
+  *  顶层：Engine、Template（用户使用 API）
+  *  中层：Stat、Expr、Env、Scope、Writer（执行 AST）
+  *  底层：Lexer、Parser、Token、Symbol（构建 AST）
+
+= 立即掌握 enjoy 90% 用法 =
+表达式与 java 打通式设计
+
+{{{js
+    1 + 2 / 3 * 4  		// 算术运算
+    1 > 2			// 比较运算
+    !a && b != c || d == e	// 逻辑运算
+    a > 0 ? a : b			// 三元表达式
+    "abcdef".substring(0, 3)	// 方法调用
+    target.method(p1, p2, pn)	// 方法调用
+}}}
+
+= 配置 =
+
+ == Engine配置 ==
+ * 热加载：setDevMode
+ * 模板加载机制：setSourceFactory
+ * 模板基础路径：setBaseTemplatePath
+ * 日期格式：setDatePattern
+ == 多Engine配置 ==
+   * 同一个项目中使用多个 Engine 用于不同功能
+       -  html 渲染 + sql 生成 + json 生成 + 微信模板消息生成 + 代码生成
+
+   * 以 jfinal web 项目为例
+       -  配置用于 Controller.render 的 Engine
+       -  配置用于 sql 管理的 Engine
+       -  配置自行创建的 Engine
+
+模板引擎在同一个项目中可以用于不同的功能模块，如 web 页面渲染 + sql 管理 + json 生成 + 微信模板消息生成 + 代码生成
+杜同学实例： https://www.jfinal.com/share/1848
+
+
+= 表达式 =
+{{{java
+    - 算术运算： +   -   *   /   %   ++   --
+    - 比较运算： >  >=   <   <=  ==   != 
+    - 逻辑运算： !   &&   ||
+    - 三元表达式： ? :
+    - 常量: “jfinal”、123､9L、true、false、null
+}}}
+
+== 属性访问 ==
+以 user.name 为例，优先级如下
+
+{{{javascript
+    - getter存在：user.getName()
+    - Model：user.get(“name”)
+    - Record：user.get(“name”)
+    - Map：user.get(“name”)
+    - public 属性：user.name
+}}}
+    如果字段名为 length，且对象为数组，则 obj.length 可获取数组长度
+== 属性访问拓展 ==
+{{{javascript
+
+    - 扩展 FieldGetter
+    - 配置：Engine.addFieldGetterToLast(…)
+    - addFieldGetterToLast(FieldGetters.IsMethodFieldGetter()) 
+}}}
+IsMethodFieldGetter 支持调用 boolean isXxx() 方法
+
+== 方法调用 ==
+{{{js
+
+     #("ABCDE".substring(0, 3))
+     #(girl.getAge())
+     #(list.size())
+     #(map.get(key))
+}}}
+
+== 静态属性访问 ==
+{{{js
+
+    #if(x.status == com.Account::STATUS_LOCK)
+       <span>(账号已锁定)</span>
+    #end
+
+    大量使用时，可以改为 shared object 方式
+    - addSharedObject(“Account”, new Account());
+    - #if(x.status == Account.STATUS_LOCK)
+
+}}}
+提升可维护性。如果大量使用，可以先通过 addSharedObject(“Account”, new Account()) 添加为共享对象，然后：#if(x.status == Account.STATUS_LOCK)
+
+== 静态方法调用 ==
+{{{js
+    #if(com.jfinal.kit.StrKit::isBlank(title))
+       ....
+    #end
+}}}
+优先级问题，调用静态属性上的方法需要添加小括号
+
+== 空合并安全取值调用操作符 ==
+
+{{{js
+    - seoTitle ?? "JFinal 社区"
+    - object.field ??
+    - object.method() ??
+
+    - object.field ?? "默认值"
+    - object.method() ?? value
+
+    永远不要这么用：value ??
+    除非你要指定默认值： value ?? 123
+
+}}}
+
+== 单引号字符串 ==
+{{{html
+    <a href="/" class="#(menu == 'index' ? 'current' : 'normal')"
+       首页
+    </a>
+}}}
+
+对 html 编辑器友好
+
+== 相等与不等比较表达式增强 ==
+{{{js
+    #if(nickName == "james")
+      ...
+    #end
+
+}}}
+ ==双等号 大胆用于字符串比较
+ 
+== 布尔表达式增强 == 
+
+{{{js
+    - null 返回 false
+    - boolean 类型，原值返回
+    - String、StringBuilder等一切继承自 CharSequence 类的对象，返回 length > 0
+    - 其它返回 true
+
+       #if(user && user.id == x)
+
+}}}
+
+== 范围数组定义表达式 ==
+{{{js
+    + 格式：[start .. end]
+
+    // 方便前端工程师制造多行输出看效果
+        #for(x : [1..10])
+           <tr>#(x)</tr>
+        #end
+
+    + 递减：[10..0]
+    + 变量：[a..b]
+
+}}}
+== Map定义表达式 ==
+{{{js
+    #set(map = {k1:123, "k2":"abc", "k3":object})
+    #(map.k1)
+    #(map.k2)
+    #(map["k1"])
+    #(map["k2"])
+    #(map.get("k1"))
+
+    #( {1:‘自买’, 2:‘跟买’}.get(1) )	// 定义的同时取值方法调用取值
+    #( {1:‘自买’, 2:‘跟买’}[2] )	// 定义的同时数组下标取值
+    #( {k1 : ‘自买’,  k2 : ‘跟买’}.k1 ) // 定义的同时用 field 表达式取值
+
+     
+    #({1:‘自买’, 2:‘跟买’}.get(999) ?? ‘其它’)  // ?? 支持默认值
+
+}}}
+
+在实际应用中，Map 定义表达式可以预先建立映射，然后根据 render 方法传来的 key 参数灵活地输出映射值
+== 逗号表达式 ==
+{{{js
+    -  #(1+2, 3*4)  将输出 12
+
+    - 常用于在一行内进行多个操作，例如：
+        #(obj.call(),  a=obj.doIt(), a * b / n)
+
+    - 仅执行表达式，不输出：
+        #(obj.call(),  a=obj.doIt(), null)
+
+}}}
+
+总体符合 java 规则 + 少量提升用户体验的增强
+懒人可跳过本小节直接当 java 使用
+
+= 指令 =
+极简设计，仅七个原生指令，其它指令扩展而来
+    * #()
+    * #if
+    * #for
+    * #switch
+    * #set
+    * #include
+    * #define
+== 输出指令 #() ==
+
+{{{js
+     #(value)
+     #(object.field)
+     #(object.field ??)
+     #(a > b ? x : y)
+     #(seoTitle ?? "JFinal 俱乐部")
+     #(object.method(), null)
+
+    永远不要这么用：#(value ??)
+    除非你要指定默认值：#(value ?? 123)
+
+}}}
+
+== #if() ==
+
+{{{js
+    #if(cond)
+      ...
+    #end
+
+
+    #if(c1)
+      ...
+    #else if(c2)
+      ...
+    #else
+      ...
+    #end
+
+}}}
+== #for() ==
+{{{js
+    - // 支持list、map、数组、null 值、Object迭代
+
+        #for(x : list)
+          #(x.field)
+        #end
+     
+    - // 对 map 的迭代方式属于增强
+    - // java 是对 map.entrySet() 迭代
+
+        #for(x : map)
+          #(x.key)
+          #(x.value)
+        #end
+        
+        #for ( x : map.entrySet() )
+
+}}}
+enjoy 也支持 java 方式对 map 的迭代用法：  #for ( x : map.entrySet() )
+
+{{{js
+    #for(x : null)
+          #(x.field)
+    #end
+     
+    #for(blog : blogList)
+          #(blog.title)
+    #else
+           您还没有写过博客，点击此处
+           <a href="/blog/add">开博</a>
+    #end
+
+}}}
+
+
+{{{js
+    #for(x : listAaa)
+       #(for.size)     被迭代对象的 size 值
+       #(for.index)   从 0 开始的下标值
+       #(for.count)   从 1 开始的记数值
+       #(for.first)      是否为第一次迭代
+       #(for.last)      是否为最后一次迭代
+       #(for.odd)     是否为奇数次迭代
+       #(for.even)    是否为偶数次迭代
+       #(for.outer)   引用上层 #for 指令状态
+}}}
+
+{{{js
+    #for(i = 0; i < 100; i++)
+       #(i)
+    #end
+
+     // 与 while (x < 100) 等价
+    #for(; x < 100;)
+        #(x)
+    #end
+
+    // 与 while (true) 等价
+    #for(; true ;)
+        #if(…) #break #end
+    #end
+
+}}}
+
+== #switch ==
+{{{js
+
+    #switch (month)
+       #case (1, 3, 5, 7, 8, 10, 12)
+             #(month) 月有 31 天
+       #case (4, 6, 9, 11)
+             #(month) 月有 30 天
+       #case (2)
+             #(month) 月在平年有 28 天，在闰年有 29 天
+       #default
+             月份错误: #(month ?? "null")
+    #end
+
+}}}
+
+#switch 指令特色之一是 #case 分支支持多参数，特色之二是 #case 参数支持任意表达式：#case (a, b, x + y, "abc", "123")
+{{{js
+    * case 支持任意表达式：
+    #case (a, b, x + y, "abc", "123")
+
+}}}
+
+== #set ==
+{{{js
+
+    #set(x = 123)
+    #set(a = 1, b = 2, c = a + b)
+    #set(array[0] = 123)
+    #set(map["key"] = 456)
+     
+    #(x)  #(c)  #(array[0])  #(map.key)  #(map["key"])
+}}}
+== #include ==
+{{{js
+    将另一个模板的内容原封不动包含到当前位置
+
+    - 第一个参数必须为 String 常量，性能最大化
+    #include("sidebar.html")
+
+    - 其它所有参数必须为赋值表达式
+    #include("_hot.html", title="项目", list=projects)
+
+}}}
+
+{{{html
+
+    ### _hot.html 文件中的内容如下：
+    <div class="hot-list">
+      <h3>#(title)</h3>
+      <ul>
+        #for(x : list)
+        <li>
+          <a href="#(url)/#(x.id)">#(x.title)</a>
+        </li>
+        #end
+      </ul>
+    </div>
+
+
+    #include("_hot.html", title="热门项目", list=projectList, url="/project")
+    #include("_hot.html", title="热门新闻", list=newsList, url="/news")
+
+}}}
+== #render ==
+{{{js
+    作为 include 的补充，用法与 include 几乎一样
+    模板参数支持变量
+    子模板里 #define 定义的函数仅在子模板内可见
+
+    #set(template = "_hot.html")
+    #render(template)
+
+    #render(template, title="热门项目", list=projectList, url="/project")
+
+}}}
+== #define ==
+{{{js
+    * 定义模板函数
+        #define layout()
+        <html>
+          <body>
+            #@content()
+          </body>
+        </html>
+        #end
+
+    * 调用模板函数
+        #@layout()
+
+}}}
+
+#define还可以进行传参
+{{{js
+    * 常用
+        #define test(a, b, c)
+           #(a)     #(b)     #(c)
+        #end
+
+        #@test(123, "abc", user.name)
+
+    * 安全调用
+        #@funcName?()
+
+    * map 传参
+        #define test(map)
+           #(map.k1)     #(map.k2)     #(map.k3)
+        #end
+
+        #@test({k1 : 123,  k2 :  “abc”， k3 : user.name} )
+
+}}}
+第一种适合参数固定的情况，第二种适合传入参数个数不固定的场景
+{{{js
+
+    格式化输出日期型数据
+    适用于所有 java.util.Date 子类
+        #date(account.createAt)
+
+
+    指定 datePattern
+        #date(account.createAt, "yyyy-MM-dd HH:mm:ss")
+
+
+    配置默认 datePattern
+        engine.setDataPattern("yyyy-MM-dd HH:mm")
+
+}}}
+类似于Date、Timestamp
+
+== #number ==
+{{{js
+    格式化输出数值型数据
+    适用于所有 java.lang.Number 子类
+        #number(3.1415926, "#.##")
+        #number(0.9518, "#.##%")
+        #number(300000, "光速为每秒，### 公里。")
+
+}}}
+
+pattern 参数规则与 JDK 的 DecimalFormat 完全一样
+pattern 不多做说明，讲了也记不住，用的时候搜索 DecimalFormat 即可
+
+== 指令拓展 ==
+{{{js
+    Directive/Stat 抽象类：ExprList、Stat
+    exec 方法：Env、Scope、Writer
+
+    - 配置：engine.addDirective(“now”,NowDirective, true) 
+    - 使用：#now()
+
+}}}
+== 常见错误 ==
+错误1:
+{{{js
+    * 表达式中出现字符 #
+
+    #for ( x : #(list))
+
+}}}
+表达式中使用指令
+
+模板函数的定义与调用
+
+共享模板函数
+
+= 注释、原样输出 =
+{{{html
+    ###这里是单行注释
+     
+    #--
+       这里是多行注释的第一行
+       这里是多行注释的第二行
+    --#
+
+}}}
+
+原样输出：
+{{{js
+    #[[
+          #(value)
+          #for(x : list)
+               #(x.name)
+          #end
+    ]]#
+
+}}}
+= Shared function =
+= Shared method =
+{{{js
+    // 配置
+    me.addSharedMethod(new com.jfinal.kit.StrKit());
+
+
+    ### 使用
+    #if(isBlank(nickName))
+       ...
+    #end
+
+}}}
+必须是 public 方法才会生效，常见错误：参数类型不对（仔细看异常信息中的方法原型）
+
+    isEmpty(...) 与 notEmpty(...) 。以 isEmpty(...) 为例， 用来判断 Collection、Map、数组、Iterator、Iterable 类型对象中的元素个数是否为 0，其规如下：
+{{{js
+
+    null 返回 true
+    List、Set 等一切继承自 Collection 的，返回 isEmpty()
+    Map 返回 isEmpty()
+    数组返回 length == 0
+    Iterator 返回  ! hasNext()
+    Iterable 返回  ! iterator().hasNext()
+
+    #if ( notEmpty(map)  )
+        map 中的元素个数大于 0
+    #end
+
+}}}
+= Shared object =
+    本质就是全局共享变量
+{{{js
+
+    // 配置
+    me.addSharedObject("RESOURCE_HOST", "http://res.jfinal.com");
+    me.addSharedObject("sk", new com.jfinal.kit.StrKit());
+
+    ### 使用
+    <img src="#(RESOURCE_HOST)/img/girl.jpg" />
+    #if(sk.isBlank(title))
+       ...
+    #end
+
+}}}
+= Extensions method =
+= Directive =
+== Web最佳实践 ==
+configEngine(Engine me)
+Layout
+Shared function
+
+例子：jfinal club 中的用法
+
+== 任意环境使用 ==
+{{{java
+Maven 坐标
+<dependency>
+  <groupId>com.jfinal</groupId>
+  <artifactId>enjoy</artifactId>
+  <version>4.7</version>
+</dependency>
+
+使用
+Engine engine = Engine.create("myEngine");
+engine.setToClassPathSourceFactory();
+
+Template template = engine.getTemplate("msg.txt");
+String msg = template.renderToString(Kv.by("user", "james"));
+ 
+engine = Engine.use("myEngine");
+
+}}}
+
+= enjoy设计-算法 =
+== 语法设计 ==
+  - 语法风格：指令式、脚本式
+
+  - 极简指令集：#()、#if、#for、#switch、#include、#define、#set
+  *   指令式（jfinal风格）
+    #if(…)
+       enjoy 风格
+    #end
+
+   * 脚本式(jsp风格)
+    <% if (…) { %>
+        JSP 风格
+    <% } %>
+
+    <%
+       out.println(“可写纯 java 代码”);
+        JSTL 的引入，已表明指令更有优势
+    %>
+   * 
+   * 
+“模板引擎”不适合使用脚本风格设计方案，所以 JSP 后续主流是 JSTL、freemarker、velocity 之类都用了指令风格。
+Beetl：本质上是 JSP 类似的脚本式方案，定界符是 <% 与 %>，通过配置将 <% 配置为 @...{与 @} 伪装成指令式风格，从根本上就有问题，所以带来一堆 bug
+
+=== 模板引擎的本质 ===
+模板引擎本质上是有大量的字符串，静态，少量需要一些动态的变量（动态变量、控制） 设计的方向是偏模板，而不是脚本（把一些编程语言引入）
+
+    #、@ 以外能够勉强可用的定界字符只有 $，但这个字符被大量用于 jquery
+    剩下的非字线字符没有选择的可能性：! % ^ & * ~ ? “ ‘ : ;        这些都已经有了常用的用途：非与或、数学计算等等
+字符 # 孤立的作为结束定界字符有一定冲突概率，辩识度不好，所以添加添加 end(enjoy最终定型的)
+
+{{{js
+    #for (x : list)
+       <li>x.title</li>
+    #end
+}}}
+
+
+== 架构设计 ==
+== 模板引擎原理 ==
+- 词法分析 Lexer  --->  Token
+    - 将字符串转化成 Token
+    - 调试一段简单模板，展示得到的 Token
+
+- 语法分析 Parser  --->  AST
+
+- 解释器 Stat + Expr
+
+== DKFF 算法(Lexer) ==
+- NFA
+    Nondeterministic Finite Automaton(非确定有限状态自动机)
+    每个词法单元循环使用多个正则表达式匹配，性能低下
+    二维数组存放成百上千个状态值及其关系，几乎没有可读性
+
+- 独创 DKFF
+    Dynamic Key Feature Forward
+    基于字符的动态关键特征向前分析，性能比 NFA 高一个数量级
+    状态值比 NFA 少两个数量级，只有 7 个，可读性好
+    核心原理是任何语言的保留字/关键字都是极其有限的，可以很方便在代码中使用其 Key Feature 来匹配，无需正则表达式
+
+ === lexer源码 核心变量 ===
+    - char[] buf：被处理的字符
+    - int lexemeBegin：词素开始指针。扫描成功则赋值为 forward
+    - int forward：扫描进行中的当前指针。抛描失败则回到 lexemeBegin
+    - int state：当前扫描所处状态，0扫描指令､100扫描单行注释､200扫描多行注释､300扫描非解析块、999扫描静态文本块。fail()中向前推进、prepareNextScan() 置为0进行一个 token解析
+    - 
+    - 
+
+扫描指令、单行注释、多行注释、原样输出、静态文本
+当前面四类扫描都返回 false 即未扫描到相应的 Token 时，被认定本次抛描结果一定为静态文本
+
+=== DkFF算法子流程 ===
+{{{java
+    void scanXxx() {
+        while (true) {
+           switch (state) {
+               case xxx:
+                  …
+                  return fail() 或者 prepareNextScan(…);
+               case yyy:
+                  …
+                  return fail() 或者 prepareNextScan(…);
+               default :
+                  return fail();
+            }
+        }
+    }
+
+}}}
+=== 语法分析 ===
+将 Token 转化成 AST(Abstract Syntax Tree)
+{{{js
+    #if (a + b > 3)
+       AAA
+    #else
+       BBB
+    #end
+}}}
+
+截图左侧的 Stat 节点使用了相应的类（if指向text1  text2）
+截图右侧的 Expr 仅为表达方便没有使用具体的类，使用的类为：Compare、Arith、Id、Const（expr节点变成语法数(> (+ a b) 3)）
+
+== DLRD 算法(Parser) ==
+=== 传统 Recursive Descent ===
+指令、表达式在同一个层次上解析
+复杂度高、代码量大
+性能一般
+
+=== 独创 DLRD ===
+Double Layer Recursive Descent
+将指令与表达式的解析划分在各自的层级中，极大降低复杂度
+性能大幅提升（两个层面的匹配逻辑不同，缩小了匹配范围，如指令层关注起始字符与 ID 等等匹配）
+
+=== ExprParser源码 ===
+* List<Token> tokenList：词法分析的结果
+* int forward：指向 tokenList 元素的指针
+
+先构建用于描述语法的文法
+
+根据文法，使用递归下降算法写出 ExprParser
+
+{{{js
+    exprList : expr (',' expr)*
+    assign : <assoc=right> ID ( '[' expr ']' )? '=' expr
+    ternary : expr '?' expr ':' expr
+    or : expr '||' expr
+    and : expr '&&' expr
+    compare : expr ('<=' | '>=' | '>' | '<') expr
+    addSub : expr ('+'|'-') expr
+    ……
+    atom : '(' expr ')' | ID | STR | 'true' | 'false' | 'null' | INT | LONG | FLOAT | DOUBLE
+
+}}}
+
+文法：描述语法的形式化方法
+递归下降算法的核心是：代码结构层面按优先级从低到高，代码运行时层面按优先级从高到低递归构建 AST 的结点。从代码执行主流程来看是 “递归下降”（从 exprList 下降执行到 atom）
+DLRD 的创新：一是将指令与表达式的解析放在不同层次Parser、ExprParser。二是优雅解决左递归、二义性
+
+
+== 解释器 ==
+- AST = Stat + Expr
+- Stat.exec(…) 与 Expr.eval(…) 中的逻辑就是解释器
+- 对 AST 进行遍历即为运行解释器（调试template.jf）
+

@@ -89,12 +89,8 @@
 
 - `cd` change the CWD to the selected dir
 - 注意是大写的CD,而不是小写的,首先是:cd到某个目录下，可以通过:pwd查看，然后切换nerdtre目录下，执行大写CD
-- `CD` change tree root to CWD(当无法正常切换目录时候,先关闭nerdtree，然后打开Nerdtree，大写CD，然后再关掉Nerdtree，R刷新一下)
-    - `<F6>`
-    - `<F6>`
-    - `CD`
-    - `<F6>`
-    - `R`
+- 当你的光标在nerdtree某个文件夹下，可以执行cd，然后pwd就会变换到对应的目录，用一次CD那么根目录就变成pwd目录了(用以折叠目录，聚焦查看文件夹 很方便!)。 然后使用u可以将父节点社会根节点（并且不展开） 使用大写P直接调到当前的根节点（也就是当你大写CD一次之后，你的根节点变化，u或者U一次，你的根节点发生变）化
+- 典型的二叉树风格！树形节点查看文件，不错的代码阅读神器
 
 9. (Deprecated)`C-s`变成加入光标, `Alt-S`变成添加符合全部单词下的光标,`ESC`推出MC(multiple cursors)模式
 [[#pringout]]
